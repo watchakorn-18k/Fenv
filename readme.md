@@ -1,8 +1,8 @@
-# Penv
+# Fenv
 
 <p align="center"><img src="https://cdn.discordapp.com/attachments/582486229594013696/1070509737529069689/New_Project_3.png" width=400></p>
 
-Penv is a simple and efficient tool to help you manage your virtual environments and create basic Python files with a single command. With Penv, you can quickly generate a new project folder, establish a virtual environment within that folder, and simultaneously create the essential basic Python files all in one go. This tool is ideal for developers who frequently work on multiple Python projects and want a simple, streamlined solution for managing virtual environments.
+Fenv is a simple and efficient tool to help you manage your virtual environments and create basic Python files with a single command. With Fenv, you can quickly generate a new project folder, establish a virtual environment within that folder, and simultaneously create the essential basic Python files all in one go. This tool is ideal for developers who frequently work on multiple Python projects and want a simple, streamlined solution for managing virtual environments.
 
 ## Features
 
@@ -14,20 +14,20 @@ Penv is a simple and efficient tool to help you manage your virtual environments
 
 # Installation
 
-To install Penv, simply run the following command:
+To install Fenv, simply run the following command:
 
 ```
-pip install penv
+pip install fenv
 ```
 
 # Usage
 
-Penv makes it easy to get started with a new Python project by providing an all-in-one solution. Here's how to use it:
+Fenv makes it easy to get started with a new Python project by providing an all-in-one solution. Here's how to use it:
 
 1. Create a new project folder:
 
 ```
-penv -new project_folder
+fenv -new project_folder
 ```
 
 2. Activate the virtual environment:
@@ -48,4 +48,4 @@ source env/bin/activate
 
 ## Conclusion
 
-Penv is a powerful tool for managing virtual environments and creating basic Python files. With its simple and efficient design, it's the perfect solution for developers who want to streamline their workflow and focus on coding. Get started today and see the difference Penv can make in your Python development process!
+Fenv is a powerful tool for managing virtual environments and creating basic Python files. With its simple and efficient design, it's the perfect solution for developers who want to streamline their workflow and focus on coding. Get started today and see the difference Fenv can make in your Python development process!

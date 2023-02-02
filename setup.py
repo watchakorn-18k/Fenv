@@ -13,7 +13,7 @@ LONG_DESCRIPTION = 'Generate a folder, establish a virtual environment, and simu
 
 # Setting up
 setup(
-    name="Penv",
+    name="Fenv",
     version=VERSION,
     author="wk18k (watchakorn-18k)",
     author_email="<porton555@gmail.com>",
@@ -23,7 +23,7 @@ setup(
     packages=find_packages(),
     install_requires=['virtualenv'],
     keywords=['python', 'virtualenv', 'create file',
-              'create folder', 'penv', 'wk-18k'],
+              'create folder', 'fenv', 'wk-18k'],
     classifiers=[
         "Development Status :: 1 - Planning",
         "Intended Audience :: Developers",
