@@ -12,8 +12,8 @@ Fenv is a simple and efficient tool to help you manage your virtual environments
 - Ideal for developers who work on multiple Python projects
 - Add black for format python
 
-<p align="center"><img src=https://cdn.discordapp.com/attachments/585068497495654413/1071136244437893201/gamedfdsf.gif" width=400></p>
-<p align="center"><img src=https://cdn.discordapp.com/attachments/585068497495654413/1071136828498915358/gamedfdsf.gif" width=400></p>
+<p align="center"><img src=https://media.discordapp.net/attachments/585068497495654413/1071136244437893201/gamedfdsf.gif" width=400></p>
+<p align="center"><img src=https://media.discordapp.net/attachments/585068497495654413/1071136828498915358/gamedfdsf.gif" width=400></p>
 
 # Installation
 
