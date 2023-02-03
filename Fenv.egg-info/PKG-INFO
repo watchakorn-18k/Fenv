@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: Fenv
-Version: 0.0.1
+Version: 0.0.9
 Summary: Generate a folder, establish a virtual environment with a single command.
 Author: wk18k (watchakorn-18k)
 Author-email: <porton555@gmail.com>
@@ -60,6 +60,18 @@ for linux
 ```
 cd project_folder
 source env/bin/activate
+```
+
+## Build
+
+```
+python setup.py sdist bdist_wheel
+```
+
+## Testing
+
+```
+pip install --editable .
 ```
 
 ## Conclusion

@@ -2,12 +2,13 @@ from setuptools import setup, find_packages
 import codecs
 import os
 
+
 here = os.path.abspath(os.path.dirname(__file__))
 
 with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as fh:
     long_description = "\n" + fh.read()
 
-VERSION = '0.0.1'
+VERSION = '0.0.9'
 DESCRIPTION = 'Generate a folder, establish a virtual environment with a single command.'
 LONG_DESCRIPTION = 'Generate a folder, establish a virtual environment, and simultaneously create the essential basic Python files, all with a single command'
 
@@ -22,6 +23,10 @@ setup(
     long_description=long_description,
     packages=find_packages(),
     install_requires=['virtualenv'],
+    entry_points="""
+    [console_scripts]
+    fenv=fenv.fenv:main
+    """,
     keywords=['python', 'virtualenv', 'create file',
               'create folder', 'fenv', 'wk-18k'],
     classifiers=[

@@ -46,6 +46,18 @@ cd project_folder
 source env/bin/activate
 ```
 
+## Build
+
+```
+python setup.py sdist bdist_wheel
+```
+
+## Testing
+
+```
+pip install --editable .
+```
+
 ## Conclusion
 
 Fenv is a powerful tool for managing virtual environments and creating basic Python files. With its simple and efficient design, it's the perfect solution for developers who want to streamline their workflow and focus on coding. Get started today and see the difference Fenv can make in your Python development process!

@@ -213,15 +213,15 @@ def main():
     base file, and runs the install module base
     """
     parser = ArgumentParser()
-    parser.add_argument('-new', help="folder name", type=str)
+    parser.add_argument('-new', help="folder name", type=str, required=True)
     args: Namespace = parser.parse_args()
-    if create_folder(args.name) != 1:
-        create_virtualenv(args.name)
-        create_setting_vscode(args.name)
-        create_file_base(args.name)
-        run_install_module_base(args.name)
+    if create_folder(args.new) != 1:
+        create_virtualenv(args.new)
+        create_setting_vscode(args.new)
+        create_file_base(args.new)
+        run_install_module_base(args.new)
 
 
 # It's a way to make sure that the code in the `main` function is only run when the script is run.
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()
