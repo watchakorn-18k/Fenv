@@ -31,7 +31,7 @@ Fenv makes it easy to get started with a new Python project by providing an all-
 1. Create a new project folder:
 
 ```
-fenv -new project_folder
+fenv new project_folder or fenv -onlyenv new project_folder
 ```
 
 2. Activate the virtual environment:
@@ -50,6 +50,24 @@ cd project_folder
 source env/bin/activate
 ```
 
+## Command
+
+```cmd
+$ fenv -h
+
+Usage:
+  fenv [options] <command>
+
+Commands:
+
+    new       Create a new project
+    install   Install packages
+
+General Options:
+  -h, --help  Show this help message and exit
+  -onlyenv    Create only virtualenv and no create base file
+```
+
 ## Build
 
 ```
@@ -65,3 +83,14 @@ pip install --editable .
 ## Conclusion
 
 Fenv is a powerful tool for managing virtual environments and creating basic Python files. With its simple and efficient design, it's the perfect solution for developers who want to streamline their workflow and focus on coding. Get started today and see the difference Fenv can make in your Python development process!
+
+## Changelog
+
+### 0.0.10
+
+- [x] add option -onlyenv for create only virtualenv without base file all
+- [] add command install for install package and add module to file requirements.txt
+
+### 0.0.9
+
+- [x] Release 0.0.9

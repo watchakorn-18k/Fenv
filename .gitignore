@@ -1,2 +1,4 @@
 /env
 doc_upload.md
+/__pycache__
+__pycache__/

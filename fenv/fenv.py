@@ -207,19 +207,63 @@ def run_install_module_base(env):
             f".\env_{env}\Scripts\python.exe -m pip install --upgrade pip")
 
 
+def create_project_all(args, name):
+    """
+    It creates a folder, creates a virtual environment, creates a settings file for VSCode, and creates
+    a base file for the project
+    """
+    if create_folder(name) != 1:
+        create_virtualenv(name)
+        create_setting_vscode(name)
+        if not args.onlyenv:
+            create_file_base(name)
+            run_install_module_base(name)
+
+
+def setup_parse():
+    """
+    It takes a list of strings, and returns a dictionary of the form {'name': 'value'}
+    :return: The return value is a Namespace object.
+    """
+
+    parser = ArgumentParser(add_help=False)
+    title = parser.add_argument_group(title='Usage')
+    title.description = "fenv [options] <command>"
+
+    subparsers = parser.add_subparsers(
+        title='Commands', dest='command', metavar="")
+
+    new_parser = subparsers.add_parser('new', help='Create a new project')
+    new_parser.add_argument('new', type=str,
+                            help='The name of the project')
+
+    new_parser1 = subparsers.add_parser('install', help='Install packages')
+    new_parser1.add_argument('install', type=str,
+                             help='The name of the project packages')
+
+    general_group = parser.add_argument_group(title='General Options')
+    general_group.add_argument(
+        '-h', '--help', action='help', help='Show this help message and exit')
+    general_group.add_argument('-onlyenv', action='store_true',
+                               help='Create only virtualenv and no create base file')
+
+    args = parser.parse_args()
+
+    return args
+
+
 def main():
     """
-    It creates a folder, creates a virtual environment, creates a settings file for vscode, creates a
-    base file, and runs the install module base
+    It takes the arguments from the command line and passes them to the create_project_all function
     """
-    parser = ArgumentParser()
-    parser.add_argument('-new', help="folder name", type=str, required=True)
-    args: Namespace = parser.parse_args()
-    if create_folder(args.new) != 1:
-        create_virtualenv(args.new)
-        create_setting_vscode(args.new)
-        create_file_base(args.new)
-        run_install_module_base(args.new)
+    args = setup_parse()
+    print(args, "⏩ fenv v0.0.10") if args.__dict__['command'] == None else None
+    try:
+        if args.new:
+            create_project_all(args, args.new)
+    except AttributeError as err:
+        print(notice +
+              args.__dict__['command']+"ing package") if args.__dict__['command'] != None else None
 
 
 # It's a way to make sure that the code in the `main` function is only run when the script is run.
