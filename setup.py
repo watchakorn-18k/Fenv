@@ -8,7 +8,7 @@ here = os.path.abspath(os.path.dirname(__file__))
 with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as fh:
     long_description = "\n" + fh.read()
 
-VERSION = '0.0.9'
+VERSION = '0.0.10'
 DESCRIPTION = 'Generate a folder, establish a virtual environment with a single command.'
 LONG_DESCRIPTION = 'Generate a folder, establish a virtual environment, and simultaneously create the essential basic Python files, all with a single command'
 

@@ -11,10 +11,16 @@ Fenv is a simple and efficient tool to help you manage your virtual environments
 - Simultaneously create essential basic Python files
 - Ideal for developers who work on multiple Python projects
 - Add black for format python
+- Packages can be installed and uninstalled and added to files. requirements.txt at the same time
 
-<p align="center"><img src="https://cdn.discordapp.com/attachments/585068497495654413/1071136244437893201/gamedfdsf.gif" width=80%></p>
+<center><h3>fenv new [project_folder]</h3></center>
+<p align="center"><img src="https://cdn.discordapp.com/attachments/582486229594013696/1072330814051856484/gamedfdsf.gif" width=80%></p>
 
-<p align="center"><img src="https://media.discordapp.net/attachments/585068497495654413/1071136828498915358/gamedfdsf.gif" width=80%></p>
+<center><h3>fenv -onlyenv new [project_folder]</h3></center>
+<p align="center"><img src="https://cdn.discordapp.com/attachments/582486229594013696/1072331379020398662/gamedfdsf.gif" width=80%></p>
+
+<center><h3>Commands</h3></center>
+<p align="center"><img src="https://cdn.discordapp.com/attachments/582486229594013696/1072332783449538640/gamedfdsf.gif" width=80%></p>
 
 # Installation
 
@@ -31,7 +37,7 @@ Fenv makes it easy to get started with a new Python project by providing an all-
 1. Create a new project folder:
 
 ```
-fenv new project_folder or fenv -onlyenv new project_folder
+fenv new <project_folder> or fenv -onlyenv new <project_folder>
 ```
 
 2. Activate the virtual environment:
@@ -62,10 +68,14 @@ Commands:
 
     new       Create a new project
     install   Install packages
+    uninstall Uninstall packages
+    update    Update packages to file requirements.txt
 
 General Options:
+
   -h, --help  Show this help message and exit
   -onlyenv    Create only virtualenv and no create base file
+
 ```
 
 ## Build

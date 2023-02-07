@@ -1,6 +1,7 @@
 from argparse import ArgumentParser, Namespace
 import os
 import platform
+import subprocess
 
 
 # It's a class that contains a bunch of variables that are strings of ANSI escape codes.
@@ -220,6 +221,101 @@ def create_project_all(args, name):
             run_install_module_base(name)
 
 
+def name_env():
+    def cut_string(string, start, end) -> str:
+        """
+        It takes a string, finds the first occurrence of the start string, then finds the first
+        occurrence of the end string after the start string, and returns the string between the start
+        and end strings
+
+        :param string: The string to cut from
+        :param start: The string to start the search from
+        :param end: The end of the string to cut
+        :return: the string between the start and end strings.
+        """
+        start_index = string.find(start)
+        if start_index == -1:
+            return None
+
+        end_index = string.find(end, start_index + len(start))
+        if end_index == -1:
+            return None
+
+        return string[start_index + len(start):end_index]
+
+    def show_files_in_all_dirs(directory) -> str:
+        """
+        It takes a directory as an argument, iterates through the subdirectories in the main directory,
+        and returns the name of the subdirectory that ends with "Lib"
+
+        :param directory: The directory to search through
+        :return: the result of the cut_string function.
+        """
+        for subdir, dirs, files in os.walk(directory):
+            result = cut_string(subdir, ".\\", "\\Lib")
+            if subdir[-3:] == "Lib":
+                break
+        return result
+    return show_files_in_all_dirs(".")
+
+
+def cmd_install_package(args):
+    try:
+        if platform.system() == "Windows":
+            os.system(
+                f".\{name_env()}\Scripts\python.exe -m pip install {args.install}")
+            print(
+                notice + f'Successfully installed module {args.install}')
+    except TimeoutError:
+        print(TimeoutError)
+
+
+def add_module_to_txt(args):
+    os.system(f'pip freeze > requirements.txt')
+    print(
+        notice + f'Successfully module {args.install} added to "requirements.txt"')
+
+
+def install_package(args):
+    """
+    It takes a list of packages, and installs them using the `pip` command
+
+    :param args: The arguments passed to the command
+    """
+    cmd_install_package(args)
+    add_module_to_txt(args)
+
+
+def cmd_uninstall_package(args):
+    try:
+        if platform.system() == "Windows":
+            os.system(
+                f".\{name_env()}\Scripts\python.exe -m pip uninstall {args.uninstall}")
+            print(
+                notice + f'Successfully uninstalled module {args.uninstall}')
+    except TimeoutError:
+        print(TimeoutError)
+
+
+def remove_module_exit_txt(args):
+    try:
+        os.system(f'pip freeze > requirements.txt')
+        print(
+            notice + f'Successfully removed module {args.uninstall} exit from "requirements.txt"')
+    except Exception as e:
+        print(f"Error: {e}")
+
+
+def uninstall_package(args):
+    """
+    It takes a list of packages, and installs them using the `pip` command
+
+    :param args: The arguments passed to the command
+    """
+    cmd_uninstall_package(args)
+    remove_module_exit_txt(args)
+
+
 def setup_parse():
     """
     It takes a list of strings, and returns a dictionary of the form {'name': 'value'}
@@ -233,13 +329,21 @@ def setup_parse():
     subparsers = parser.add_subparsers(
         title='Commands', dest='command', metavar="")
 
-    new_parser = subparsers.add_parser('new', help='Create a new project')
-    new_parser.add_argument('new', type=str,
-                            help='The name of the project')
+    new_parser_1 = subparsers.add_parser('new', help='Create a new project')
+    new_parser_1.add_argument('new', type=str,
+                              help='The name of the project')
 
-    new_parser1 = subparsers.add_parser('install', help='Install packages')
-    new_parser1.add_argument('install', type=str,
-                             help='The name of the project packages')
+    new_parser_2 = subparsers.add_parser('install', help='Install packages')
+    new_parser_2.add_argument('install', type=str,
+                              help='Install packages of the project packages')
+
+    new_parser_3 = subparsers.add_parser(
+        'uninstall', help='Uninstall packages')
+    new_parser_3.add_argument('uninstall', type=str,
+                              help='Uninstall packages of the project packages')
+
+    new_parser_4 = subparsers.add_parser(
+        'update', help='Update packages to file requirements.txt')
 
     general_group = parser.add_argument_group(title='General Options')
     general_group.add_argument(
@@ -252,18 +356,49 @@ def setup_parse():
     return args
 
 
+def run_cmd_new(args):
+    try:
+        print(notice+"Creating...")
+        create_project_all(args, args.new)
+    except AttributeError as err:
+        print("An error was encountered, it could not be created.")
+
+
+def run_cmd_install(args):
+    try:
+        print(notice+"Installing...")
+        install_package(args)
+    except AttributeError as err:
+        print("An error was encountered, it could not be installed.")
+
+
+def run_cmd_uninstall(args):
+    try:
+        print(notice+"Uninstalling...")
+        uninstall_package(args)
+    except AttributeError as err:
+        print(err, "An error was encountered, it could not be uninstalled.")
+
+
+def check_command(args):
+    if args.__dict__['command'] == "new":
+        run_cmd_new(args)
+    elif args.__dict__['command'] == "install":
+        run_cmd_install(args)
+    elif args.__dict__['command'] == "uninstall":
+        run_cmd_uninstall(args)
+    elif args.__dict__['command'] == "update":
+        os.system('pip freeze > requirements.txt')
+        print(notice + "Updated module all to requirements.txt")
+
+
 def main():
     """
     It takes the arguments from the command line and passes them to the create_project_all function
     """
     args = setup_parse()
-    print(args, "⏩ fenv v0.0.10") if args.__dict__['command'] == None else None
-    try:
-        if args.new:
-            create_project_all(args, args.new)
-    except AttributeError as err:
-        print(notice +
-              args.__dict__['command']+"ing package") if args.__dict__['command'] != None else None
+    print("⏩ fenv v0.0.10") if args.__dict__['command'] == None else None
+    check_command(args)
 
 
 # It's a way to make sure that the code in the `main` function is only run when the script is run.

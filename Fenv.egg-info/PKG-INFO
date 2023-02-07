@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: Fenv
-Version: 0.0.9
+Version: 0.0.10
 Summary: Generate a folder, establish a virtual environment with a single command.
 Author: wk18k (watchakorn-18k)
 Author-email: <porton555@gmail.com>
@@ -28,6 +28,10 @@ Fenv is a simple and efficient tool to help you manage your virtual environments
 - Ideal for developers who work on multiple Python projects
 - Add black for format python
 
+<p align="center"><img src="" width=80%></p>
+
+<p align="center"><img src="" width=80%></p>
+
 # Installation
 
 To install Fenv, simply run the following command:
@@ -43,7 +47,7 @@ Fenv makes it easy to get started with a new Python project by providing an all-
 1. Create a new project folder:
 
 ```
-fenv -new project_folder
+fenv new project_folder or fenv -onlyenv new project_folder
 ```
 
 2. Activate the virtual environment:
@@ -62,6 +66,28 @@ cd project_folder
 source env/bin/activate
 ```
 
+## Command
+
+```cmd
+$ fenv -h
+
+Usage:
+  fenv [options] <command>
+
+Commands:
+
+    new       Create a new project
+    install   Install packages
+    uninstall Uninstall packages
+    update    Update packages to file requirements.txt
+
+General Options:
+
+  -h, --help  Show this help message and exit
+  -onlyenv    Create only virtualenv and no create base file
+
+```
+
 ## Build
 
 ```
@@ -77,3 +103,14 @@ pip install --editable .
 ## Conclusion
 
 Fenv is a powerful tool for managing virtual environments and creating basic Python files. With its simple and efficient design, it's the perfect solution for developers who want to streamline their workflow and focus on coding. Get started today and see the difference Fenv can make in your Python development process!
+
+## Changelog
+
+### 0.0.10
+
+- [x] add option -onlyenv for create only virtualenv without base file all
+- [] add command install for install package and add module to file requirements.txt
+
+### 0.0.9
+
+- [x] Release 0.0.9
