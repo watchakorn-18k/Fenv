@@ -1,0 +1,88 @@
+site_name: Fenv
+
+markdown_extensions:
+  - admonition
+  - pymdownx.emoji
+  - pymdownx.magiclink
+  - pymdownx.snippets:
+      check_paths: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist
+  - toc:
+      permalink: "¤"
+
+nav:
+  - Fenv Docs: index.md
+  - tutorials.md
+  - How-To Guides: how-to-guides.md
+  - reference.md
+theme:
+  
+  icon:
+    repo: fontawesome/brands/github
+    edit: material/pencil 
+    view: material/eye
+  features:
+    - navigation.footer
+    - content.action.edit
+    - content.code.copy
+    - content.code.annotate
+    - navigation.top
+    - navigation.tabs.sticky
+    
+  logo: assets/logo.png
+  favicon: assets/logo.png
+  direction: ltr
+  name: material
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/toggle-switch-off-outline 
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle: 
+        icon: material/toggle-switch
+        name: Switch to light mode
+extra:
+  generator: false
+  
+  alternate:
+    - name: English
+      link: / 
+      lang: en
+    - name: ไทย
+      link: /th/
+      lang: th
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/watchakorn-18k/Fenv
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [src]
+          import:
+          - https://docs.python.org/3/objects.inv
+          - https://mkdocstrings.github.io/objects.inv
+          - https://mkdocstrings.github.io/griffe/objects.inv
+          options:
+            docstring_style: google
+            docstring_options:
+              ignore_init_summary: yes
+            merge_init_into_class: yes
+            separate_signature: yes
+            show_root_full_path: no
+            
+copyright: Copyright &copy; 2022 - wk-18k
+repo_url: https://github.com/watchakorn-18k/Fenv
+repo_name: watchakorn-18k/Fenv
+edit_uri: edit/master/docs/

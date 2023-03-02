@@ -1,44 +1,57 @@
-from argparse import ArgumentParser, Namespace
+from argparse import ArgumentParser
 import os
 import platform
-import subprocess
+import re
+import random
 
 
-# It's a class that contains a bunch of variables that are strings of ANSI escape codes.
 class bcolors:
+    """It's a class that contains a bunch of variables that are strings of ANSI escape codes."""
 
-    HEADER = '\033[95m'
-    OKBLUE = '\033[94m'
-    OKGREEN = '\033[92m'
-    WARNING = '\033[93m'
-    FAIL = '\033[91m'
-    ENDC = '\033[0m'
+    HEADER = "\033[95m"
+    OKBLUE = "\033[94m"
+    OKGREEN = "\033[92m"
+    WARNING = "\033[93m"
+    FAIL = "\033[91m"
+    ENDC = "\033[0m"
 
-    def disable(self):
-        """
-        It sets the color variables to empty strings, which means that when you call them, they will
-        return an empty string
-        """
-        self.HEADER = ''
-        self.OKBLUE = ''
-        self.OKGREEN = ''
-        self.WARNING = ''
-        self.FAIL = ''
-        self.ENDC = ''
+    def __init__(self):
+        self.HEADER = ""
+        self.OKBLUE = ""
+        self.OKGREEN = ""
+        self.WARNING = ""
+        self.FAIL = ""
+        self.ENDC = ""
 
 
-notice = bcolors.OKBLUE + \
-    '['+bcolors.ENDC+bcolors.OKGREEN+'notice' + \
-    bcolors.OKBLUE + ']' + bcolors.ENDC + " "
+# Defining a variable called notice.
+notice = (
+    bcolors.OKBLUE
+    + "["
+    + bcolors.ENDC
+    + bcolors.OKGREEN
+    + "notice"
+    + bcolors.OKBLUE
+    + "]"
+    + bcolors.ENDC
+    + " "
+)
 
 
 def create_dir_file(path, text):
-    """
-    It creates a directory if it doesn't exist, and then creates a file in that directory with the given
+    """It creates a directory if it doesn't exist, and then creates a file in that directory with the given
     text
 
-    :param path: The path to the file you want to create
-    :param text: The text to be written to the file
+    Args:
+        path (str): The path to the file you want to create
+        text (str): The text to be written to the file
+
+    Example:
+        ```py
+        create_dir_file(".vscode/settings.json", text_vscode.format(name_env=env_path))
+        ```
+    Return:
+        None
     """
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
@@ -78,34 +91,33 @@ def create_folder(folder_name):
 
 def create_setting_vscode(env_path):
     """
-    It creates a file called `settings.json` in a directory called `.vscode` in the current directory. 
+    It creates a file called `settings.json` in a directory called `.vscode` in the current directory.
 
     The file contains a JSON object with two keys: `python.formatting.provider` and `python.pythonPath`.
 
 
     The value of the first key is `black` and the value of the second key is the path to the virtual
-    environment. 
+    environment.
 
-    The third key is `editor.formatOnSave` and its value is `true`. 
+    The third key is `editor.formatOnSave` and its value is `true`.
 
-    The function prints a message to the console when it's done. 
+    The function prints a message to the console when it's done.
 
-    The function is called in the `create_env` function. 
+    The function is called in the `create_env` function.
 
-    The `create_env` function is called in the `main` function. 
+    The `create_env` function is called in the `main` function.
 
-    The `main` function is called when the script is run. 
+    The `main` function is called when the script is run.
 
-    The `create_env` function is called with the name of the virtual environment as an argument. 
+    The `create_env` function is called with the name of the virtual environment as an argument.
 
     The
 
     :param env_path: The path to the virtual environment
     """
     text_vscode = """{{"python.formatting.provider": "black","python.pythonPath": "{name_env}","editor.formatOnSave": true,}}"""
-    create_dir_file(
-        '.vscode/settings.json', text_vscode.format(name_env=env_path))
-    print(notice + f'Successfully created the .vscode/settings.json')
+    create_dir_file(".vscode/settings.json", text_vscode.format(name_env=env_path))
+    print(notice + f"Successfully created the .vscode/settings.json")
 
 
 def create_file_base(name):
@@ -114,6 +126,7 @@ def create_file_base(name):
 
     :param name: The name of the project
     """
+
     def create_file_main_py():
         """
         It creates a file called main.py and writes a function called main() inside of it
@@ -187,7 +200,7 @@ Include information about the license used for the project, such as the name of 
     create_file_freeze()
 
 
-''
+""
 
 
 def run_install_module_base(env):
@@ -198,14 +211,11 @@ def run_install_module_base(env):
     """
 
     if platform.system() == "Windows":
-        os.system(
-            f".\env_{env}\Scripts\python.exe -m pip install -r requirements.txt")
+        os.system(f".\env_{env}\Scripts\python.exe -m pip install -r requirements.txt")
         print(notice + f'Successfully installed module in "requirements.txt"')
-        os.system(
-            f".\env_{env}\Scripts\python.exe -m pip freeze > requirements.txt")
+        os.system(f".\env_{env}\Scripts\python.exe -m pip freeze > requirements.txt")
         print(notice + f'Successfully updated the file "requirements.txt"')
-        os.system(
-            f".\env_{env}\Scripts\python.exe -m pip install --upgrade pip")
+        os.system(f".\env_{env}\Scripts\python.exe -m pip install --upgrade pip")
 
 
 def create_project_all(args, name):
@@ -213,12 +223,13 @@ def create_project_all(args, name):
     It creates a folder, creates a virtual environment, creates a settings file for VSCode, and creates
     a base file for the project
     """
+
     if create_folder(name) != 1:
+        print(notice + "Creating...")
         create_virtualenv(name)
         create_setting_vscode(name)
-        if not args.onlyenv:
-            create_file_base(name)
-            run_install_module_base(name)
+        create_file_base(name)
+        run_install_module_base(name)
 
 
 def name_env():
@@ -241,7 +252,7 @@ def name_env():
         if end_index == -1:
             return None
 
-        return string[start_index + len(start):end_index]
+        return string[start_index + len(start) : end_index]
 
     def show_files_in_all_dirs(directory) -> str:
         """
@@ -256,24 +267,43 @@ def name_env():
             if subdir[-3:] == "Lib":
                 break
         return result
+
     return show_files_in_all_dirs(".")
 
 
 def cmd_install_package(args):
+    """
+    It installs a package using pip
+
+    :param args: The arguments passed to the command
+    """
     try:
         if platform.system() == "Windows":
             os.system(
-                f".\{name_env()}\Scripts\python.exe -m pip install {args.install}")
-            print(
-                notice + f'Successfully installed module {args.install}')
+                f".\{name_env()}\Scripts\python.exe -m pip install {args.install}"
+            )
+            print(notice + f"Successfully installed module {args.install}")
     except TimeoutError:
         print(TimeoutError)
 
 
 def add_module_to_txt(args):
-    os.system(f'pip freeze > requirements.txt')
-    print(
-        notice + f'Successfully module {args.install} added to "requirements.txt"')
+    """
+    It takes the argument from the command line and adds it to the requirements.txt file
+
+    :param args: The arguments passed to the script
+    """
+    os.system(f"pip freeze > requirements.txt")
+    print(notice + f'Successfully module {args.install} added to "requirements.txt"')
+
+
+def find_dir_env() -> str:
+    """
+    It prints the contents of the current directory
+    """
+    for i in os.listdir("."):
+        print(i)
+    # .\{name_env()}\Scripts\python.exe -m pip uninstall {args.uninstall}
 
 
 def install_package(args):
@@ -282,26 +312,39 @@ def install_package(args):
 
     :param args: The arguments passed to the command
     """
+    print(notice + "Installing...")
     cmd_install_package(args)
     add_module_to_txt(args)
 
 
 def cmd_uninstall_package(args):
+    """
+    It uninstalls a package from the virtual environment
+
+    :param args: The arguments passed to the command
+    """
     try:
         if platform.system() == "Windows":
             os.system(
-                f".\{name_env()}\Scripts\python.exe -m pip uninstall {args.uninstall}")
-            print(
-                notice + f'Successfully uninstalled module {args.uninstall}')
+                f".\{name_env()}\Scripts\python.exe -m pip uninstall {args.uninstall}"
+            )
+            print(notice + f"Successfully uninstalled module {args.uninstall}")
     except TimeoutError:
         print(TimeoutError)
 
 
 def remove_module_exit_txt(args):
+    """
+    It removes the module from the requirements.txt file
+
+    :param args: This is the argument that is passed to the function
+    """
     try:
-        os.system(f'pip freeze > requirements.txt')
+        os.system(f"pip freeze > requirements.txt")
         print(
-            notice + f'Successfully removed module {args.uninstall} exit from "requirements.txt"')
+            notice
+            + f'Successfully removed module {args.uninstall} exit from "requirements.txt"'
+        )
     except Exception as e:
         print(f"Error: {e}")
 
@@ -323,33 +366,50 @@ def setup_parse():
     """
 
     parser = ArgumentParser(add_help=False)
-    title = parser.add_argument_group(title='Usage')
-    title.description = "fenv [options] <command>"
+    title = parser.add_argument_group(title="Usage")
+    title.description = "fenv <command>"
 
-    subparsers = parser.add_subparsers(
-        title='Commands', dest='command', metavar="")
+    subparsers = parser.add_subparsers(title="Commands", dest="command", metavar="")
 
-    new_parser_1 = subparsers.add_parser('new', help='Create a new project')
-    new_parser_1.add_argument('new', type=str,
-                              help='The name of the project')
+    new_comd = subparsers.add_parser("new", help="Create a new project")
+    new_comd.add_argument(
+        "new", type=str, help="The name of the project", nargs="?", default=None
+    )
 
-    new_parser_2 = subparsers.add_parser('install', help='Install packages')
-    new_parser_2.add_argument('install', type=str,
-                              help='Install packages of the project packages')
+    install_cmd = subparsers.add_parser("install", help="Install packages")
+    install_cmd.add_argument(
+        "install",
+        type=str,
+        help="Install packages of the project packages",
+        nargs="?",
+        default=None,
+    )
 
-    new_parser_3 = subparsers.add_parser(
-        'uninstall', help='Uninstall packages')
-    new_parser_3.add_argument('uninstall', type=str,
-                              help='Uninstall packages of the project packages')
+    uninstall_cmd = subparsers.add_parser("uninstall", help="Uninstall packages")
+    uninstall_cmd.add_argument(
+        "uninstall",
+        type=str,
+        help="Uninstall packages of the project packages",
+        nargs="?",
+        default=None,
+    )
 
-    new_parser_4 = subparsers.add_parser(
-        'update', help='Update packages to file requirements.txt')
+    update_cmd = subparsers.add_parser(
+        "update", help="Update packages to file requirements.txt"
+    )
 
-    general_group = parser.add_argument_group(title='General Options')
+    onlyenv_cmd = subparsers.add_parser(
+        "onlyenv", help="Create only virtualenv and no create base file"
+    )
+
+    # clean_cmd = subparsers.add_parser(
+    #     "clean", help="Clean delete all packages in requirements.txt out"
+    # )
+
+    general_group = parser.add_argument_group(title="General Options")
     general_group.add_argument(
-        '-h', '--help', action='help', help='Show this help message and exit')
-    general_group.add_argument('-onlyenv', action='store_true',
-                               help='Create only virtualenv and no create base file')
+        "-h", "--help", action="help", help="Show this help message and exit"
+    )
 
     args = parser.parse_args()
 
@@ -357,39 +417,154 @@ def setup_parse():
 
 
 def run_cmd_new(args):
+    """
+    It creates a new project folder, and then creates a virtual environment inside that folder
+
+    :param args: Namespace(new='test', project_folder='test')
+    """
     try:
-        print(notice+"Creating...")
         create_project_all(args, args.new)
-    except AttributeError as err:
-        print("An error was encountered, it could not be created.")
+    except TypeError as err:
+        print(
+            "Maybe you forgot to enter the name of the folder? for example"
+            + " `"
+            + bcolors.OKGREEN
+            + "fenv new"
+            + bcolors.OKBLUE
+            + " <project_folder>"
+            + bcolors.ENDC,
+            "`",
+        )
 
 
 def run_cmd_install(args):
+    """
+    It's a function that installs a package
+
+    :param args: The arguments passed to the command
+    """
     try:
-        print(notice+"Installing...")
+        print("Installing...")
         install_package(args)
     except AttributeError as err:
-        print("An error was encountered, it could not be installed.")
+        print(
+            bcolors.OKGREEN
+            + "An error was encountered, it could not be installed."
+            + bcolors.ENDC
+        )
 
 
 def run_cmd_uninstall(args):
+    """
+    A function that is called when the user runs the command "uninstall"
+
+    :param args: The arguments passed to the command
+    """
     try:
-        print(notice+"Uninstalling...")
-        uninstall_package(args)
+        print(notice + "Uninstalling...")
+        # uninstall_package(args)
     except AttributeError as err:
         print(err, "An error was encountered, it could not be uninstalled.")
 
 
+def run_cmd_onlyenv():
+    """
+    It creates a virtual environment with a random name, and then creates a settings.json file for
+    vscode
+    """
+
+    def create_name_env_auto() -> str:
+        """
+        > It creates a random name for the environment
+        :return: A string
+        """
+        name_ = random.choice(["samai", "danai"])
+        middle_ = random.choice("!@#$&$")
+        no_ = random.randint(0, 100)
+        return f"{name_}{middle_}{no_}"
+
+    def create_name_env() -> str:
+        """
+        If the user enters a name for the virtualenv, the function will check if the name is in English
+        only, if it is, it will return the name, if not, it will return a name automatically
+        :return: The name of the virtual environment.
+        """
+        _name = input(
+            "Enter a name for the virtualenv (english only) , leave it blank to create it automatically: "
+        ).replace(" ", "_")
+
+        def is_english_only(s):
+            return bool(re.match("^[A-Za-z0-9_!@#$%^&*()\-+=]+$", s))
+
+        if is_english_only(_name):
+            _name = _name[:10]
+            _name = "{}".format(_name)
+            return _name
+        else:
+            _name = create_name_env_auto()
+            return _name
+
+    def create_virtualenv(virtual_env_name):
+        """
+        It creates a virtual environment with the name you pass to it
+
+        :param virtual_env_name: The name of the virtual environment you want to create
+        """
+        if not os.path.exists(virtual_env_name):
+            try:
+                os.system(f"virtualenv env_{virtual_env_name}")
+            except EnvironmentError as error:
+                print(error)
+        print(notice + f'Successfully created the virtualenv "{virtual_env_name}"')
+
+    _name_env = create_name_env()
+    print(f"your env name is `{bcolors.OKGREEN}{_name_env}{bcolors.ENDC}`")
+    create_virtualenv(_name_env)
+    create_setting_vscode(_name_env)
+
+
+def run_cmd_clean():
+    find_dir_env()
+
+
 def check_command(args):
-    if args.__dict__['command'] == "new":
+    """
+    It checks the command that the user has entered and then runs the appropriate function
+
+    :param args: The arguments passed to the script
+    """
+    if args.__dict__["command"] == "new":
         run_cmd_new(args)
-    elif args.__dict__['command'] == "install":
-        run_cmd_install(args)
-    elif args.__dict__['command'] == "uninstall":
-        run_cmd_uninstall(args)
-    elif args.__dict__['command'] == "update":
-        os.system('pip freeze > requirements.txt')
+    elif args.__dict__["command"] == "install":
+        run_cmd_install(args) if args.install != None else print(
+            "Maybe you forgot to put the name of the package to install? for example"
+            + " `"
+            + bcolors.OKGREEN
+            + "fenv install"
+            + bcolors.OKBLUE
+            + " <package_name>"
+            + bcolors.ENDC
+            + "`"
+        )
+    elif args.__dict__["command"] == "uninstall":
+        run_cmd_uninstall(args) if args.uninstall != None else print(
+            "Maybe you forgot to put the name of the package to uninstall? for example"
+            + " `"
+            + bcolors.OKGREEN
+            + "fenv uninstall"
+            + bcolors.OKBLUE
+            + " <package_name>"
+            + bcolors.ENDC
+            + "`"
+        )
+    elif args.__dict__["command"] == "update":
+        os.system("pip freeze > requirements.txt")
         print(notice + "Updated module all to requirements.txt")
+    elif args.__dict__["command"] == "onlyenv":
+        run_cmd_onlyenv()
+
+    elif args.__dict__["command"] == "clean":
+        run_cmd_clean()
 
 
 def main():
@@ -397,7 +572,8 @@ def main():
     It takes the arguments from the command line and passes them to the create_project_all function
     """
     args = setup_parse()
-    print("⏩ fenv v0.0.10") if args.__dict__['command'] == None else None
+    version: str = "v0.0.11"
+    print(f"⏩ fenv {version}") if args.__dict__["command"] == None else None
     check_command(args)
 
 

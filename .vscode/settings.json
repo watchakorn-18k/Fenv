@@ -1,3 +1,5 @@
 {
-    "docwriter.style": "Auto-detect"
+    "docwriter.style": "Google",
+    "python.formatting.provider": "black",
+    "editor.formatOnSave": false
 }
