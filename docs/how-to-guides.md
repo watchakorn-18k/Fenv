@@ -32,7 +32,7 @@ cd project_folder
 source env/bin/activate
 ```
 
-## Command for windows only
+# Command for windows only
 
 ## Install packages
 
@@ -42,10 +42,26 @@ fenv install <package_name>
 
 Install the package and add it to requirements.txt If the package name is omitted, the message `Maybe you forgot to put the name of the package to install? for example fenv install <package_name>` is displayed.
 
-## Install packages
+## Uninstall packages
 
 ```
 fenv uninstall <package_name>
 ```
 
-Install the package and add it to requirements.txt
+Uninstall the package and delete it from requirements.txt
+
+## Uninstall packages
+
+```
+fenv update <package_name>
+```
+
+Update the package all to requirements.txt
+
+## Create virtualenv only
+
+```
+fenv onlyenv
+```
+
+Create virtualenv only with 2 choice custom name and auto name then create file settings.json for vscode

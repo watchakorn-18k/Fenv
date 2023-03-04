@@ -1,4 +1,10 @@
+
+
+![versions](https://img.shields.io/pypi/pyversions/pybadges.svg) ![](https://img.shields.io/badge/-version%200.11-blue)
+
 # Fenv
+
+<p align="center"><img src="https://cdn.discordapp.com/attachments/582486229594013696/1070509737529069689/New_Project_3.png" width=400></p>
 
 Fenv is a simple and efficient tool to help you manage your virtual environments and create basic Python files with a single command. With Fenv, you can quickly generate a new project folder, establish a virtual environment within that folder, and simultaneously create the essential basic Python files all in one go. This tool is ideal for developers who frequently work on multiple Python projects and want a simple, streamlined solution for managing virtual environments.
 
@@ -11,16 +17,23 @@ Fenv is a simple and efficient tool to help you manage your virtual environments
 - Add `black` for format python
 - Packages can be installed and uninstalled and added to files. `requirements.txt` at the same time
 
-## Commands
+## Command
 
-- `mkdocs new [dir-name]` - Create a new project.
-- `mkdocs serve` - Start the live-reloading docs server.
-- `mkdocs build` - Build the documentation site.
-- `mkdocs -h` - Print help message and exit.
+```cmd
+$ fenv -h
 
-## Project layout
+Usage:
+  fenv [options] <command>
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+Commands:
+
+    new       Create a new project
+    install   Install packages
+    uninstall Uninstall packages
+    update    Update packages to file requirements.txt
+    onlyenv   Create only virtualenv and no create base file
+
+General Options:
+  -h, --help  Show this help message and exit
+
+```

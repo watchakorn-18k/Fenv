@@ -13,6 +13,8 @@ Fenv is a simple and efficient tool to help you manage your virtual environments
 - Add black for format python
 - Packages can be installed and uninstalled and added to files. requirements.txt at the same time
 
+## Docs
+https://watchakorn-18k.github.io/Fenv/
 
 
 ## Command
@@ -54,10 +56,14 @@ Fenv is a powerful tool for managing virtual environments and creating basic Pyt
 
 ## Changelog
 
+### 0.0.11
+
+- [x] change new pattern command 
+
 ### 0.0.10
 
 - [x] add option -onlyenv for create only virtualenv without base file all
-- [] add command install for install package and add module to file requirements.txt
+- [X] add command install for install package and add module to file requirements.txt
 
 ### 0.0.9
 
