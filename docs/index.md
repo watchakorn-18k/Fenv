@@ -17,6 +17,15 @@ Fenv is a simple and efficient tool to help you manage your virtual environments
 - Add `black` for format python
 - Packages can be installed and uninstalled and added to files. `requirements.txt` at the same time
 
+## Installer
+```
+pip install fenv
+```
+or
+```
+pip install --upgrade fenv
+```
+
 ## Command
 
 ```cmd
@@ -37,3 +46,18 @@ General Options:
   -h, --help  Show this help message and exit
 
 ```
+
+## Layout
+
+    |_ .vscode/
+    |    |_ settings.json
+    |
+    |_ env_name/
+    |    |_ Lib
+    |    |_ Scripts
+    |    |_ .gitignore
+    |    |_ pyvenv
+    |
+    |_ main.py
+    |_ readme.md
+    |_ requirements.txt

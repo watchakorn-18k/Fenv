@@ -11,16 +11,115 @@ Fenv เป็นเครื่องมือที่ง่ายและม
 - เพิ่ม `black` สำหรับจัดการรูปแบบ python
 - แพ็คเกจสามารถติดตั้งและถอนการติดตั้งและเพิ่มลงในไฟล์ `requirements.txt` พร้อมๆกันในเวลาเดียวกัน
 
-## Commands
+## ติดตั้ง
+```
+pip install fenv
+```
+or
+```
+pip install --upgrade fenv
+```
 
-- `mkdocs new [dir-name]` - Create a new project.
-- `mkdocs serve` - Start the live-reloading docs server.
-- `mkdocs build` - Build the documentation site.
-- `mkdocs -h` - Print help message and exit.
 
-## Project layout
+## คำสั่ง
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+```cmd
+$ fenv -h
+
+Usage:
+  fenv [options] <command>
+
+Commands:
+
+    new       Create a new project
+    install   Install packages
+    uninstall Uninstall packages
+    update    Update packages to file requirements.txt
+    onlyenv   Create only virtualenv and no create base file
+
+General Options:
+  -h, --help  Show this help message and exit
+
+```
+
+## โครงสร้าง
+
+    |_ .vscode/
+    |    |_ settings.json
+    |
+    |_ env_name/
+    |    |_ Lib
+    |    |_ Scripts
+    |    |_ .gitignore
+    |    |_ pyvenv
+    |
+    |_ main.py
+    |_ readme.md
+    |_ requirements.txt
+
+## การติดตั้ง
+
+ในการติดตั้ง Fenv เพียงเรียกใช้คำสั่งต่อไปนี้:
+
+```sh
+pip install fenv
+```
+
+## การใช้งาน
+
+Fenv ช่วยให้การเริ่มต้นโครงการ Python ใหม่เป็นเรื่องง่ายด้วยการจัดเตรียมโซลูชันแบบ all-in-one นี่คือวิธีการใช้งาน:
+
+## สร้างโฟลเดอร์โครงการใหม่พร้อม virtualenv และไฟล์พื้นฐาน:
+
+```sh
+fenv new <project_folder>
+```
+
+## เปิดใช้งานสภาพแวดล้อมเสมือนจริง:
+
+### for windows
+
+```
+cd project_folder
+source env/bin/activate
+```
+
+### for linux
+
+```
+cd project_folder
+source env/bin/activate
+```
+
+# คำสั่งสำหรับ Windows เท่านั้น
+
+## ติดตั้งแพ็คเกจ
+
+```
+fenv install <package_name>
+```
+
+ติดตั้งแพ็คเกจและเพิ่มลงใน requirement.txt หากไม่ใส่ชื่อแพ็คเกจ ข้อความ `Maybe you forgot to put the name of the package to install? for example fenv install <package_name>` จะปรากฏขึ้น
+## ถอนการติดตั้งแพ็คเกจ
+
+```
+fenv uninstall <package_name>
+```
+
+ถอนการติดตั้งแพ็คเกจและลบออกจาก requirement.txt
+
+## อัปเดต requirements.txt
+
+```
+fenv update <package_name>
+```
+
+อัปเดตแพ็คเกจทั้งหมดลงในไฟล์ requirement.txt
+
+## สร้างแค่ virtualenv เท่านั้น
+
+```
+fenv onlyenv
+```
+
+สร้าง virtualenv ด้วยชื่อที่กำหนดเองหรือชื่ออัตโนมัติ 2 ตัวเลือก จากนั้นสร้างไฟล์ settings.json สำหรับ vscode ไม่ได้สร้างไฟล์พื้นฐานเพิ่มให้

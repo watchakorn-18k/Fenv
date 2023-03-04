@@ -19,6 +19,7 @@ nav:
   - How-To Guides: how-to-guides.md
   - reference.md
 theme:
+  language: en
   
   icon:
     repo: fontawesome/brands/github
@@ -55,10 +56,10 @@ extra:
   
   alternate:
     - name: English
-      link: / 
+      link: /Fenv/
       lang: en
     - name: ไทย
-      link: /th/
+      link: /Fenv/th/
       lang: th
   social:
     - icon: fontawesome/brands/github

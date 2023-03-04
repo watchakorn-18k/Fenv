@@ -10,7 +10,7 @@ pip install fenv
 
 Fenv makes it easy to get started with a new Python project by providing an all-in-one solution. Here's how to use it:
 
-## Create a new project folder:
+## Create a new project with virtualenv and basic files:
 
 ```sh
 fenv new <project_folder>
@@ -50,13 +50,13 @@ fenv uninstall <package_name>
 
 Uninstall the package and delete it from requirements.txt
 
-## Uninstall packages
+## Update requirements.txt
 
 ```
 fenv update <package_name>
 ```
 
-Update the package all to requirements.txt
+Update all packages to a file. requirements.txt
 
 ## Create virtualenv only
 
@@ -64,4 +64,4 @@ Update the package all to requirements.txt
 fenv onlyenv
 ```
 
-Create virtualenv only with 2 choice custom name and auto name then create file settings.json for vscode
+Create a virtualenv with a custom name or an optional 2 autoname, then create a file. settings.json for vscode does not generate additional base files

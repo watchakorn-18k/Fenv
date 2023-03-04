@@ -16,9 +16,19 @@ Fenv is a simple and efficient tool to help you manage your virtual environments
 ## Docs
 https://watchakorn-18k.github.io/Fenv/
 
-## Install
+## Installer
 ```
 pip install fenv
+```
+or
+```
+pip install --upgrade fenv
+```
+
+## Start
+
+```sh
+fenv new <project_folder>
 ```
 
 
@@ -61,13 +71,19 @@ Fenv is a powerful tool for managing virtual environments and creating basic Pyt
 
 ## Changelog
 
-### 0.0.11
-
-- [x] change new pattern command 
-
+### 0.0.11.5
+- [ ] added after use `fenv onlyenv` created settings then activate env one time 
+### 0.0.11.4
+- [x] fix bugs small
+### 0.0.11.3
+- [x] fix bugs settings in .vscode
+- [x] fix bugs line 609 and 624
+### 0.0.11.2
+- [x] fix bugs small
+### 0.0.11.1
+- [x] change new pattern command `-onlyenv` to `onlyenv`
 ### 0.0.10
-
-- [x] add option -onlyenv for create only virtualenv without base file all
+- [x] add option `-onlyenv` for create only virtualenv without base file all
 - [X] add command install for install package and add module to file requirements.txt
 
 ### 0.0.9

@@ -6,7 +6,19 @@ import random
 
 
 class bcolors:
-    """It's a class that contains a bunch of variables that are strings of ANSI escape codes."""
+    """It's a class that contains a bunch of variables that are strings of ANSI escape codes.
+    Example:
+        ```
+        bcolors.HEADER
+        bcolors.OKBLUE
+        bcolors.OKGREEN
+        bcolors.WARNING
+        bcolors.FAIL
+        bcolors.ENDC
+        ```
+    Return:
+        None
+    """
 
     HEADER = "\033[95m"
     OKBLUE = "\033[94m"
@@ -62,7 +74,7 @@ def create_virtualenv(virtual_env_name):
     """
     It creates a virtual environment in the current directory
 
-    :param virtual_env_name: The name of the virtual environment you want to create
+    :param virtual_env_name (str): The name of the virtual environment you want to create
     """
     os.chdir(virtual_env_name)
     if not os.path.exists(virtual_env_name):
@@ -77,8 +89,15 @@ def create_folder(folder_name):
     """
     It creates a folder with the name of the argument passed to it
 
-    :param folder_name: The name of the folder you want to create
-    :return: 1
+     Args:
+        folder_name (str): The name of the folder you want to create
+
+    Example:
+        ```py
+        create_folder("project_name")
+        ```
+    Return:
+        1 : if has folder already
     """
     try:
         os.mkdir(folder_name)
@@ -91,30 +110,45 @@ def create_folder(folder_name):
 
 def create_setting_vscode(env_path):
     """
-    It creates a file called `settings.json` in a directory called `.vscode` in the current directory.
-
-    The file contains a JSON object with two keys: `python.formatting.provider` and `python.pythonPath`.
-
-
-    The value of the first key is `black` and the value of the second key is the path to the virtual
-    environment.
-
-    The third key is `editor.formatOnSave` and its value is `true`.
-
-    The function prints a message to the console when it's done.
-
-    The function is called in the `create_env` function.
-
-    The `create_env` function is called in the `main` function.
-
-    The `main` function is called when the script is run.
-
-    The `create_env` function is called with the name of the virtual environment as an argument.
-
-    The
-
-    :param env_path: The path to the virtual environment
+    It creates a file called settings.json in a directory called .vscode. 
+    
+    The file contains a JSON object with two keys: 
+    
+    - python.formatting.provider
+    - python.pythonPath
+    
+    The value of the first key is the string "black". 
+    
+    The value of the second key is the path to the virtual environment. 
+    
+    The function also prints a message to the console. 
+    
+    The message is a string that contains the value of the global variable notice. 
+    
+    The message also contains the string "Successfully created the .vscode/settings.json". 
+    
+    The function ends with the keyword def. 
+    
+    The function is called create_setting_vscode. 
+    
+    The function takes one argument. 
+    
+    The argument is called env_path. 
+    
+    The function begins with the keyword def. 
+    
+    The function ends with the
+    
+    Args:
+      env_path (str): The path to the virtual environment
+    Example:
+        ```py
+        create_setting_vscode("env_path")
+        ```
+    Return:
+        None
     """
+
     text_vscode = """{{"python.formatting.provider": "black","python.pythonPath": "{name_env}","editor.formatOnSave": true,}}"""
     create_dir_file(".vscode/settings.json", text_vscode.format(name_env=env_path))
     print(notice + f"Successfully created the .vscode/settings.json")
@@ -124,7 +158,14 @@ def create_file_base(name):
     """
     It creates a file called main.py and writes a function called main() inside of it
 
-    :param name: The name of the project
+    Args:
+        name (str): The name of the project
+    Example:
+        ```py
+        create_file_base("project_name")
+        ```
+    Return:
+        None
     """
 
     def create_file_main_py():
@@ -218,10 +259,20 @@ def run_install_module_base(env):
         os.system(f".\env_{env}\Scripts\python.exe -m pip install --upgrade pip")
 
 
-def create_project_all(args, name):
+def create_project_all(name):
     """
     It creates a folder, creates a virtual environment, creates a settings file for VSCode, and creates
     a base file for the project
+
+    Args:
+      name (str): The name of the folder you want to create
+
+    Example:
+        ```py
+        create_project_all("project_name")
+        ```
+    Return:
+        None
     """
 
     if create_folder(name) != 1:
@@ -275,7 +326,14 @@ def cmd_install_package(args):
     """
     It installs a package using pip
 
-    :param args: The arguments passed to the command
+    Args:
+        args (str): The arguments passed to the command
+    Example:
+        ```py
+        cmd_install_package("package_name")
+        ```
+    Return:
+        None
     """
     try:
         if platform.system() == "Windows":
@@ -290,8 +348,16 @@ def cmd_install_package(args):
 def add_module_to_txt(args):
     """
     It takes the argument from the command line and adds it to the requirements.txt file
+    Args:
+        args (str): The arguments passed to the script
 
-    :param args: The arguments passed to the script
+    Example:
+        ```py
+        add_module_to_txt("package_name")
+        ```
+    Return:
+        None
+
     """
     os.system(f"pip freeze > requirements.txt")
     print(notice + f'Successfully module {args.install} added to "requirements.txt"')
@@ -300,6 +366,9 @@ def add_module_to_txt(args):
 def find_dir_env() -> str:
     """
     It prints the contents of the current directory
+
+    Return:
+        None
     """
     for i in os.listdir("."):
         print(i)
@@ -309,8 +378,15 @@ def find_dir_env() -> str:
 def install_package(args):
     """
     It takes a list of packages, and installs them using the `pip` command
-
-    :param args: The arguments passed to the command
+    
+    Args:
+      args (str): The arguments passed to the command
+    Example:
+        ```py
+        install_package("package_name")
+        ```
+    Return:
+        None
     """
     print(notice + "Installing...")
     cmd_install_package(args)
@@ -321,7 +397,14 @@ def cmd_uninstall_package(args):
     """
     It uninstalls a package from the virtual environment
 
-    :param args: The arguments passed to the command
+    Args:
+        args (str): The arguments passed to the command
+    Example:
+        ```py
+        cmd_uninstall_package("package_name")
+        ```
+    Return:
+        None
     """
     try:
         if platform.system() == "Windows":
@@ -336,9 +419,17 @@ def cmd_uninstall_package(args):
 def remove_module_exit_txt(args):
     """
     It removes the module from the requirements.txt file
-
-    :param args: This is the argument that is passed to the function
+    
+    Args:
+      args (str): This is the argument that is passed to the function.
+    Example:
+        ```py
+        remove_module_exit_txt("package_name")
+        ```
+    Return:
+        None
     """
+
     try:
         os.system(f"pip freeze > requirements.txt")
         print(
@@ -351,9 +442,16 @@ def remove_module_exit_txt(args):
 
 def uninstall_package(args):
     """
-    It takes a list of packages, and installs them using the `pip` command
-
-    :param args: The arguments passed to the command
+    It will uninstall the package and remove the module exit text file
+    
+    Args:
+      args (str): The arguments passed to the script.
+    Example:
+        ```py
+        uninstall_package("package_name")
+        ```
+    Return:
+        None
     """
     cmd_uninstall_package(args)
     remove_module_exit_txt(args)
@@ -418,12 +516,20 @@ def setup_parse():
 
 def run_cmd_new(args):
     """
-    It creates a new project folder, and then creates a virtual environment inside that folder
-
-    :param args: Namespace(new='test', project_folder='test')
+    It creates a new project folder and then creates a virtual environment inside that folder
+    
+    Args:
+      args (str): The arguments passed to the command.
+    Example:
+        ```py
+        run_cmd_new("project_name")
+        ```
+    Return:
+        None
     """
+
     try:
-        create_project_all(args, args.new)
+        create_project_all(args.new)
     except TypeError as err:
         print(
             "Maybe you forgot to enter the name of the folder? for example"
@@ -439,10 +545,18 @@ def run_cmd_new(args):
 
 def run_cmd_install(args):
     """
-    It's a function that installs a package
-
-    :param args: The arguments passed to the command
+    It tries to install a package, if it fails, it prints a message
+    
+    Args:
+      args (str): The arguments passed to the command.
+    Example:
+        ```py
+        run_cmd_install("package_name")
+        ```
+    Return:
+        None
     """
+
     try:
         print("Installing...")
         install_package(args)
@@ -456,9 +570,19 @@ def run_cmd_install(args):
 
 def run_cmd_uninstall(args):
     """
-    A function that is called when the user runs the command "uninstall"
-
-    :param args: The arguments passed to the command
+    "A function that is called when the user runs the command "uninstall"."
+    
+    The first line of the function is a docstring. It's a string that describes what the function does.
+    It's a good idea to include a docstring for every function you write
+    
+    Args:
+      args (str): The arguments passed to the command
+    Example:
+        ```py
+        run_cmd_uninstall("package_name")
+        ```
+    Return:
+        None
     """
     try:
         print(notice + "Uninstalling...")
@@ -471,7 +595,10 @@ def run_cmd_onlyenv():
     """
     It creates a virtual environment with a random name, and then creates a settings.json file for
     vscode
+    Return:
+        None
     """
+
 
     def create_name_env_auto() -> str:
         """
@@ -479,7 +606,7 @@ def run_cmd_onlyenv():
         :return: A string
         """
         name_ = random.choice(["samai", "danai"])
-        middle_ = random.choice("!@#$&$")
+        middle_ = random.choice("_#")
         no_ = random.randint(0, 100)
         return f"{name_}{middle_}{no_}"
 
@@ -494,7 +621,7 @@ def run_cmd_onlyenv():
         ).replace(" ", "_")
 
         def is_english_only(s):
-            return bool(re.match("^[A-Za-z0-9_!@#$%^&*()\-+=]+$", s))
+            return bool(re.match("^[A-Za-z0-9_#]+$", s))
 
         if is_english_only(_name):
             _name = _name[:10]
@@ -507,9 +634,18 @@ def run_cmd_onlyenv():
     def create_virtualenv(virtual_env_name):
         """
         It creates a virtual environment with the name you pass to it
+        
+        Args:
+          virtual_env_name (str): The name of the virtual environment you want to create.
 
-        :param virtual_env_name: The name of the virtual environment you want to create
+        Example:
+            ```py
+            create_virtualenv("virtual_env_name")
+            ```
+        Return:
+            None
         """
+
         if not os.path.exists(virtual_env_name):
             try:
                 os.system(f"virtualenv env_{virtual_env_name}")
@@ -520,10 +656,17 @@ def run_cmd_onlyenv():
     _name_env = create_name_env()
     print(f"your env name is `{bcolors.OKGREEN}{_name_env}{bcolors.ENDC}`")
     create_virtualenv(_name_env)
-    create_setting_vscode(_name_env)
+    dir_name_only = os.path.basename(os.getcwd()) # get name dir main
+    create_setting_vscode(dir_name_only)
 
 
 def run_cmd_clean():
+    """
+    It finds the directory of the environment that you're currently in, and then runs the command `conda
+    clean --all` in that directory
+    Return:
+        None
+    """
     find_dir_env()
 
 
@@ -531,7 +674,15 @@ def check_command(args):
     """
     It checks the command that the user has entered and then runs the appropriate function
 
-    :param args: The arguments passed to the script
+    Args:
+        args (str): The arguments passed to the script
+
+    Example:
+        ```py
+        check_command("new" or "install" or "uninstall" or "update" or "onlyenv")
+        ```
+    Return:
+        None
     """
     if args.__dict__["command"] == "new":
         run_cmd_new(args)
@@ -570,6 +721,8 @@ def check_command(args):
 def main():
     """
     It takes the arguments from the command line and passes them to the create_project_all function
+    Return:
+        None
     """
     args = setup_parse()
     version: str = "v0.0.11"
