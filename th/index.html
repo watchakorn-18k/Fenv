@@ -344,16 +344,71 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
-    Commands
+  <a href="#_2" class="md-nav__link">
+    ติดตั้ง
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
-    Project layout
+  <a href="#_3" class="md-nav__link">
+    คำสั่ง
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    โครงสร้าง
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    การติดตั้ง
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    การใช้งาน
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#virtualenv" class="md-nav__link">
+    สร้างโฟลเดอร์โครงการใหม่พร้อม virtualenv และไฟล์พื้นฐาน:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    เปิดใช้งานสภาพแวดล้อมเสมือนจริง:
+  </a>
+  
+    <nav class="md-nav" aria-label="เปิดใช้งานสภาพแวดล้อมเสมือนจริง:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-windows" class="md-nav__link">
+    for windows
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-linux" class="md-nav__link">
+    for linux
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -391,19 +446,78 @@
 <li>เพิ่ม <code>black</code> สำหรับจัดการรูปแบบ python</li>
 <li>แพ็คเกจสามารถติดตั้งและถอนการติดตั้งและเพิ่มลงในไฟล์ <code>requirements.txt</code> พร้อมๆกันในเวลาเดียวกัน</li>
 </ul>
-<h2 id="commands">Commands<a class="headerlink" href="#commands" title="Permanent link">¤</a></h2>
-<ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
-</ul>
-<h2 id="project-layout">Project layout<a class="headerlink" href="#project-layout" title="Permanent link">¤</a></h2>
-<pre><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
+<h2 id="_2">ติดตั้ง<a class="headerlink" href="#_2" title="Permanent link">¤</a></h2>
+<p><div class="highlight"><pre><span></span><code>pip install fenv
+</code></pre></div>
+or
+<div class="highlight"><pre><span></span><code>pip install --upgrade fenv
+</code></pre></div></p>
+<h2 id="_3">คำสั่ง<a class="headerlink" href="#_3" title="Permanent link">¤</a></h2>
+<div class="highlight"><pre><span></span><code>$ fenv -h
+
+Usage:
+  fenv [options] &lt;command&gt;
+
+Commands:
+
+    new       Create a new project
+    install   Install packages
+    uninstall Uninstall packages
+    update    Update packages to file requirements.txt
+    onlyenv   Create only virtualenv and no create base file
+
+General Options:
+  -h, --help  Show this help message and exit
+</code></pre></div>
+<h2 id="_4">โครงสร้าง<a class="headerlink" href="#_4" title="Permanent link">¤</a></h2>
+<pre><code>|_ .vscode/
+|    |_ settings.json
+|
+|_ env_name/
+|    |_ Lib
+|    |_ Scripts
+|    |_ .gitignore
+|    |_ pyvenv
+|
+|_ main.py
+|_ readme.md
+|_ requirements.txt
 </code></pre>
+<h2 id="_5">การติดตั้ง<a class="headerlink" href="#_5" title="Permanent link">¤</a></h2>
+<p>ในการติดตั้ง Fenv เพียงเรียกใช้คำสั่งต่อไปนี้:</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>fenv
+</code></pre></div>
+<h2 id="_6">การใช้งาน<a class="headerlink" href="#_6" title="Permanent link">¤</a></h2>
+<p>Fenv ช่วยให้การเริ่มต้นโครงการ Python ใหม่เป็นเรื่องง่ายด้วยการจัดเตรียมโซลูชันแบบ all-in-one นี่คือวิธีการใช้งาน:</p>
+<h2 id="virtualenv">สร้างโฟลเดอร์โครงการใหม่พร้อม virtualenv และไฟล์พื้นฐาน:<a class="headerlink" href="#virtualenv" title="Permanent link">¤</a></h2>
+<div class="highlight"><pre><span></span><code>fenv<span class="w"> </span>new<span class="w"> </span>&lt;project_folder&gt;
+</code></pre></div>
+<h2 id="_7">เปิดใช้งานสภาพแวดล้อมเสมือนจริง:<a class="headerlink" href="#_7" title="Permanent link">¤</a></h2>
+<h3 id="for-windows">for windows<a class="headerlink" href="#for-windows" title="Permanent link">¤</a></h3>
+<div class="highlight"><pre><span></span><code>cd project_folder
+source env/bin/activate
+</code></pre></div>
+<h3 id="for-linux">for linux<a class="headerlink" href="#for-linux" title="Permanent link">¤</a></h3>
+<div class="highlight"><pre><span></span><code>cd project_folder
+source env/bin/activate
+</code></pre></div>
+<h1 id="windows">คำสั่งสำหรับ Windows เท่านั้น<a class="headerlink" href="#windows" title="Permanent link">¤</a></h1>
+<h2 id="_8">ติดตั้งแพ็คเกจ<a class="headerlink" href="#_8" title="Permanent link">¤</a></h2>
+<div class="highlight"><pre><span></span><code>fenv install &lt;package_name&gt;
+</code></pre></div>
+<p>ติดตั้งแพ็คเกจและเพิ่มลงใน requirement.txt หากไม่ใส่ชื่อแพ็คเกจ ข้อความ <code>Maybe you forgot to put the name of the package to install? for example fenv install &lt;package_name&gt;</code> จะปรากฏขึ้น</p>
+<h2 id="_9">ถอนการติดตั้งแพ็คเกจ<a class="headerlink" href="#_9" title="Permanent link">¤</a></h2>
+<div class="highlight"><pre><span></span><code>fenv uninstall &lt;package_name&gt;
+</code></pre></div>
+<p>ถอนการติดตั้งแพ็คเกจและลบออกจาก requirement.txt</p>
+<h2 id="requirementstxt">อัปเดต requirements.txt<a class="headerlink" href="#requirementstxt" title="Permanent link">¤</a></h2>
+<div class="highlight"><pre><span></span><code>fenv update &lt;package_name&gt;
+</code></pre></div>
+<p>อัปเดตแพ็คเกจทั้งหมดลงในไฟล์ requirement.txt</p>
+<h2 id="virtualenv_1">สร้างแค่ virtualenv เท่านั้น<a class="headerlink" href="#virtualenv_1" title="Permanent link">¤</a></h2>
+<div class="highlight"><pre><span></span><code>fenv onlyenv
+</code></pre></div>
+<p>สร้าง virtualenv ด้วยชื่อที่กำหนดเองหรือชื่ออัตโนมัติ 2 ตัวเลือก จากนั้นสร้างไฟล์ settings.json สำหรับ vscode ไม่ได้สร้างไฟล์พื้นฐานเพิ่มให้</p>
 
 
 

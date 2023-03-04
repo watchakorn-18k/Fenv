@@ -336,8 +336,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#create-a-new-project-folder" class="md-nav__link">
-    Create a new project folder:
+  <a href="#create-a-new-project-with-virtualenv-and-basic-files" class="md-nav__link">
+    Create a new project with virtualenv and basic files:
   </a>
   
 </li>
@@ -374,19 +374,39 @@
     Command for windows only
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Command for windows only">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#install-packages" class="md-nav__link">
     Install packages
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#install-packages_1" class="md-nav__link">
-    Install packages
+        
+          <li class="md-nav__item">
+  <a href="#uninstall-packages" class="md-nav__link">
+    Uninstall packages
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-requirementstxt" class="md-nav__link">
+    Update requirements.txt
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-virtualenv-only" class="md-nav__link">
+    Create virtualenv only
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -452,8 +472,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#create-a-new-project-folder" class="md-nav__link">
-    Create a new project folder:
+  <a href="#create-a-new-project-with-virtualenv-and-basic-files" class="md-nav__link">
+    Create a new project with virtualenv and basic files:
   </a>
   
 </li>
@@ -490,19 +510,39 @@
     Command for windows only
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Command for windows only">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#install-packages" class="md-nav__link">
     Install packages
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#install-packages_1" class="md-nav__link">
-    Install packages
+        
+          <li class="md-nav__item">
+  <a href="#uninstall-packages" class="md-nav__link">
+    Uninstall packages
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-requirementstxt" class="md-nav__link">
+    Update requirements.txt
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-virtualenv-only" class="md-nav__link">
+    Create virtualenv only
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -529,15 +569,13 @@
   
 
 
-  <h1>How-To Guides</h1>
-
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">¤</a></h2>
 <p>To install Fenv, simply run the following command:</p>
 <div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>fenv
 </code></pre></div>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">¤</a></h2>
 <p>Fenv makes it easy to get started with a new Python project by providing an all-in-one solution. Here's how to use it:</p>
-<h2 id="create-a-new-project-folder">Create a new project folder:<a class="headerlink" href="#create-a-new-project-folder" title="Permanent link">¤</a></h2>
+<h2 id="create-a-new-project-with-virtualenv-and-basic-files">Create a new project with virtualenv and basic files:<a class="headerlink" href="#create-a-new-project-with-virtualenv-and-basic-files" title="Permanent link">¤</a></h2>
 <div class="highlight"><pre><span></span><code>fenv<span class="w"> </span>new<span class="w"> </span>&lt;project_folder&gt;
 </code></pre></div>
 <h2 id="activate-the-virtual-environment">Activate the virtual environment:<a class="headerlink" href="#activate-the-virtual-environment" title="Permanent link">¤</a></h2>
@@ -549,15 +587,23 @@ source env/bin/activate
 <div class="highlight"><pre><span></span><code>cd project_folder
 source env/bin/activate
 </code></pre></div>
-<h2 id="command-for-windows-only">Command for windows only<a class="headerlink" href="#command-for-windows-only" title="Permanent link">¤</a></h2>
+<h1 id="command-for-windows-only">Command for windows only<a class="headerlink" href="#command-for-windows-only" title="Permanent link">¤</a></h1>
 <h2 id="install-packages">Install packages<a class="headerlink" href="#install-packages" title="Permanent link">¤</a></h2>
 <div class="highlight"><pre><span></span><code>fenv install &lt;package_name&gt;
 </code></pre></div>
 <p>Install the package and add it to requirements.txt If the package name is omitted, the message <code>Maybe you forgot to put the name of the package to install? for example fenv install &lt;package_name&gt;</code> is displayed.</p>
-<h2 id="install-packages_1">Install packages<a class="headerlink" href="#install-packages_1" title="Permanent link">¤</a></h2>
+<h2 id="uninstall-packages">Uninstall packages<a class="headerlink" href="#uninstall-packages" title="Permanent link">¤</a></h2>
 <div class="highlight"><pre><span></span><code>fenv uninstall &lt;package_name&gt;
 </code></pre></div>
-<p>Install the package and add it to requirements.txt</p>
+<p>Uninstall the package and delete it from requirements.txt</p>
+<h2 id="update-requirementstxt">Update requirements.txt<a class="headerlink" href="#update-requirementstxt" title="Permanent link">¤</a></h2>
+<div class="highlight"><pre><span></span><code>fenv update &lt;package_name&gt;
+</code></pre></div>
+<p>Update all packages to a file. requirements.txt</p>
+<h2 id="create-virtualenv-only">Create virtualenv only<a class="headerlink" href="#create-virtualenv-only" title="Permanent link">¤</a></h2>
+<div class="highlight"><pre><span></span><code>fenv onlyenv
+</code></pre></div>
+<p>Create a virtualenv with a custom name or an optional 2 autoname, then create a file. settings.json for vscode does not generate additional base files</p>
 
 
 

@@ -301,15 +301,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
-    Commands
+  <a href="#installer" class="md-nav__link">
+    Installer
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
-    Project layout
+  <a href="#command" class="md-nav__link">
+    Command
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layout" class="md-nav__link">
+    Layout
   </a>
   
 </li>
@@ -401,15 +408,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
-    Commands
+  <a href="#installer" class="md-nav__link">
+    Installer
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
-    Project layout
+  <a href="#command" class="md-nav__link">
+    Command
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layout" class="md-nav__link">
+    Layout
   </a>
   
 </li>
@@ -437,7 +451,10 @@
   
 
 
+<p><img alt="versions" src="https://img.shields.io/pypi/pyversions/pybadges.svg" /> <img alt="" src="https://img.shields.io/badge/-version%200.11-blue" /></p>
 <h1 id="fenv">Fenv<a class="headerlink" href="#fenv" title="Permanent link">¤</a></h1>
+<p align="center"><img src="https://cdn.discordapp.com/attachments/582486229594013696/1070509737529069689/New_Project_3.png" width=400></p>
+
 <p>Fenv is a simple and efficient tool to help you manage your virtual environments and create basic Python files with a single command. With Fenv, you can quickly generate a new project folder, establish a virtual environment within that folder, and simultaneously create the essential basic Python files all in one go. This tool is ideal for developers who frequently work on multiple Python projects and want a simple, streamlined solution for managing virtual environments.</p>
 <h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">¤</a></h2>
 <ul>
@@ -448,18 +465,42 @@
 <li>Add <code>black</code> for format python</li>
 <li>Packages can be installed and uninstalled and added to files. <code>requirements.txt</code> at the same time</li>
 </ul>
-<h2 id="commands">Commands<a class="headerlink" href="#commands" title="Permanent link">¤</a></h2>
-<ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
-</ul>
-<h2 id="project-layout">Project layout<a class="headerlink" href="#project-layout" title="Permanent link">¤</a></h2>
-<pre><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
+<h2 id="installer">Installer<a class="headerlink" href="#installer" title="Permanent link">¤</a></h2>
+<p><div class="highlight"><pre><span></span><code>pip install fenv
+</code></pre></div>
+or
+<div class="highlight"><pre><span></span><code>pip install --upgrade fenv
+</code></pre></div></p>
+<h2 id="command">Command<a class="headerlink" href="#command" title="Permanent link">¤</a></h2>
+<div class="highlight"><pre><span></span><code>$ fenv -h
+
+Usage:
+  fenv [options] &lt;command&gt;
+
+Commands:
+
+    new       Create a new project
+    install   Install packages
+    uninstall Uninstall packages
+    update    Update packages to file requirements.txt
+    onlyenv   Create only virtualenv and no create base file
+
+General Options:
+  -h, --help  Show this help message and exit
+</code></pre></div>
+<h2 id="layout">Layout<a class="headerlink" href="#layout" title="Permanent link">¤</a></h2>
+<pre><code>|_ .vscode/
+|    |_ settings.json
+|
+|_ env_name/
+|    |_ Lib
+|    |_ Scripts
+|    |_ .gitignore
+|    |_ pyvenv
+|
+|_ main.py
+|_ readme.md
+|_ requirements.txt
 </code></pre>
 
 
