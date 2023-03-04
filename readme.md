@@ -16,6 +16,11 @@ Fenv is a simple and efficient tool to help you manage your virtual environments
 ## Docs
 https://watchakorn-18k.github.io/Fenv/
 
+## Install
+```
+pip install fenv
+```
+
 
 ## Command
 
