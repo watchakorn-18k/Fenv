@@ -13,7 +13,7 @@
         <link rel="next" href="tutorials/">
       
       <link rel="icon" href="assets/logo.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.0">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
     
     
       
@@ -21,7 +21,7 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.402914a4.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.c4a75a56.min.css">
       
         
         <link rel="stylesheet" href="assets/stylesheets/palette.a0c5b2b5.min.css">
@@ -308,6 +308,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#pypi" class="md-nav__link">
+    PyPi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#command" class="md-nav__link">
     Command
   </a>
@@ -415,6 +422,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#pypi" class="md-nav__link">
+    PyPi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#command" class="md-nav__link">
     Command
   </a>
@@ -451,7 +465,7 @@
   
 
 
-<p><img alt="versions" src="https://img.shields.io/pypi/pyversions/pybadges.svg" /> <img alt="" src="https://img.shields.io/badge/-version%200.11-blue" /></p>
+<p><img alt="versions" src="https://img.shields.io/pypi/pyversions/pybadges.svg" /> <img alt="" src="https://img.shields.io/badge/-version%200.11.6-blue" /></p>
 <h1 id="fenv">Fenv<a class="headerlink" href="#fenv" title="Permanent link">¤</a></h1>
 <p align="center"><img src="https://cdn.discordapp.com/attachments/582486229594013696/1070509737529069689/New_Project_3.png" width=400></p>
 
@@ -466,42 +480,50 @@
 <li>Packages can be installed and uninstalled and added to files. <code>requirements.txt</code> at the same time</li>
 </ul>
 <h2 id="installer">Installer<a class="headerlink" href="#installer" title="Permanent link">¤</a></h2>
-<p><div class="highlight"><pre><span></span><code>pip install fenv
+<div class="highlight"><pre><span></span><code>pip install fenv
 </code></pre></div>
-or
+<p>or</p>
 <div class="highlight"><pre><span></span><code>pip install --upgrade fenv
-</code></pre></div></p>
+</code></pre></div>
+<h2 id="pypi">PyPi<a class="headerlink" href="#pypi" title="Permanent link">¤</a></h2>
+<div class="highlight"><pre><span></span><code>https://pypi.org/project/Fenv/
+</code></pre></div>
 <h2 id="command">Command<a class="headerlink" href="#command" title="Permanent link">¤</a></h2>
-<div class="highlight"><pre><span></span><code>$ fenv -h
+<div class="highlight"><pre><span></span><code>usage: fenv [-h] [-v]  ...
 
 Usage:
-  fenv [options] &lt;command&gt;
+  fenv &lt;command&gt;
 
 Commands:
 
-    new       Create a new project
-    install   Install packages
-    uninstall Uninstall packages
-    update    Update packages to file requirements.txt
-    onlyenv   Create only virtualenv and no create base file
+    new          Create a new project
+    install      Install the package and install the
+                 package via requirements.txt
+    uninstall    Uninstall packages
+    update       Package to file requirements.txt update
+                 furthermore, update the readme.md file&#39;s
+                 tree path.
+    onlyenv      Create only virtualenv and no create
+                 base file
 
 General Options:
-  -h, --help  Show this help message and exit
+  -h, --help     Show this help message and exit
+  -v, --version  check version fenv
 </code></pre></div>
 <h2 id="layout">Layout<a class="headerlink" href="#layout" title="Permanent link">¤</a></h2>
-<pre><code>|_ .vscode/
-|    |_ settings.json
-|
-|_ env_name/
-|    |_ Lib
-|    |_ Scripts
-|    |_ .gitignore
-|    |_ pyvenv
-|
-|_ main.py
-|_ readme.md
-|_ requirements.txt
-</code></pre>
+<div class="highlight"><pre><span></span><code>└── test/
+        └──.vscode/
+                └──settings.json
+        └──env_test/
+                └── Lib/
+                └── Scripts
+                └── .gitignore
+                └── pyvenv.cfg
+        └──.gitignore
+        └──main.py
+        └──readme.md
+        └──requirements.txt
+</code></pre></div>
 
 
 
@@ -514,10 +536,10 @@ General Options:
           
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
             Back to top
-          </a>
+          </button>
         
       </main>
       
@@ -584,7 +606,7 @@ General Options:
     <script id="__config" type="application/json">{"base": ".", "features": ["navigation.footer", "content.action.edit", "content.code.copy", "content.code.annotate", "navigation.top", "navigation.tabs.sticky"], "search": "assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.ce72ebac.min.js"></script>
+      <script src="assets/javascripts/bundle.efa0ade1.min.js"></script>
       
     
   </body>
