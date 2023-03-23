@@ -17,7 +17,7 @@ nav:
   - Fenv Docs: index.md
   - tutorials.md
   - How-To Guides: how-to-guides.md
-  - Class Fenv.md
+  - Class Fenv: Fenv.md
   - Class Environment All: EnvAll.md
   - Class Manage File: manage_file.md
   - Class Commands: commands.md
