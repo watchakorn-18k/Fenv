@@ -14,15 +14,25 @@ Fenv is a simple and efficient tool to help you manage your virtual environments
 - Packages can be installed and uninstalled and added to files. requirements.txt at the same time
 
 ## Docs
+
 https://watchakorn-18k.github.io/Fenv/
 
 ## Installer
+
 ```
 pip install fenv
 ```
+
 or
+
 ```
 pip install --upgrade fenv
+```
+
+## PyPi
+
+```
+https://pypi.org/project/Fenv/
 ```
 
 ## Start
@@ -31,26 +41,31 @@ pip install --upgrade fenv
 fenv new <project_folder>
 ```
 
-
 ## Command
 
 ```cmd
 $ fenv -h
 
+usage: fenv [-h] [-v]  ...
+
 Usage:
-  fenv [options] <command>
+  fenv <command>
 
 Commands:
 
-    new       Create a new project
-    install   Install packages
-    uninstall Uninstall packages
-    update    Update packages to file requirements.txt
-    onlyenv   Create only virtualenv and no create base file
+    new          Create a new project
+    install      Install the package and install the
+                 package via requirements.txt
+    uninstall    Uninstall packages
+    update       Package to file requirements.txt update
+                 furthermore, update the readme.md file's
+                 tree path.
+    onlyenv      Create only virtualenv and no create
+                 base file
 
 General Options:
-  -h, --help  Show this help message and exit
-
+  -h, --help     Show this help message and exit
+  -v, --version  check version fenv
 ```
 
 ## Build
@@ -71,20 +86,40 @@ Fenv is a powerful tool for managing virtual environments and creating basic Pyt
 
 ## Changelog
 
+### 0.0.11.6
+
+- [x] Fix bug create readme.md change `env_directory()` to `name`
+
 ### 0.0.11.5
-- [ ] added after use `fenv onlyenv` created settings then activate env one time 
+
+- [x] Added Tree path in md after generating projects , can you try command `fenv update` ![](https://i.imgur.com/vDz2Gs0.gif)
+- [x] Added create file .gitignore
+- [x] Edit readme.md small changes
+- [x] Fix if an `env` folder does not exist, the modified `fenv install <packages>` command will prompt you to confirm whether you would like to create a new `env`. If you choose not to create a new `env`, the installation will proceed using `python main` ![](https://i.imgur.com/M0shh8x.gif)
+- [x] Added command `fenv install` alone will install file requirements.txt in directory current ![](https://i.imgur.com/cgApbCa.gif)
+- [x] Added after use `fenv onlyenv` created settings then activate env one time ![](https://i.imgur.com/mwEUSrg.gif)
+
 ### 0.0.11.4
-- [x] fix bugs small
+
+- [x] Fix bugs small
+
 ### 0.0.11.3
-- [x] fix bugs settings in .vscode
-- [x] fix bugs line 609 and 624
+
+- [x] Fix bugs settings in .vscode
+- [x] Fix bugs line 609 and 624
+
 ### 0.0.11.2
-- [x] fix bugs small
+
+- [x] Fix bugs small
+
 ### 0.0.11.1
-- [x] change new pattern command `-onlyenv` to `onlyenv`
+
+- [x] Change new pattern command `-onlyenv` to `onlyenv`
+
 ### 0.0.10
-- [x] add option `-onlyenv` for create only virtualenv without base file all
-- [X] add command install for install package and add module to file requirements.txt
+
+- [x] Add option `-onlyenv` for create only virtualenv without base file all
+- [x] Add command install for install package and add module to file requirements.txt
 
 ### 0.0.9
 

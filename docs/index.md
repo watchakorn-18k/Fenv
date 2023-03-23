@@ -1,6 +1,4 @@
-
-
-![versions](https://img.shields.io/pypi/pyversions/pybadges.svg) ![](https://img.shields.io/badge/-version%200.11-blue)
+![versions](https://img.shields.io/pypi/pyversions/pybadges.svg) ![](https://img.shields.io/badge/-version%200.11.6-blue)
 
 # Fenv
 
@@ -18,46 +16,62 @@ Fenv is a simple and efficient tool to help you manage your virtual environments
 - Packages can be installed and uninstalled and added to files. `requirements.txt` at the same time
 
 ## Installer
+
 ```
 pip install fenv
 ```
+
 or
+
 ```
 pip install --upgrade fenv
+```
+
+## PyPi
+
+```
+https://pypi.org/project/Fenv/
 ```
 
 ## Command
 
 ```cmd
-$ fenv -h
+usage: fenv [-h] [-v]  ...
 
 Usage:
-  fenv [options] <command>
+  fenv <command>
 
 Commands:
 
-    new       Create a new project
-    install   Install packages
-    uninstall Uninstall packages
-    update    Update packages to file requirements.txt
-    onlyenv   Create only virtualenv and no create base file
+    new          Create a new project
+    install      Install the package and install the
+                 package via requirements.txt
+    uninstall    Uninstall packages
+    update       Package to file requirements.txt update
+                 furthermore, update the readme.md file's
+                 tree path.
+    onlyenv      Create only virtualenv and no create
+                 base file
 
 General Options:
-  -h, --help  Show this help message and exit
+  -h, --help     Show this help message and exit
+  -v, --version  check version fenv
 
 ```
 
 ## Layout
 
-    |_ .vscode/
-    |    |_ settings.json
-    |
-    |_ env_name/
-    |    |_ Lib
-    |    |_ Scripts
-    |    |_ .gitignore
-    |    |_ pyvenv
-    |
-    |_ main.py
-    |_ readme.md
-    |_ requirements.txt
+```
+└── test/
+        └──.vscode/
+                └──settings.json
+        └──env_test/
+                └── Lib/
+                └── Scripts
+                └── .gitignore
+                └── pyvenv.cfg
+        └──.gitignore
+        └──main.py
+        └──readme.md
+        └──requirements.txt
+```

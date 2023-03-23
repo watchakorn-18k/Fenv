@@ -3,51 +3,147 @@ import os
 import platform
 import re
 import random
+import fnmatch
 
 
 class bcolors:
     """It's a class that contains a bunch of variables that are strings of ANSI escape codes.
     Example:
         ```
-        bcolors.HEADER
-        bcolors.OKBLUE
-        bcolors.OKGREEN
-        bcolors.WARNING
-        bcolors.FAIL
-        bcolors.ENDC
+        Colors.HEADER
+        Colors.OKBLUE
+        Colors.OKGREEN
+        Colors.WARNING
+        Colors.FAIL
+        Colors.ENDC
         ```
     Return:
         None
     """
 
-    HEADER = "\033[95m"
-    OKBLUE = "\033[94m"
-    OKGREEN = "\033[92m"
-    WARNING = "\033[93m"
-    FAIL = "\033[91m"
-    ENDC = "\033[0m"
 
-    def __init__(self):
-        self.HEADER = ""
-        self.OKBLUE = ""
-        self.OKGREEN = ""
-        self.WARNING = ""
-        self.FAIL = ""
-        self.ENDC = ""
+class Colors:
+    ESCAPE_SEQ = {
+        "HEADER": "\033[95m",
+        "OKBLUE": "\033[94m",
+        "OKGREEN": "\033[92m",
+        "WARNING": "\033[93m",
+        "FAIL": "\033[91m",
+        "ENDC": "\033[0m",
+        "BOLD": "\033[1m",
+        "UNDERLINE": "\033[4m",
+    }
+
+    TEXT_COLORS = {
+        "BLACK": "\033[30m",
+        "RED": "\033[31m",
+        "GREEN": "\033[32m",
+        "YELLOW": "\033[33m",
+        "BLUE": "\033[34m",
+        "MAGENTA": "\033[35m",
+        "CYAN": "\033[36m",
+        "WHITE": "\033[37m",
+    }
+
+    LIGHT_COLORS = {
+        "LIGHTBLACK_EX": "\033[90m",
+        "LIGHTRED_EX": "\033[91m",
+        "LIGHTGREEN_EX": "\033[92m",
+        "LIGHTYELLOW_EX": "\033[93m",
+        "LIGHTBLUE_EX": "\033[94m",
+        "LIGHTMAGENTA_EX": "\033[95m",
+        "LIGHTCYAN_EX": "\033[96m",
+        "LIGHTWHITE_EX": "\033[97m",
+    }
+
+    COLOR256 = {
+        "PURPLE": "\033[38;5;129m",
+        "ORANGE": "\033[38;5;202m",
+        "BROWN": "\033[38;5;130m",
+        "OLIVE": "\033[38;5;142m",
+        "GOLD": "\033[38;5;214m",
+        "SILVER": "\033[38;5;188m",
+        "MAROON": "\033[38;5;52m",
+        "NAVY": "\033[38;5;21m",
+        "TEAL": "\033[38;5;29m",
+        "LIME": "\033[38;5;118m",
+        "AQUA": "\033[38;5;45m",
+        "FUSCHIA": "\033[38;5;161m",
+        "PURPLE2": "\033[38;5;98m",
+        "PLUM": "\033[38;5;88m",
+        "INDIGO": "\033[38;5;54m",
+        "TURQUOISE": "\033[38;5;80m",
+        "STEEL_BLUE": "\033[38;5;67m",
+        "ROSE": "\033[38;5;210m",
+        "HOT_PINK": "\033[38;5;200m",
+        "SALMON": "\033[38;5;173m",
+        "CORAL": "\033[38;5;203m",
+        "BEIGE": "\033[38;5;230m",
+        "KHAKI": "\033[38;5;143m",
+        "FOREST_GREEN": "\033[38;5;34m",
+        "OLIVE_GREEN": "\033[38;5;58m",
+        "LAVENDER": "\033[38;5;183m",
+        "ORCHID": "\033[38;5;170m",
+        "LILAC": "\033[38;5;134m",
+        "SKY_BLUE": "\033[38;5;117m",
+        "BABY_BLUE": "\033[38;5;152m",
+        "POWDER_BLUE": "\033[38;5;165m",
+        "SEA_GREEN": "\033[38;5;27m",
+        "PALE_GREEN": "\033[38;5;120m",
+        "SPRING_GREEN": "\033[38;5;48m",
+        "MINT_GREEN": "\033[38;5;121m",
+        "GRAY_BLUE": "\033[38;5;103m",
+        "BLUE_GRAY": "\033[38;5;104m",
+    }
+
+    def __getattr__(self, name):
+        if name in self.ESCAPE_SEQ:
+            return self.ESCAPE_SEQ[name]
+        elif name in self.TEXT_COLORS:
+            return self.TEXT_COLORS[name]
+        elif name in self.LIGHT_COLORS:
+            return self.LIGHT_COLORS[name]
+        elif name in self.COLOR256:
+            return self.COLOR256[name]
+        else:
+            raise AttributeError
 
 
+Colors = Colors()
 # Defining a variable called notice.
 notice = (
-    bcolors.OKBLUE
+    Colors.OKBLUE
     + "["
-    + bcolors.ENDC
-    + bcolors.OKGREEN
+    + Colors.ENDC
+    + Colors.OKGREEN
     + "notice"
-    + bcolors.OKBLUE
+    + Colors.OKBLUE
     + "]"
-    + bcolors.ENDC
+    + Colors.ENDC
     + " "
 )
+
+
+def env_directory():
+    """It's a function that checks if the environment directory exists.
+    Return:
+        [] : empyt list
+    """
+    folder_name = "env*"
+    return (
+        fnmatch.filter(os.listdir("."), folder_name)
+        if fnmatch.filter(os.listdir("."), folder_name) == []
+        else str(fnmatch.filter(os.listdir("."), folder_name)[0])
+    )
+
+
+def root_directory():
+    """It's a function that checks if the root directory exists.
+
+    Return:
+        str : root directory
+    """
+    return os.path.basename(os.path.abspath("."))
 
 
 def create_dir_file(path, text):
@@ -110,35 +206,35 @@ def create_folder(folder_name):
 
 def create_setting_vscode(env_path):
     """
-    It creates a file called settings.json in a directory called .vscode. 
-    
-    The file contains a JSON object with two keys: 
-    
+    It creates a file called settings.json in a directory called .vscode.
+
+    The file contains a JSON object with two keys:
+
     - python.formatting.provider
     - python.pythonPath
-    
-    The value of the first key is the string "black". 
-    
-    The value of the second key is the path to the virtual environment. 
-    
-    The function also prints a message to the console. 
-    
-    The message is a string that contains the value of the global variable notice. 
-    
-    The message also contains the string "Successfully created the .vscode/settings.json". 
-    
-    The function ends with the keyword def. 
-    
-    The function is called create_setting_vscode. 
-    
-    The function takes one argument. 
-    
-    The argument is called env_path. 
-    
-    The function begins with the keyword def. 
-    
+
+    The value of the first key is the string "black".
+
+    The value of the second key is the path to the virtual environment.
+
+    The function also prints a message to the console.
+
+    The message is a string that contains the value of the global variable notice.
+
+    The message also contains the string "Successfully created the .vscode/settings.json".
+
+    The function ends with the keyword def.
+
+    The function is called create_setting_vscode.
+
+    The function takes one argument.
+
+    The argument is called env_path.
+
+    The function begins with the keyword def.
+
     The function ends with the
-    
+
     Args:
       env_path (str): The path to the virtual environment
     Example:
@@ -154,12 +250,13 @@ def create_setting_vscode(env_path):
     print(notice + f"Successfully created the .vscode/settings.json")
 
 
-def create_file_base(name):
+def create_file_base(name, state):
     """
     It creates a file called main.py and writes a function called main() inside of it
 
     Args:
         name (str): The name of the project
+        state (str): The state of the project
     Example:
         ```py
         create_file_base("project_name")
@@ -187,6 +284,28 @@ if __name__ == "__main__":
         os.chmod(file_path, 0o777)
         print(notice + f'Successfully created the file "{file_path}"')
 
+    def generate_tree(startpath):
+        output = ""
+        for root, dirs, files in os.walk(startpath):
+            level = root.replace(startpath, "").count(os.sep)
+            if level == 0:
+                indent = "    " * (level + 1) + "│   "
+                subindent = "    " * (level + 2)
+                for d in dirs:
+                    dir_path = os.path.join(root, d)
+                    output += f"{subindent}{'└──'}{d}/\n"
+                    if d == ".vscode":
+                        output += f"{subindent}{subindent}{'└──'}settings.json\n"
+                    if d == env_directory():
+                        for i in ["Lib/", "Scripts", ".gitignore", "pyvenv.cfg"]:
+                            output += f"{subindent}{subindent}{'└──'} {i}\n"
+
+                for f in files:
+                    file_path = os.path.join(root, f)
+                    output += f"{subindent}{'└──'}{f}\n"
+        print(os.getcwd())
+        return output
+
     def create_file_readme_md():
         """
         It creates a file called readme.md and writes the markdown text to it
@@ -194,7 +313,6 @@ if __name__ == "__main__":
         markdown_path = "readme.md"
         markdown = """
 # {}
-
 A brief and descriptive title for your project.
 
 ## Description
@@ -204,12 +322,35 @@ A detailed description of the project, including its purpose, features, and any 
 ## Getting Started
 
 ```
-pip install -r requirements.txt
+git clone https://github.com/<User Name Github>/{}.git
+
+cd {}
+
+```
+
+## Installation
+
+```
+# create virtualenv auto name
+fenv onlyenv
+
+# install package in requirements.txt
+fenv install
+
 ```
 
 ## Usage
 
 Instructions on how to use the project, including any usage examples and screenshots.
+
+## Tree
+<!--- Start Tree --->
+```bash
+.
+└── {}/
+{}
+```
+<!--- End Tree --->
 
 ## Contributing
 
@@ -220,8 +361,10 @@ If you would like to contribute to the project, include a section on how to do s
 Include information about the license used for the project, such as the name of the license (e.g. MIT, Apache 2.0, etc.) and a link to the license text.
 
 """
-        with open(markdown_path, "w") as f:
-            f.write(markdown.format(name))
+        with open(markdown_path, "w", encoding="utf-8") as f:
+            f.write(
+                markdown.format(name, name, name, env_directory(), generate_tree("."))
+            )
         os.chmod(markdown_path, 0o777)
         print(notice + f'Successfully created the file "{markdown_path}"')
 
@@ -236,12 +379,65 @@ Include information about the license used for the project, such as the name of 
         os.chmod("requirements.txt", 0o777)
         print(notice + f'Successfully created the file "requirements.txt"')
 
-    create_file_main_py()
-    create_file_readme_md()
-    create_file_freeze()
+    def create_file_gitignore():
+        """
+        It creates a file called .gitignore and writes the string "*.pyc" to it
+        """
+        with open(".gitignore", "w") as f:
+            f.write(f"*.pyc\n/{env_directory()}")
+        os.chmod(".gitignore", 0o777)
+        print(notice + f'Successfully created the file ".gitignore"')
 
+    def update_file_readme_md():
+        """
+        It update a file called readme.md and writes the markdown text to it
+        """
+        markdown_path = "readme.md"
+        with open(markdown_path, "r", encoding="utf-8") as f:
+            data = f.readlines()
 
-""
+        for i, v in enumerate(data):
+            if "<!--- Start Tree --->" in v:
+                first = i
+
+            if "<!--- End Tree --->" in v:
+                last = i
+
+        data = data[: first + 1] + data[last:]
+
+        for i, v in enumerate(data):
+            if "<!--- Start Tree --->" in v:
+                data[
+                    i
+                ] = """
+<!--- Start Tree --->
+```bash
+.
+└── {}/
+{}
+```
+""".format(
+                    env_directory(), generate_tree(".")
+                )
+        with open(markdown_path, "w", encoding="utf-8") as f:
+            f.writelines(data)
+        os.chmod(markdown_path, 0o777)
+
+    """
+    create_file_base main call function
+    """
+    if state == "create":
+        create_file_main_py()
+        create_file_freeze()
+        create_file_gitignore()
+        create_file_readme_md()
+        update_file_readme_md()
+    elif state == "update":
+        update_file_readme_md()
+
+    """
+    end of create_file_base function 
+    """
 
 
 def run_install_module_base(env):
@@ -279,7 +475,7 @@ def create_project_all(name):
         print(notice + "Creating...")
         create_virtualenv(name)
         create_setting_vscode(name)
-        create_file_base(name)
+        create_file_base(name, "create")
         run_install_module_base(name)
 
 
@@ -338,7 +534,7 @@ def cmd_install_package(args):
     try:
         if platform.system() == "Windows":
             os.system(
-                f".\{name_env()}\Scripts\python.exe -m pip install {args.install}"
+                f".\{env_directory()}\Scripts\python.exe -m pip install {args.install}"
             )
             print(notice + f"Successfully installed module {args.install}")
     except TimeoutError:
@@ -359,8 +555,13 @@ def add_module_to_txt(args):
         None
 
     """
-    os.system(f"pip freeze > requirements.txt")
-    print(notice + f'Successfully module {args.install} added to "requirements.txt"')
+    if env_directory():
+        os.system(
+            f".\{env_directory()}\Scripts\python.exe -m pip freeze > requirements.txt"
+        )
+        print(
+            notice + f'Successfully module {args.install} added to "requirements.txt"'
+        )
 
 
 def find_dir_env() -> str:
@@ -378,7 +579,7 @@ def find_dir_env() -> str:
 def install_package(args):
     """
     It takes a list of packages, and installs them using the `pip` command
-    
+
     Args:
       args (str): The arguments passed to the command
     Example:
@@ -409,7 +610,7 @@ def cmd_uninstall_package(args):
     try:
         if platform.system() == "Windows":
             os.system(
-                f".\{name_env()}\Scripts\python.exe -m pip uninstall {args.uninstall}"
+                f".\{env_directory()}\Scripts\python.exe -m pip uninstall {args.uninstall}"
             )
             print(notice + f"Successfully uninstalled module {args.uninstall}")
     except TimeoutError:
@@ -419,7 +620,7 @@ def cmd_uninstall_package(args):
 def remove_module_exit_txt(args):
     """
     It removes the module from the requirements.txt file
-    
+
     Args:
       args (str): This is the argument that is passed to the function.
     Example:
@@ -443,7 +644,7 @@ def remove_module_exit_txt(args):
 def uninstall_package(args):
     """
     It will uninstall the package and remove the module exit text file
-    
+
     Args:
       args (str): The arguments passed to the script.
     Example:
@@ -474,7 +675,11 @@ def setup_parse():
         "new", type=str, help="The name of the project", nargs="?", default=None
     )
 
-    install_cmd = subparsers.add_parser("install", help="Install packages")
+    install_cmd = subparsers.add_parser(
+        "install",
+        help="Install the package and install the package via requirements.txt",
+        usage=f"{Colors.NAVY}fenv install {Colors.NAVY}<package_name>{Colors.ENDC} or {Colors.HOT_PINK}fenv install {Colors.ENDC}",
+    )
     install_cmd.add_argument(
         "install",
         type=str,
@@ -483,7 +688,11 @@ def setup_parse():
         default=None,
     )
 
-    uninstall_cmd = subparsers.add_parser("uninstall", help="Uninstall packages")
+    uninstall_cmd = subparsers.add_parser(
+        "uninstall",
+        help="Uninstall packages",
+        usage=f"{Colors.HOT_PINK}fenv uninstall <package_name>{Colors.ENDC}",
+    )
     uninstall_cmd.add_argument(
         "uninstall",
         type=str,
@@ -493,11 +702,15 @@ def setup_parse():
     )
 
     update_cmd = subparsers.add_parser(
-        "update", help="Update packages to file requirements.txt"
+        "update",
+        help="Package to file requirements.txt update furthermore, update the readme.md file's tree path.",
+        usage=f"{Colors.HOT_PINK}fenv update{Colors.ENDC}",
     )
 
     onlyenv_cmd = subparsers.add_parser(
-        "onlyenv", help="Create only virtualenv and no create base file"
+        "onlyenv",
+        help=f"Create only virtualenv and no create base file",
+        usage=f"{Colors.HOT_PINK}fenv onlyenv{Colors.ENDC}",
     )
 
     # clean_cmd = subparsers.add_parser(
@@ -508,6 +721,9 @@ def setup_parse():
     general_group.add_argument(
         "-h", "--help", action="help", help="Show this help message and exit"
     )
+    general_group.add_argument(
+        "-v", "--version", action="store_true", help="check version fenv"
+    )
 
     args = parser.parse_args()
 
@@ -517,7 +733,7 @@ def setup_parse():
 def run_cmd_new(args):
     """
     It creates a new project folder and then creates a virtual environment inside that folder
-    
+
     Args:
       args (str): The arguments passed to the command.
     Example:
@@ -534,11 +750,11 @@ def run_cmd_new(args):
         print(
             "Maybe you forgot to enter the name of the folder? for example"
             + " `"
-            + bcolors.OKGREEN
+            + Colors.MINTGREEN
             + "fenv new"
-            + bcolors.OKBLUE
+            + Colors.NAVY
             + " <project_folder>"
-            + bcolors.ENDC,
+            + Colors.ENDC,
             "`",
         )
 
@@ -546,7 +762,7 @@ def run_cmd_new(args):
 def run_cmd_install(args):
     """
     It tries to install a package, if it fails, it prints a message
-    
+
     Args:
       args (str): The arguments passed to the command.
     Example:
@@ -558,23 +774,108 @@ def run_cmd_install(args):
     """
 
     try:
-        print("Installing...")
-        install_package(args)
+        if env_directory():
+            install_package(args)
+        else:
+            while True:
+                response = input(
+                    "We couldn't find the fenv virtual environment. Would you like to set up a new one? (y/n): "
+                )
+                if (
+                    response.lower() == "y"
+                    or response.lower() == "yes"
+                    or response.lower() == ""
+                ):
+                    run_cmd_onlyenv()
+                    folder_name = "env*"
+                    folder_name_env = str(
+                        fnmatch.filter(os.listdir("."), folder_name)[0]
+                    )
+                    install_package(args)
+                    break
+                elif response.lower() == "n":
+                    install_package(args)
+                    break
     except AttributeError as err:
         print(
-            bcolors.OKGREEN
+            Colors.MINTGREEN
             + "An error was encountered, it could not be installed."
-            + bcolors.ENDC
+            + Colors.ENDC
+        )
+
+
+def install_package_all():
+    """
+    install all packages in requirements.txt file using pip install -r requirements.txt
+    """
+
+    folder_name = "env*"
+    folder_name_env = (
+        fnmatch.filter(os.listdir("."), folder_name)
+        if fnmatch.filter(os.listdir("."), folder_name) == []
+        else str(fnmatch.filter(os.listdir("."), folder_name)[0])
+    )
+    requirements_file = "requirements.txt"
+
+    def install_package_follow_env(folder_name_env):
+        if platform.system() == "Windows":
+            os.system(
+                f".\{folder_name_env}\Scripts\python.exe -m pip install -r requirements.txt"
+            )
+
+    def run_install_main(folder_name_env):
+        if folder_name_env:
+            print(
+                f"Found directory  `{Colors.MINTGREEN}{folder_name_env}{Colors.ENDC}`"
+            )
+            print(
+                f"Installing modules with  `{Colors.MINTGREEN}{folder_name_env}{Colors.ENDC}`"
+            )
+            install_package_follow_env(folder_name_env)
+            print(notice + f'Successfully installed module from "requirements.txt"')
+        else:
+            while True:
+                response = input(
+                    "We couldn't find the fenv virtual environment. Would you like to set up a new one? (y/n): "
+                )
+                if (
+                    response.lower() == "y"
+                    or response.lower() == "yes"
+                    or response.lower() == ""
+                ):
+                    run_cmd_onlyenv()
+                    folder_name = "env*"
+                    folder_name_env = str(
+                        fnmatch.filter(os.listdir("."), folder_name)[0]
+                    )
+                    print(
+                        f"Installing modules with  `{Colors.MINTGREEN}{folder_name_env}{Colors.ENDC}`"
+                    )
+                    install_package_follow_env(folder_name_env)
+                    print(
+                        notice
+                        + f'Successfully installed module from "requirements.txt"'
+                    )
+                    break
+                elif response.lower() == "n":
+                    os.system(f"pip install -r requirements.txt")
+                    break
+
+    if requirements_file in os.listdir("."):
+        run_install_main(folder_name_env)
+    else:
+        print(
+            f"Maybe you forgot to put the name of the package to ininstall? for example `{Colors.MINTGREEN}fenv ininstall{Colors.OKBLUE} <package_name>{Colors.ENDC}` \nOr you can use `{Colors.MINTGREEN}fenv ininstall{Colors.ENDC}` alone. But there must be {Colors.FAIL}{requirements_file}{Colors.ENDC} in the current directory"
         )
 
 
 def run_cmd_uninstall(args):
     """
     "A function that is called when the user runs the command "uninstall"."
-    
+
     The first line of the function is a docstring. It's a string that describes what the function does.
     It's a good idea to include a docstring for every function you write
-    
+
     Args:
       args (str): The arguments passed to the command
     Example:
@@ -586,7 +887,7 @@ def run_cmd_uninstall(args):
     """
     try:
         print(notice + "Uninstalling...")
-        # uninstall_package(args)
+        uninstall_package(args)
     except AttributeError as err:
         print(err, "An error was encountered, it could not be uninstalled.")
 
@@ -598,7 +899,6 @@ def run_cmd_onlyenv():
     Return:
         None
     """
-
 
     def create_name_env_auto() -> str:
         """
@@ -634,7 +934,7 @@ def run_cmd_onlyenv():
     def create_virtualenv(virtual_env_name):
         """
         It creates a virtual environment with the name you pass to it
-        
+
         Args:
           virtual_env_name (str): The name of the virtual environment you want to create.
 
@@ -654,9 +954,9 @@ def run_cmd_onlyenv():
         print(notice + f'Successfully created the virtualenv "{virtual_env_name}"')
 
     _name_env = create_name_env()
-    print(f"your env name is `{bcolors.OKGREEN}{_name_env}{bcolors.ENDC}`")
+    print(f"your env name is `{Colors.MINTGREEN}{_name_env}{Colors.ENDC}`")
     create_virtualenv(_name_env)
-    dir_name_only = os.path.basename(os.getcwd()) # get name dir main
+    dir_name_only = os.path.basename(os.getcwd())  # get name dir main
     create_setting_vscode(dir_name_only)
 
 
@@ -687,35 +987,29 @@ def check_command(args):
     if args.__dict__["command"] == "new":
         run_cmd_new(args)
     elif args.__dict__["command"] == "install":
-        run_cmd_install(args) if args.install != None else print(
-            "Maybe you forgot to put the name of the package to install? for example"
-            + " `"
-            + bcolors.OKGREEN
-            + "fenv install"
-            + bcolors.OKBLUE
-            + " <package_name>"
-            + bcolors.ENDC
-            + "`"
-        )
+        run_cmd_install(args) if args.install != None else install_package_all()
+
     elif args.__dict__["command"] == "uninstall":
         run_cmd_uninstall(args) if args.uninstall != None else print(
             "Maybe you forgot to put the name of the package to uninstall? for example"
             + " `"
-            + bcolors.OKGREEN
+            + Colors.MINTGREEN
             + "fenv uninstall"
-            + bcolors.OKBLUE
+            + Colors.OKBLUE
             + " <package_name>"
-            + bcolors.ENDC
+            + Colors.ENDC
             + "`"
         )
     elif args.__dict__["command"] == "update":
+        create_file_base(root_directory(), "update")
+        print(notice + "Updated tree path to readme.md")
         os.system("pip freeze > requirements.txt")
         print(notice + "Updated module all to requirements.txt")
     elif args.__dict__["command"] == "onlyenv":
         run_cmd_onlyenv()
 
-    elif args.__dict__["command"] == "clean":
-        run_cmd_clean()
+    # elif args.__dict__["command"] == "clean":
+    #     run_cmd_clean()
 
 
 def main():
@@ -725,9 +1019,20 @@ def main():
         None
     """
     args = setup_parse()
-    version: str = "v0.0.11"
-    print(f"⏩ fenv {version}") if args.__dict__["command"] == None else None
+    version: str = "v0.0.11.5"
+    print(
+        f"⏩ {Colors.LIGHTMAGENTA_EX}Hello,Fenv {Colors.POWDER_BLUE}[{Colors.MINT_GREEN}{version}{Colors.POWDER_BLUE}]{Colors.ENDC}🫡\n".center(
+            40, "-"
+        )
+    ) if args.__dict__["command"] == None else None
     check_command(args)
+
+    # Colors.HEADER
+    # Colors.OKBLUE
+    # Colors.OKGREEN
+    # Colors.WARNING
+    # Colors.FAIL
+    # Colors.ENDC
 
 
 # It's a way to make sure that the code in the `main` function is only run when the script is run.

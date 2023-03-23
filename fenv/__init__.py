@@ -1,3 +1,5 @@
+from . import *
+
 # fenv/__init__.py
 
 """Do math with your own functions.

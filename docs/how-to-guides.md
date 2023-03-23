@@ -37,6 +37,12 @@ source env/bin/activate
 ## Install packages
 
 ```
+fenv install
+```
+
+One command can be used to install packages from requirements.txt, and if Fenv's virtual environment does not exist, it will prompt the user to create it. However, an error message will be displayed if the requirements.txt file cannot be located.
+
+```
 fenv install <package_name>
 ```
 

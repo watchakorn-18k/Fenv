@@ -1,5 +1,1 @@
-{
-    "docwriter.style": "Google",
-    "python.formatting.provider": "black",
-    "editor.formatOnSave": false
-}
+{"python.formatting.provider": "black","python.pythonPath": "Fenv-Module","editor.formatOnSave": true,}

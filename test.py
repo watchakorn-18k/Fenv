@@ -1,3 +1,1 @@
-from fenv.fenv import main
-
-main()
+from fenv import fenv
