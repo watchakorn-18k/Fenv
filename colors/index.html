@@ -9,13 +9,15 @@
       
       
       
+        <link rel="prev" href="../commands/">
+      
       
       <link rel="icon" href="../assets/logo.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
     
     
       
-        <title>Fenv (เฟนวี) - Fenv</title>
+        <title>Class Colors - Fenv</title>
       
     
     
@@ -68,11 +70,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#fenv" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -103,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Fenv (เฟนวี)
+              Class Colors
             
           </span>
         </div>
@@ -361,11 +358,19 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../colors/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Class Colors
       </a>
+      
     </li>
   
 
@@ -387,92 +392,6 @@
   
   
   
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    คุณสมบัติ
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    ติดตั้ง
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    คำสั่ง
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    โครงสร้าง
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    การติดตั้ง
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    การใช้งาน
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#virtualenv" class="md-nav__link">
-    สร้างโฟลเดอร์โครงการใหม่พร้อม virtualenv และไฟล์พื้นฐาน:
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    เปิดใช้งานสภาพแวดล้อมเสมือนจริง:
-  </a>
-  
-    <nav class="md-nav" aria-label="เปิดใช้งานสภาพแวดล้อมเสมือนจริง:">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#for-windows" class="md-nav__link">
-    for windows
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#for-linux" class="md-nav__link">
-    for linux
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -487,7 +406,7 @@
                   
 
   
-    <a href="https://github.com/watchakorn-18k/Fenv/edit/master/docs/th/index.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/watchakorn-18k/Fenv/edit/master/docs/colors.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
     </a>
@@ -495,89 +414,121 @@
   
 
 
-<h1 id="fenv">Fenv (เฟนวี)<a class="headerlink" href="#fenv" title="Permanent link">¤</a></h1>
-<p>Fenv เป็นเครื่องมือที่ง่ายและมีประสิทธิภาพที่จะช่วยคุณจัดการสภาพแวดล้อมเสมือนและสร้างไฟล์ Python พื้นฐานด้วยคำสั่งเดียว ด้วย Fenv คุณสามารถสร้างโฟลเดอร์โปรเจ็กต์ใหม่ได้อย่างรวดเร็ว สร้างสภาพแวดล้อมเสมือนภายในโฟลเดอร์นั้น และสร้างไฟล์ Python พื้นฐานที่จำเป็นพร้อมกันได้ในคราวเดียว เครื่องมือนี้เหมาะสำหรับนักพัฒนาที่ทำงานในโครงการ Python หลายโครงการบ่อยๆ และต้องการวิธีการที่เรียบง่ายและมีประสิทธิภาพสำหรับการจัดการสภาพแวดล้อมเสมือนจริง</p>
-<h2 id="_1">คุณสมบัติ<a class="headerlink" href="#_1" title="Permanent link">¤</a></h2>
-<ul>
-<li>สร้างโฟลเดอร์โครงการใหม่ด้วยคำสั่งเดียว</li>
-<li>สร้างสภาพแวดล้อมเสมือนอย่างรวดเร็วภายในโฟลเดอร์โครงการ</li>
-<li>สร้างไฟล์ Python พื้นฐานที่จำเป็นพร้อมกัน</li>
-<li>เหมาะสำหรับนักพัฒนาที่ทำงานในโครงการ Python หลายโครงการ</li>
-<li>เพิ่ม <code>black</code> สำหรับจัดการรูปแบบ python</li>
-<li>แพ็คเกจสามารถติดตั้งและถอนการติดตั้งและเพิ่มลงในไฟล์ <code>requirements.txt</code> พร้อมๆกันในเวลาเดียวกัน</li>
-</ul>
-<h2 id="_2">ติดตั้ง<a class="headerlink" href="#_2" title="Permanent link">¤</a></h2>
-<p><div class="highlight"><pre><span></span><code>pip install fenv
-</code></pre></div>
-or
-<div class="highlight"><pre><span></span><code>pip install --upgrade fenv
-</code></pre></div></p>
-<h2 id="_3">คำสั่ง<a class="headerlink" href="#_3" title="Permanent link">¤</a></h2>
-<div class="highlight"><pre><span></span><code>$ fenv -h
+  <h1>Class Colors</h1>
 
-Usage:
-  fenv [options] &lt;command&gt;
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Colors</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    It&#39;s a class that contains a bunch of constants that represent colors.</span>
+<span class="sd">    Example:</span>
+<span class="sd">        Colors.RED</span>
+<span class="sd">        Colors.GREEN</span>
+<span class="sd">        Colors.YELLOW</span>
+<span class="sd">        Colors.BLUE</span>
+<span class="sd">        Colors.CYAN</span>
+<span class="sd">        Colors.MAGENTA</span>
+<span class="sd">        Colors.WHITE</span>
 
-Commands:
 
-    new       Create a new project
-    install   Install packages
-    uninstall Uninstall packages
-    update    Update packages to file requirements.txt
-    onlyenv   Create only virtualenv and no create base file
+<span class="sd">    &quot;&quot;&quot;</span>
 
-General Options:
-  -h, --help  Show this help message and exit
+    <span class="n">ESCAPE_SEQ</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;HEADER&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[95m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;OKBLUE&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[94m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;OKGREEN&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[92m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;WARNING&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[93m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;FAIL&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[91m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ENDC&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[0m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;BOLD&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[1m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;UNDERLINE&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[4m&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="n">TEXT_COLORS</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;BLACK&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[30m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;RED&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[31m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;GREEN&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[32m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;YELLOW&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[33m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;BLUE&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[34m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;MAGENTA&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[35m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;CYAN&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[36m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;WHITE&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[37m&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="n">LIGHT_COLORS</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;LIGHTBLACK_EX&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[90m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;LIGHTRED_EX&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[91m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;LIGHTGREEN_EX&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[92m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;LIGHTYELLOW_EX&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[93m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;LIGHTBLUE_EX&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[94m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;LIGHTMAGENTA_EX&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[95m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;LIGHTCYAN_EX&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[96m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;LIGHTWHITE_EX&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[97m&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="n">COLOR256</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;PURPLE&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[38;5;129m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ORANGE&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[38;5;202m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;BROWN&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[38;5;130m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;OLIVE&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[38;5;142m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;GOLD&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[38;5;214m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;SILVER&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[38;5;188m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;MAROON&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[38;5;52m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;NAVY&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[38;5;21m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;TEAL&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[38;5;29m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;LIME&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[38;5;118m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;AQUA&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[38;5;45m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;FUSCHIA&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[38;5;161m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;PURPLE2&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[38;5;98m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;PLUM&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[38;5;88m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;INDIGO&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[38;5;54m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;TURQUOISE&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[38;5;80m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;STEEL_BLUE&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[38;5;67m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ROSE&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[38;5;210m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;HOT_PINK&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[38;5;200m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;SALMON&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[38;5;173m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;CORAL&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[38;5;203m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;BEIGE&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[38;5;230m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;KHAKI&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[38;5;143m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;FOREST_GREEN&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[38;5;34m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;OLIVE_GREEN&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[38;5;58m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;LAVENDER&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[38;5;183m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ORCHID&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[38;5;170m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;LILAC&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[38;5;134m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;SKY_BLUE&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[38;5;117m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;BABY_BLUE&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[38;5;152m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;POWDER_BLUE&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[38;5;165m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;SEA_GREEN&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[38;5;27m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;PALE_GREEN&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[38;5;120m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;SPRING_GREEN&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[38;5;48m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;MINT_GREEN&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[38;5;121m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;GRAY_BLUE&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[38;5;103m&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;BLUE_GRAY&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[38;5;104m&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="k">def</span> <span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">ESCAPE_SEQ</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">ESCAPE_SEQ</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">TEXT_COLORS</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">TEXT_COLORS</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">LIGHT_COLORS</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">LIGHT_COLORS</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">COLOR256</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">COLOR256</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">AttributeError</span>
+
+    <span class="k">def</span> <span class="nf">notice</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">OKBLUE</span>
+            <span class="o">+</span> <span class="s2">&quot;[&quot;</span>
+            <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ENDC</span>
+            <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">OKGREEN</span>
+            <span class="o">+</span> <span class="s2">&quot;notice&quot;</span>
+            <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">OKBLUE</span>
+            <span class="o">+</span> <span class="s2">&quot;]&quot;</span>
+            <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ENDC</span>
+            <span class="o">+</span> <span class="s2">&quot; &quot;</span>
+        <span class="p">)</span>
 </code></pre></div>
-<h2 id="_4">โครงสร้าง<a class="headerlink" href="#_4" title="Permanent link">¤</a></h2>
-<pre><code>|_ .vscode/
-|    |_ settings.json
-|
-|_ env_name/
-|    |_ Lib
-|    |_ Scripts
-|    |_ .gitignore
-|    |_ pyvenv
-|
-|_ main.py
-|_ readme.md
-|_ requirements.txt
-</code></pre>
-<h2 id="_5">การติดตั้ง<a class="headerlink" href="#_5" title="Permanent link">¤</a></h2>
-<p>ในการติดตั้ง Fenv เพียงเรียกใช้คำสั่งต่อไปนี้:</p>
-<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>fenv
-</code></pre></div>
-<h2 id="_6">การใช้งาน<a class="headerlink" href="#_6" title="Permanent link">¤</a></h2>
-<p>Fenv ช่วยให้การเริ่มต้นโครงการ Python ใหม่เป็นเรื่องง่ายด้วยการจัดเตรียมโซลูชันแบบ all-in-one นี่คือวิธีการใช้งาน:</p>
-<h2 id="virtualenv">สร้างโฟลเดอร์โครงการใหม่พร้อม virtualenv และไฟล์พื้นฐาน:<a class="headerlink" href="#virtualenv" title="Permanent link">¤</a></h2>
-<div class="highlight"><pre><span></span><code>fenv<span class="w"> </span>new<span class="w"> </span>&lt;project_folder&gt;
-</code></pre></div>
-<h2 id="_7">เปิดใช้งานสภาพแวดล้อมเสมือนจริง:<a class="headerlink" href="#_7" title="Permanent link">¤</a></h2>
-<h3 id="for-windows">for windows<a class="headerlink" href="#for-windows" title="Permanent link">¤</a></h3>
-<div class="highlight"><pre><span></span><code>cd project_folder
-source env/bin/activate
-</code></pre></div>
-<h3 id="for-linux">for linux<a class="headerlink" href="#for-linux" title="Permanent link">¤</a></h3>
-<div class="highlight"><pre><span></span><code>cd project_folder
-source env/bin/activate
-</code></pre></div>
-<h1 id="windows">คำสั่งสำหรับ Windows เท่านั้น<a class="headerlink" href="#windows" title="Permanent link">¤</a></h1>
-<h2 id="_8">ติดตั้งแพ็คเกจ<a class="headerlink" href="#_8" title="Permanent link">¤</a></h2>
-<div class="highlight"><pre><span></span><code>fenv install &lt;package_name&gt;
-</code></pre></div>
-<p>ติดตั้งแพ็คเกจและเพิ่มลงใน requirement.txt หากไม่ใส่ชื่อแพ็คเกจ ข้อความ <code>Maybe you forgot to put the name of the package to install? for example fenv install &lt;package_name&gt;</code> จะปรากฏขึ้น</p>
-<h2 id="_9">ถอนการติดตั้งแพ็คเกจ<a class="headerlink" href="#_9" title="Permanent link">¤</a></h2>
-<div class="highlight"><pre><span></span><code>fenv uninstall &lt;package_name&gt;
-</code></pre></div>
-<p>ถอนการติดตั้งแพ็คเกจและลบออกจาก requirement.txt</p>
-<h2 id="requirementstxt">อัปเดต requirements.txt<a class="headerlink" href="#requirementstxt" title="Permanent link">¤</a></h2>
-<div class="highlight"><pre><span></span><code>fenv update &lt;package_name&gt;
-</code></pre></div>
-<p>อัปเดตแพ็คเกจทั้งหมดลงในไฟล์ requirement.txt</p>
-<h2 id="virtualenv_1">สร้างแค่ virtualenv เท่านั้น<a class="headerlink" href="#virtualenv_1" title="Permanent link">¤</a></h2>
-<div class="highlight"><pre><span></span><code>fenv onlyenv
-</code></pre></div>
-<p>สร้าง virtualenv ด้วยชื่อที่กำหนดเองหรือชื่ออัตโนมัติ 2 ตัวเลือก จากนั้นสร้างไฟล์ settings.json สำหรับ vscode ไม่ได้สร้างไฟล์พื้นฐานเพิ่มให้</p>
 
 
 
@@ -599,6 +550,27 @@ source env/bin/activate
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../commands/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Class Commands" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  Previous
+                </span>
+                Class Commands
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
