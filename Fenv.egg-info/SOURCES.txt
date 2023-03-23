@@ -6,4 +6,8 @@ Fenv.egg-info/entry_points.txt
 Fenv.egg-info/requires.txt
 Fenv.egg-info/top_level.txt
 fenv/__init__.py
+fenv/create_file_base.py
+fenv/env_all.py
 fenv/fenv.py
+fenv/assets/__init__.py
+fenv/assets/commands.py

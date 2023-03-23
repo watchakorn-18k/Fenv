@@ -17,13 +17,17 @@ nav:
   - Fenv Docs: index.md
   - tutorials.md
   - How-To Guides: how-to-guides.md
-  - reference.md
+  - Class Fenv.md
+  - Class Environment All: EnvAll.md
+  - Class Manage File: manage_file.md
+  - Class Commands: commands.md
+  - Class Colors: colors.md
 theme:
   language: en
-  
+
   icon:
     repo: fontawesome/brands/github
-    edit: material/pencil 
+    edit: material/pencil
     view: material/eye
   features:
     - navigation.footer
@@ -32,7 +36,7 @@ theme:
     - content.code.annotate
     - navigation.top
     - navigation.tabs.sticky
-    
+
   logo: assets/logo.png
   favicon: assets/logo.png
   direction: ltr
@@ -42,18 +46,18 @@ theme:
     - media: "(prefers-color-scheme: light)"
       scheme: default
       toggle:
-        icon: material/toggle-switch-off-outline 
+        icon: material/toggle-switch-off-outline
         name: Switch to dark mode
 
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      toggle: 
+      toggle:
         icon: material/toggle-switch
         name: Switch to light mode
 extra:
   generator: false
-  
+
   alternate:
     - name: English
       link: /Fenv/
@@ -72,9 +76,9 @@ plugins:
         python:
           paths: [src]
           import:
-          - https://docs.python.org/3/objects.inv
-          - https://mkdocstrings.github.io/objects.inv
-          - https://mkdocstrings.github.io/griffe/objects.inv
+            - https://docs.python.org/3/objects.inv
+            - https://mkdocstrings.github.io/objects.inv
+            - https://mkdocstrings.github.io/griffe/objects.inv
           options:
             docstring_style: google
             docstring_options:
@@ -82,7 +86,7 @@ plugins:
             merge_init_into_class: yes
             separate_signature: yes
             show_root_full_path: no
-            
+
 copyright: Copyright &copy; 2022 - wk-18k
 repo_url: https://github.com/watchakorn-18k/Fenv
 repo_name: watchakorn-18k/Fenv

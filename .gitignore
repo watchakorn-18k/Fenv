@@ -1,9 +1,2 @@
+*.pyc
 /env
-doc_upload.md
-/__pycache__
-__pycache__/
-.idea
-test
-site
-build
-test/

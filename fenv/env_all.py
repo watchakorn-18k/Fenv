@@ -19,7 +19,7 @@ class EnvAll:
             else str(fnmatch.filter(os.listdir("."), self.folder_name)[0])
         )
 
-    def get_root_dir_name():
+    def get_root_dir_name(self):
         """It's a function that checks if the root directory exists.
 
         Return:
