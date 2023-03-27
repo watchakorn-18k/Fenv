@@ -23,8 +23,6 @@ https://watchakorn-18k.github.io/Fenv/
 pip install fenv
 ```
 
-
-
 or
 
 ```
@@ -70,16 +68,16 @@ General Options:
   -v, --version  check version fenv
 ```
 
+## Install via setup.py
+
+```
+pip install --editable .
+```
+
 ## Build
 
 ```
 python setup.py sdist bdist_wheel
-```
-
-## Testing
-
-```
-pip install --editable .
 ```
 
 ## Conclusion
@@ -89,8 +87,9 @@ Fenv is a powerful tool for managing virtual environments and creating basic Pyt
 ## Changelog
 
 ### 0.0.11.7
+
 - [] Add command `fenv clean` to clean packages
-- [x] Support command all in Linux 
+- [x] Support command all in Linux
 
 ### 0.0.11.6
 
