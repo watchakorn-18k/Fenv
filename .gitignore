@@ -1,4 +1,5 @@
 *.pyc
 /env
-site/
+/site
+
 doc_upload.md
