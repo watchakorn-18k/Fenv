@@ -1,4 +1,8 @@
-from fenv import main
+
+def main():
+    pass
 
 
-main()
+if __name__ == "__main__":
+    main()
+        

@@ -9,6 +9,7 @@ fenv/__init__.py
 fenv/env_all.py
 fenv/fenv.py
 fenv/manage_file.py
+fenv/state_env.py
 fenv/assets/__init__.py
 fenv/assets/commands.py
 fenv/customizes/__init__.py

@@ -128,7 +128,7 @@ class CreateFileBaseAndUpdate:
         """
         if os.path.exists(self.name):
             os.chdir(self.name)
-            print(f"virtualenv env_{self.name}")
+            print(f"createing virtualenv env_{self.name}...")
             os.system(f"virtualenv env_{self.name}")
 
         print(self.notice + f'Successfully created the virtualenv "{self.name}"')
@@ -170,6 +170,19 @@ class CreateFileBaseAndUpdate:
             print(self.notice + f'Successfully updated the file "requirements.txt"')
             os.system(
                 f".\env_{self.name}\Scripts\python.exe -m pip install --upgrade pip"
+            )
+
+        elif platform.system() == "Linux":
+            os.system(
+                f"bash -c 'source env_{self.name}/bin/activate  && pip install -r requirements.txt'"
+            )
+            print(self.notice + f'Successfully installed module in "requirements.txt"')
+            os.system(
+                f"bash -c 'source env_{self.name}/bin/activate  && pip freeze > requirements.txt'"
+            )
+            print(self.notice + f'Successfully updated the file "requirements.txt"')
+            os.system(
+                f"bash -c 'source env_{self.name}/bin/activate  && pip install --upgrade pip'"
             )
 
     def create_folder(self):
@@ -317,6 +330,13 @@ class InstallModule:
                 print(
                     f"{self.notice} Successfully installed {self.package_name.install}"
                 )
+            elif platform.system() == "Linux":
+                os.system(
+                    f"bash -c 'source {self.env_directory}/bin/activate  && pip install {self.package_name.install}'"
+                )
+                print(
+                    f"{self.notice} Successfully installed {self.package_name.install}"
+                )
         except TimeoutError as e:
             print(e)
 
@@ -335,9 +355,14 @@ class InstallModule:
 
         """
         if self.env_directory:
-            os.system(
-                f".\{self.env_directory}\Scripts\python.exe -m pip freeze > requirements.txt"
-            )
+            if platform.system() == "Windows":
+                os.system(
+                    f".\{self.env_directory}\Scripts\python.exe -m pip freeze > requirements.txt"
+                )
+            elif platform.system() == "Linux":
+                os.system(
+                    f"bash -c 'source {self.env_directory}/bin/activate  && pip freeze > requirements.txt'"
+                )
             print(
                 self.notice
                 + f'Successfully module {self.package_name.install} added to "requirements.txt"'
@@ -405,6 +430,10 @@ class InstallModule:
                 os.system(
                     f".\{folder_name_env}\Scripts\python.exe -m pip install -r requirements.txt"
                 )
+            elif platform.system() == "Linux":
+                os.system(
+                    f"bash -c 'source {folder_name_env}/bin/activate && pip install -r requirements.txt'"
+                )
 
         def run_install_main(folder_name_env):
             if folder_name_env:
@@ -440,7 +469,7 @@ class InstallModule:
                         install_package_follow_env(folder_name_env)
                         print(
                             self.notice
-                            + f'Successfully installed module from "requirements.txt"'
+                            + f'Successfully installed modules from "requirements.txt"'
                         )
                         break
                     elif response.lower() == "n":
@@ -482,10 +511,14 @@ class UninstallModule:
                 os.system(
                     f".\{self.env_directory}\Scripts\python.exe -m pip uninstall {self.package_name.uninstall}"
                 )
-                print(
-                    self.notice
-                    + f"Successfully uninstalled module {self.package_name.uninstall}"
+            elif platform.system() == "Linux":
+                os.system(
+                    f"bash -c 'source {self.env_directory}/bin/activate && pip uninstall {self.package_name.uninstall} -y'"
                 )
+            print(
+                self.notice
+                + f"Successfully uninstalled module {self.package_name.uninstall}"
+            )
         except TimeoutError:
             print(TimeoutError)
 
@@ -494,7 +527,7 @@ class UninstallModule:
             os.system(f"pip freeze > requirements.txt")
             print(
                 self.notice
-                + f'Successfully removed module {self.package_name.uninstall} exit from "requirements.txt"'
+                + f'Successfully uninstalled module {self.package_name.uninstall} exit from "requirements.txt"'
             )
         except Exception as e:
             print(f"Error: {e}")
