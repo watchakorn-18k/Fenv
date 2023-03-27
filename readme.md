@@ -86,6 +86,8 @@ Fenv is a powerful tool for managing virtual environments and creating basic Pyt
 
 ## Changelog
 
+### 0.0.11.7
+
 ### 0.0.11.6
 
 - [x] Fix bug create readme.md change `env_directory()` to `name`
