@@ -378,7 +378,7 @@ class InstallModule:
                         self.install_required_package()
                         break
                     elif response.lower() == "n":
-                        self.nstall_required_package()
+                        self.install_required_package()
                         break
         except AttributeError as err:
             print(

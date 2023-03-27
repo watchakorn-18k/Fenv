@@ -4,3 +4,5 @@
 upload_secret.md
 doc_upload.md
 /Fenv.egg-info
+/fenv/__pycache__
+/.vscode
