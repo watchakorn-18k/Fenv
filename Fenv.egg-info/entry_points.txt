@@ -1,4 +1,0 @@
-
-    [console_scripts]
-    fenv=fenv.fenv:main
-    
