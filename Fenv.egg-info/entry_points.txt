@@ -1,2 +1,4 @@
-[console_scripts]
-fenv = fenv.fenv:main
+
+    [console_scripts]
+    fenv=fenv.fenv:main
+    
