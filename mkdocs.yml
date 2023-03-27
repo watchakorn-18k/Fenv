@@ -38,7 +38,7 @@ theme:
     - navigation.tabs.sticky
 
   logo: assets/logo.png
-  favicon: assets/logo.png
+  favicon: assets/android-chrome-512x512.png
   direction: ltr
   name: material
   palette:
