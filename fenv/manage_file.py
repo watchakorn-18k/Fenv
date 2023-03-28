@@ -532,7 +532,7 @@ class UninstallModule:
                 )
                 for i in package_dependency_list:
                     os.system(
-                        f".\{self.env_directory}\Scripts\python.exe -m pip uninstall {i} -y"
+                        f"bash -c 'source {self.env_directory}/bin/activate && pip uninstall {i} -y'"
                     )
             print(
                 self.notice
