@@ -1,5 +1,6 @@
 """ Module manage create file """
 import os
+import shutil
 import platform
 import re
 import random
@@ -558,10 +559,14 @@ class UninstallModule:
             print(err, "An error was encountered, it could not be uninstalled.")
 
 
-class Cleanup:
+class Cleanup(CreateFileBaseAndUpdate):
     def __init__(self) -> None:
+        self.colors = Colors()
+        self.notice = Colors().notice()
+        self.commands = Commands()
         self.path_lib_all = EnvAll().get_path_lib_all()
         self.lib_default_env = EnvAll().get_lib_default_env()
+        self.env_name = EnvAll().get_env_name()
 
     def run_process(self):
         print("😵Cominig Soon...")
@@ -581,8 +586,36 @@ class Cleanup:
         if len(result) > 0:
             for item in result:
                 if os.path.isdir(item):
-                    os.rmdir(item)
+                    shutil.rmtree(item)
+                    print(
+                        self.notice
+                        + f"{self.colors.SALMON}{item}{self.colors.ENDC} has been removed"
+                    )
                 else:
                     os.remove(item)
+                    print(
+                        self.notice
+                        + f"{self.colors.SALMON}{item}{self.colors.ENDC} has been removed"
+                    )
         os.chdir("../../..")
-        print(os.getcwd())
+        print(
+            self.notice
+            + f"{self.colors.SKY_BLUE}All the libraries have been removed.{self.colors.ENDC}"
+        )
+        if platform.system() == "Windows":
+            os.system(
+                f".\env_{self.env_name }\Scripts\python.exe -m pip freeze > requirements.txt"
+            )
+            print(
+                self.notice
+                + f'{self.colors.SKY_BLUE}Successfully updated the file "requirements.txt"{self.colors.ENDC}'
+            )
+
+        elif platform.system() == "Linux":
+            os.system(
+                f"bash -c 'source env_{self.env_name }/bin/activate  && pip freeze > requirements.txt'"
+            )
+            print(
+                self.notice
+                + f'{self.colors.SKY_BLUE}Successfully updated the file "requirements.txt"{self.colors.ENDC}'
+            )

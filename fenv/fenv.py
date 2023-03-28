@@ -155,7 +155,11 @@ def check_command(args):
         OnlyVirtualEnv().run_process()
 
     elif args.__dict__["command"] == "clean":
-        Cleanup().remove_lib_not_default_in_env()
+        question = input(
+            "Do you want to delete all packages in requirements.txt out? (y/n) "
+        ).lower()
+        if question == "y" or question == "":
+            Cleanup().remove_lib_not_default_in_env()
 
 
 def main():
