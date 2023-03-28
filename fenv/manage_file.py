@@ -554,7 +554,7 @@ class UninstallModule:
                 )
             print(
                 self.notice
-                + f'Successfully uninstalled module {self.colors.LIGHTGREEN_EX}{self.package_name.uninstall}{self.colors.ENDC}exit from "{self.colors.ORCHID}requirements.txt{self.colors.ENDC}"'
+                + f'Successfully uninstalled module {self.colors.LIGHTGREEN_EX}{self.package_name.uninstall}{self.colors.ENDC} exit from "{self.colors.ORCHID}requirements.txt{self.colors.ENDC}"'
             )
         except Exception as e:
             print(f"Error: {e}")
