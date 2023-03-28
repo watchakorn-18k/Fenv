@@ -192,9 +192,6 @@ class CreateFileBaseAndUpdate:
         """
         It creates a folder with the name of the argument passed to it
 
-        Args:
-            folder_name (str): The name of the folder you want to create
-
         Example:
             ```py
             create_folder("project_name")
@@ -610,6 +607,8 @@ class UninstallModule:
 
 
 class Cleanup(CreateFileBaseAndUpdate):
+    """Module for clean packages"""
+
     def __init__(self) -> None:
         self.colors = Colors()
         self.notice = Colors().notice()
@@ -617,9 +616,6 @@ class Cleanup(CreateFileBaseAndUpdate):
         self.path_lib_all = EnvAll().get_path_lib_all()
         self.lib_default_env = EnvAll().get_lib_default_env()
         self.env_name = EnvAll().get_env_name()
-
-    def run_process(self):
-        print("😵Cominig Soon...")
 
     def remove_lib_not_default_in_env(self):
         """

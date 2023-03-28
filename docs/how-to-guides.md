@@ -32,7 +32,7 @@ cd project_folder
 source env/bin/activate
 ```
 
-# Command for windows only
+# Command for windows and linux only
 
 ## Install packages
 
@@ -71,3 +71,11 @@ fenv onlyenv
 ```
 
 Create a virtualenv with a custom name or an optional 2 autoname, then create a file. settings.json for vscode does not generate additional base files
+
+## Cleanup packages all
+
+```
+fenv clean
+```
+
+Clean, remove all packages like new.

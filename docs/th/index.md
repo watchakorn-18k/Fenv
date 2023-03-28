@@ -12,14 +12,16 @@ Fenv เป็นเครื่องมือที่ง่ายและม
 - แพ็คเกจสามารถติดตั้งและถอนการติดตั้งและเพิ่มลงในไฟล์ `requirements.txt` พร้อมๆกันในเวลาเดียวกัน
 
 ## ติดตั้ง
+
 ```
 pip install fenv
 ```
+
 or
+
 ```
 pip install --upgrade fenv
 ```
-
 
 ## คำสั่ง
 
@@ -100,6 +102,7 @@ fenv install <package_name>
 ```
 
 ติดตั้งแพ็คเกจและเพิ่มลงใน requirement.txt หากไม่ใส่ชื่อแพ็คเกจ ข้อความ `Maybe you forgot to put the name of the package to install? for example fenv install <package_name>` จะปรากฏขึ้น
+
 ## ถอนการติดตั้งแพ็คเกจ
 
 ```

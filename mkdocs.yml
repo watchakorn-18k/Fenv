@@ -60,10 +60,10 @@ extra:
 
   alternate:
     - name: English
-      link: /Fenv/
+      link: /
       lang: en
     - name: ไทย
-      link: /Fenv/th/
+      link: /th/
       lang: th
   social:
     - icon: fontawesome/brands/github

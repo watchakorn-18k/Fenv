@@ -58,6 +58,11 @@ class EnvAll:
                     self.config.write(configfile)
 
     def get_lib_default_env(self):
+        """
+        It reads a config file, gets a string, splits it into a list, and returns the list
+        Return:
+            data_list : list
+        """
         self.config.read(rf"{self.get_env_name()}/fenv.cfg")
 
         self.data_string = self.config.get("fenv", "default_lib")
@@ -66,6 +71,11 @@ class EnvAll:
         return self.data_list
 
     def get_path_lib_all(self):
+        """
+        It's a function that checks if the environment directory exists.
+        Return:
+            path_lib_all : str
+        """
         if platform.system() == "Windows":
             return f"{self.get_env_name()}\Lib\site-packages"
         elif platform.system() == "Linux":

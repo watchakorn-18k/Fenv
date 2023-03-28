@@ -18,7 +18,7 @@ Install the modules you want to install. After the installation is complete add 
 
 ## `fenv uninstall <package_name>`
 
-<p align="center"><img src="https://cdn.discordapp.com/attachments/581018943041306641/1088492403729637436/bywcTAJ.gif" width=80%></p>
+<p align="center"><img src="https://cdn.discordapp.com/attachments/581018943041306641/1090138658151084052/oZ7LMN9.gif" width=80%></p>
 
 Uninstall the modules you want to uninstall. After the uninstallation is complete add the module name to the file. automatic requirements.txt
 
@@ -27,3 +27,9 @@ Uninstall the modules you want to uninstall. After the uninstallation is complet
 <p align="center"><img src="https://cdn.discordapp.com/attachments/581018943041306641/1088492906333077514/mwEUSrg.gif" width=80%></p>
 
 Create a virtualenv with settings to connect the interpreter to vscode and format the code with black.
+
+## `fenv clean`
+
+<p align="center"><img src="https://cdn.discordapp.com/attachments/581018943041306641/1090138275198541824/QPkGn0F.gif" width=80%></p>
+
+Clean, remove all packages like new.

@@ -1,4 +1,4 @@
-![versions](https://img.shields.io/pypi/pyversions/pybadges.svg) ![](https://img.shields.io/badge/-version%200.11.6-blue)
+![versions](https://img.shields.io/pypi/pyversions/pybadges.svg) ![](https://img.shields.io/badge/-version%200.11.7-blue)
 
 # Fenv
 
