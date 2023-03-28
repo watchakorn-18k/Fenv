@@ -1,6 +1,7 @@
 """ Module manage create file """
 import os
 import shutil
+import subprocess
 import platform
 import re
 import random
@@ -324,22 +325,25 @@ class InstallModule:
 
         The problem is that it doesn't work
         """
-        print(f"{self.notice} Installing {self.package_name.install}")
+        print(
+            f"{self.notice} Installing {self.colors.PURPLE}{self.package_name.install}{self.colors.ENDC}{self.colors.SEA_GREEN}"
+        )
         try:
             if platform.system() == "Windows":
                 os.system(
                     rf".\{self.env_directory}\Scripts\python.exe -m pip install {self.package_name.install}"
                 )
                 print(
-                    f"{self.notice} Successfully installed {self.package_name.install}"
+                    f"{self.notice}Successfully installed {self.colors.PURPLE}{self.package_name.install}{self.colors.ENDC}"
                 )
             elif platform.system() == "Linux":
                 os.system(
                     f"bash -c 'source {self.env_directory}/bin/activate  && pip install {self.package_name.install}'"
                 )
                 print(
-                    f"{self.notice} Successfully installed {self.package_name.install}"
+                    f"{self.notice} Successfully installed {self.colors.PURPLE}{self.package_name.install}{self.colors.ENDC}"
                 )
+
         except TimeoutError as e:
             print(e)
 
@@ -368,7 +372,7 @@ class InstallModule:
                 )
             print(
                 self.notice
-                + f'Successfully module {self.package_name.install} added to "requirements.txt"'
+                + f'Successfully module {self.colors.PURPLE}{self.package_name.install}{self.colors.ENDC} added to "{self.colors.SEA_GREEN}requirements.txt{self.colors.ENDC}"'
             )
 
     def install_package_only(self):
@@ -509,28 +513,48 @@ class UninstallModule:
         Return:
             None
         """
+
         try:
+            package_dependency_list = self.pip_show_to_dict()["Requires"].split(", ")
+            print(self.notice + f"Uninstalling...{self.colors.ORANGE}")
             if platform.system() == "Windows":
                 os.system(
-                    f".\{self.env_directory}\Scripts\python.exe -m pip uninstall {self.package_name.uninstall}"
+                    f".\{self.env_directory}\Scripts\python.exe -m pip uninstall {self.package_name.uninstall} -y"
                 )
+                for i in package_dependency_list:
+                    os.system(
+                        f".\{self.env_directory}\Scripts\python.exe -m pip uninstall {i} -y"
+                    )
+
             elif platform.system() == "Linux":
                 os.system(
                     f"bash -c 'source {self.env_directory}/bin/activate && pip uninstall {self.package_name.uninstall} -y'"
                 )
+                for i in package_dependency_list:
+                    os.system(
+                        f".\{self.env_directory}\Scripts\python.exe -m pip uninstall {i} -y"
+                    )
             print(
                 self.notice
-                + f"Successfully uninstalled module {self.package_name.uninstall}"
+                + f"Successfully uninstalled module {self.colors.LIGHTGREEN_EX}{self.package_name.uninstall}{self.colors.ENDC}"
             )
         except TimeoutError:
             print(TimeoutError)
 
     def remove_module_exit_txt(self):
         try:
-            os.system(f"pip freeze > requirements.txt")
+            # os.system(f"pip freeze > requirements.txt")
+            if platform.system() == "Windows":
+                os.system(
+                    f".\{self.env_directory}\Scripts\python.exe -m pip freeze > requirements.txt"
+                )
+            elif platform.system() == "Linux":
+                os.system(
+                    f"bash -c 'source {self.env_directory}/bin/activate && pip freeze > requirements.txt'"
+                )
             print(
                 self.notice
-                + f'Successfully uninstalled module {self.package_name.uninstall} exit from "requirements.txt"'
+                + f'Successfully uninstalled module {self.colors.LIGHTGREEN_EX}{self.package_name.uninstall}{self.colors.ENDC}exit from "{self.colors.ORCHID}requirements.txt{self.colors.ENDC}"'
             )
         except Exception as e:
             print(f"Error: {e}")
@@ -552,11 +576,37 @@ class UninstallModule:
             None
         """
         try:
-            print(self.notice + "Uninstalling...")
             self.cmd_uninstall_package()
             self.remove_module_exit_txt()
         except AttributeError as err:
             print(err, "An error was encountered, it could not be uninstalled.")
+
+    def pip_show_to_dict(self):
+        result = {}
+        try:
+            # script
+            if platform.system() == "Windows":
+                output = subprocess.check_output(
+                    f".\\{self.env_directory}\\Scripts\\python.exe -m pip show {self.package_name.uninstall}",
+                    shell=True,
+                ).decode("utf-8")
+            elif platform.system() == "Linux":
+                output = subprocess.check_output(
+                    f"bash -c 'source {self.env_directory}/bin/activate && pip show {self.package_name.uninstall}'",
+                    shell=True,
+                ).decode("utf-8")
+            for line in output.splitlines():
+                match = re.match(r"^([^:]+):\s*(.*)$", line)
+                if match:
+                    key = match.group(1)
+                    value = match.group(2)
+                    result[key] = value
+            return result
+        except subprocess.CalledProcessError:
+            print(
+                f"{self.colors.ENDC}You have not installed the {self.colors.ORANGE}{self.package_name.uninstall}{self.colors.ENDC} package."
+            )
+            exit()
 
 
 class Cleanup(CreateFileBaseAndUpdate):

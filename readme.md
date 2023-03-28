@@ -88,6 +88,9 @@ Fenv is a powerful tool for managing virtual environments and creating basic Pyt
 
 ### 0.0.11.7
 
+- [x] `fenv uninstall <package>` can remove packages and package dependencies all in one Tested [Windows]
+  - before ![](https://i.imgur.com/2zRW1xY.gif)
+  - after ![](https://i.imgur.com/oZ7LMN9.gif)
 - [x] Add command `fenv clean` to clean packages left lib basic files pass test [Windows] and [Linux] ![](https://i.imgur.com/QPkGn0F.gif)
 - [x] Added fev.cfg file
 - [x] Support command all in Linux

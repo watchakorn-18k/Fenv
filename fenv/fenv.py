@@ -96,6 +96,7 @@ def setup_parse():
     clean_cmd = subparsers.add_parser(
         "clean", help="Clean delete all packages in requirements.txt out"
     )
+    test_cmd = subparsers.add_parser("test", help="test")
 
     general_group = parser.add_argument_group(title="General Options")
     general_group.add_argument(
@@ -160,6 +161,8 @@ def check_command(args):
         ).lower()
         if question == "y" or question == "":
             Cleanup().remove_lib_not_default_in_env()
+    elif args.__dict__["command"] == "test":
+        print("D:D:D:D:D:D:D:D")
 
 
 def main():

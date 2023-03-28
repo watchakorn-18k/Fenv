@@ -51,7 +51,9 @@ class EnvAll:
             for i in os.listdir(path_lib_all):
                 self.data_list.append(i)
                 self.data_string = ",".join(self.data_list)
-                self.config["fenv"] = {"default_lib": self.data_string}
+                self.config["fenv"] = {
+                    "default_lib": self.data_string,
+                }
                 with open(rf"{self.get_env_name()}/fenv.cfg", "w") as configfile:
                     self.config.write(configfile)
 
