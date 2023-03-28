@@ -560,7 +560,29 @@ class UninstallModule:
 
 class Cleanup:
     def __init__(self) -> None:
-        pass
+        self.path_lib_all = EnvAll().get_path_lib_all()
+        self.lib_default_env = EnvAll().get_lib_default_env()
 
     def run_process(self):
         print("😵Cominig Soon...")
+
+    def remove_lib_not_default_in_env(self):
+        """
+        Removes all the libraries that are not in the default environment
+        """
+        data_lib_all = []
+        for item in os.listdir(self.path_lib_all):
+            data_lib_all.append(item)
+
+        diff_list_1 = set(data_lib_all) - set(self.lib_default_env)
+        diff_list_2 = set(self.lib_default_env) - set(data_lib_all)
+        result = diff_list_1.union(diff_list_2)
+        os.chdir(self.path_lib_all)
+        if len(result) > 0:
+            for item in result:
+                if os.path.isdir(item):
+                    os.rmdir(item)
+                else:
+                    os.remove(item)
+        os.chdir("../../..")
+        print(os.getcwd())

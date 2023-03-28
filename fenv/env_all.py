@@ -39,15 +39,16 @@ class EnvAll:
         self.data_list = []
 
         if platform.system() == "Windows":
-            for i in os.listdir(f"{self.get_env_name()}\Lib\site-packages"):
+            path_lib_all = self.get_path_lib_all()
+            for i in os.listdir(path_lib_all):
                 self.data_list.append(i)
                 self.data_string = ",".join(self.data_list)
                 self.config["fenv"] = {"default_lib": self.data_string}
                 with open(rf"{self.get_env_name()}\fenv.cfg", "w") as configfile:
                     self.config.write(configfile)
         elif platform.system() == "Linux":
-            path_lib_python = "".join(glob.glob(f"{self.get_env_name()}/lib/python*"))
-            for i in os.listdir(rf"{path_lib_python}/site-packages"):
+            path_lib_all = self.get_path_lib_all()
+            for i in os.listdir(path_lib_all):
                 self.data_list.append(i)
                 self.data_string = ",".join(self.data_list)
                 self.config["fenv"] = {"default_lib": self.data_string}
@@ -55,9 +56,17 @@ class EnvAll:
                     self.config.write(configfile)
 
     def get_lib_default_env(self):
-        self.config.read("fenv.cfg")
+        self.config.read(rf"{self.get_env_name()}/fenv.cfg")
 
         self.data_string = self.config.get("fenv", "default_lib")
 
         self.data_list = self.data_string.split(",")
         return self.data_list
+
+    def get_path_lib_all(self):
+        if platform.system() == "Windows":
+            return f"{self.get_env_name()}\Lib\site-packages"
+        elif platform.system() == "Linux":
+            return "".join(
+                glob.glob(f"{self.get_env_name()}/lib/python*/site-packages")
+            )

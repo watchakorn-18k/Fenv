@@ -155,7 +155,7 @@ def check_command(args):
         OnlyVirtualEnv().run_process()
 
     elif args.__dict__["command"] == "clean":
-        Cleanup().run_process()
+        Cleanup().remove_lib_not_default_in_env()
 
 
 def main():
