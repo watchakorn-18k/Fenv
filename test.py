@@ -1,30 +1,17 @@
 import os
-import configparser
+import glob
 
+# os.chdir("test")
+# print(os.getcwd())
+# versions =
+# print(versions)
+# if versions:
+#     latest_version = max(versions)
+#     os.chdir(latest_version)
+# else:
+#     print("No Python installations found in env_danai#20/lib/")
+os.chdir("test")
 
-config = configparser.ConfigParser()
-
-
-config.read("example.cfg")
-
-
-data_string = config.get("data_items")
-
-
-data_list = data_string.split(",")
-
-print(data_list)
-
-
-print(len(os.listdir("env_danai#9\Lib\site-packages")))
-
-
-# with open("r.txt", "w") as f:
-#     f.write("")
-
-# for i, v in enumerate(os.listdir("test\env_samai_76\lib\site-packages")):
-#     with open("r.txt", "a") as f:
-#         if i != 0:
-#             f.write("\n" + v)
-#         else:
-#             f.write(v)
+path_lib_python = "".join(glob.glob("env_danai#20/lib/python*"))
+os.chdir(f"{path_lib_python}/site-packages")
+print(os.getcwd())

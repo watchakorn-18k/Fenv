@@ -2,6 +2,8 @@
 import fnmatch
 import os
 import configparser
+import platform
+import glob
 
 
 class EnvAll:
@@ -35,19 +37,25 @@ class EnvAll:
             str : env name
         """
         self.data_list = []
-        print(self.get_env_name())
-        for i in os.listdir(f"{self.get_env_name()}\Lib\site-packages"):
-            self.data_list.append(i)
 
-        self.data_string = ",".join(self.data_list)
-
-        self.config["fenv"] = {"default_lib": self.data_string}
-
-        with open(rf"{self.get_env_name()}\fenv.cfg", "w") as configfile:
-            self.config.write(configfile)
+        if platform.system() == "Windows":
+            for i in os.listdir(f"{self.get_env_name()}\Lib\site-packages"):
+                self.data_list.append(i)
+                self.data_string = ",".join(self.data_list)
+                self.config["fenv"] = {"default_lib": self.data_string}
+                with open(rf"{self.get_env_name()}\fenv.cfg", "w") as configfile:
+                    self.config.write(configfile)
+        elif platform.system() == "Linux":
+            path_lib_python = "".join(glob.glob(f"{self.get_env_name()}/lib/python*"))
+            for i in os.listdir(rf"{path_lib_python}/site-packages"):
+                self.data_list.append(i)
+                self.data_string = ",".join(self.data_list)
+                self.config["fenv"] = {"default_lib": self.data_string}
+                with open(rf"{self.get_env_name()}/fenv.cfg", "w") as configfile:
+                    self.config.write(configfile)
 
     def get_lib_default_env(self):
-        self.config.read("example.cfg")
+        self.config.read("fenv.cfg")
 
         self.data_string = self.config.get("fenv", "default_lib")
 

@@ -1,5 +1,1 @@
-{
-    "python.formatting.provider": "black",
-    "python.pythonPath": "Fenv",
-    "editor.formatOnSave": true,
-}
+{"python.formatting.provider": "black","python.pythonPath": "Fenv","editor.formatOnSave": true,}
