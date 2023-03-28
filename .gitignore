@@ -8,3 +8,5 @@ doc_upload.md
 /.vscode
 test.py
 /test
+/build
+/dist
