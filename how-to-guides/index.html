@@ -14,7 +14,7 @@
       
         <link rel="next" href="../Fenv/">
       
-      <link rel="icon" href="../assets/logo.png">
+      <link rel="icon" href="../assets/android-chrome-512x512.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
     
     
@@ -145,13 +145,13 @@
             <ul class="md-select__list">
               
                 <li class="md-select__item">
-                  <a href="/Fenv/" hreflang="en" class="md-select__link">
+                  <a href="/" hreflang="en" class="md-select__link">
                     English
                   </a>
                 </li>
               
                 <li class="md-select__item">
-                  <a href="/Fenv/th/" hreflang="th" class="md-select__link">
+                  <a href="/th/" hreflang="th" class="md-select__link">
                     ไทย
                   </a>
                 </li>
@@ -370,11 +370,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#command-for-windows-only" class="md-nav__link">
-    Command for windows only
+  <a href="#command-for-windows-and-linux-only" class="md-nav__link">
+    Command for windows and linux only
   </a>
   
-    <nav class="md-nav" aria-label="Command for windows only">
+    <nav class="md-nav" aria-label="Command for windows and linux only">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -401,6 +401,13 @@
           <li class="md-nav__item">
   <a href="#create-virtualenv-only" class="md-nav__link">
     Create virtualenv only
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cleanup-packages-all" class="md-nav__link">
+    Cleanup packages all
   </a>
   
 </li>
@@ -566,11 +573,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#command-for-windows-only" class="md-nav__link">
-    Command for windows only
+  <a href="#command-for-windows-and-linux-only" class="md-nav__link">
+    Command for windows and linux only
   </a>
   
-    <nav class="md-nav" aria-label="Command for windows only">
+    <nav class="md-nav" aria-label="Command for windows and linux only">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -597,6 +604,13 @@
           <li class="md-nav__item">
   <a href="#create-virtualenv-only" class="md-nav__link">
     Create virtualenv only
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cleanup-packages-all" class="md-nav__link">
+    Cleanup packages all
   </a>
   
 </li>
@@ -647,7 +661,7 @@ source env/bin/activate
 <div class="highlight"><pre><span></span><code>cd project_folder
 source env/bin/activate
 </code></pre></div>
-<h1 id="command-for-windows-only">Command for windows only<a class="headerlink" href="#command-for-windows-only" title="Permanent link">¤</a></h1>
+<h1 id="command-for-windows-and-linux-only">Command for windows and linux only<a class="headerlink" href="#command-for-windows-and-linux-only" title="Permanent link">¤</a></h1>
 <h2 id="install-packages">Install packages<a class="headerlink" href="#install-packages" title="Permanent link">¤</a></h2>
 <div class="highlight"><pre><span></span><code>fenv install
 </code></pre></div>
@@ -667,6 +681,10 @@ source env/bin/activate
 <div class="highlight"><pre><span></span><code>fenv onlyenv
 </code></pre></div>
 <p>Create a virtualenv with a custom name or an optional 2 autoname, then create a file. settings.json for vscode does not generate additional base files</p>
+<h2 id="cleanup-packages-all">Cleanup packages all<a class="headerlink" href="#cleanup-packages-all" title="Permanent link">¤</a></h2>
+<div class="highlight"><pre><span></span><code>fenv clean
+</code></pre></div>
+<p>Clean, remove all packages like new.</p>
 
 
 
