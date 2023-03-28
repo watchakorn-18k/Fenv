@@ -89,6 +89,7 @@ Fenv is a powerful tool for managing virtual environments and creating basic Pyt
 ### 0.0.11.7
 
 - [] Add command `fenv clean` to clean packages
+- [x] Added fev.cfg file
 - [x] Support command all in Linux
 
 ### 0.0.11.6

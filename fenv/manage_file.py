@@ -130,6 +130,7 @@ class CreateFileBaseAndUpdate:
             os.chdir(self.name)
             print(f"createing virtualenv env_{self.name}...")
             os.system(f"virtualenv env_{self.name}")
+            EnvAll().create_lib_default_env()
 
         print(self.notice + f'Successfully created the virtualenv "{self.name}"')
 
@@ -284,6 +285,7 @@ class OnlyVirtualEnv:
         if not os.path.exists(self._name_env):
             print(f"virtualenv env_{self._name_env}")
             os.system(f"virtualenv env_{self._name_env}")
+            EnvAll().create_lib_default_env()
 
         print(self.notice + f'Successfully created the virtualenv "{self._name_env}"')
 
