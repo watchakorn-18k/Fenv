@@ -48,6 +48,8 @@ jobs:
         
     - name: Commit formatted code
       run: |
-        git add .
-        git commit -m "Auto-format code"
+        git config --global user.email "${{ env.USER_EMAIL }}"
+        git config --global user.name "${{ env.USER_NAME }}"
+        git add -u
+        git diff-index --quiet HEAD || git commit -m "Auto-format code"
         git push
