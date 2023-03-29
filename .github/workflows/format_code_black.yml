@@ -27,10 +27,7 @@ jobs:
 
     - name: Check and format code
       run: |
-        black . --check --diff && black .
- 
-    - name: Apply formatting
-      run: black .
+        black .
         
     - name: Commit formatted code
       run: |
