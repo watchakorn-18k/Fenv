@@ -51,8 +51,8 @@ jobs:
         
     - name: Commit formatted code
       run: |
-        git config --global user.email "${{ secrets.USER_EMAIL }}"
-        git config --global user.name "${{ secrets.USER_NAME }}"
+        git config --global user.email "porton2559@gmail.com"
+        git config --global user.name "watchakorn-18k"
         git add -u
         git diff-index --quiet HEAD || git commit -m "Auto-format code"
         git push
