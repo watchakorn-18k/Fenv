@@ -28,6 +28,8 @@ jobs:
   format-code:
     needs: check-formatting
     runs-on: ubuntu-latest
+    permissions:
+      actions: read|write
 
     steps:
     - uses: actions/checkout@v2
