@@ -5,7 +5,7 @@ load_dotenv()
 import codecs
 import os
 
-a=1
+a = 1
 here = os.path.abspath(os.path.dirname(__file__))
 
 with codecs.open(os.path.join(here, "readme.md"), encoding="utf-8") as fh:
