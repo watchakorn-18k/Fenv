@@ -15,7 +15,11 @@ Fenv is a simple and efficient tool to help you manage your virtual environments
 
 ## Docs
 
-https://watchakorn-18k.github.io/Fenv/
+[Docs](https://watchakorn-18k.github.io/Fenv/)
+
+## Volta planing
+
+[Volta/Fenv](https://volta.net/watchakorn-18k/Fenv)
 
 ## Installer
 
