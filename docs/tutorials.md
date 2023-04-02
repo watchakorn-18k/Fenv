@@ -33,3 +33,9 @@ Create a virtualenv with settings to connect the interpreter to vscode and forma
 <p align="center"><img src="https://cdn.discordapp.com/attachments/581018943041306641/1090138275198541824/QPkGn0F.gif" width=80%></p>
 
 Clean, remove all packages like new.
+
+## `fenv activate` and `fenv deactivate`
+
+<p align="center"><img src="https://cdn.discordapp.com/attachments/581018943041306641/1092167632934932551/H7MURw3.gif" width=80%></p>
+
+Command hint to activate and deactivate virtual environment with folder

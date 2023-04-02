@@ -94,6 +94,7 @@ Fenv is a powerful tool for managing virtual environments and creating basic Pyt
 
 - [x] Add command more `fenv deactivate` Command hint to deactivate virtual environment with folder
 - [x] Add command more `fenv activate` Command hint to activate virtual environment with folder
+      ![](https://i.imgur.com/H7MURw3.gif)
 
 ### 0.0.11.8
 
