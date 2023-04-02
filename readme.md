@@ -1,5 +1,16 @@
-# Fenv
+<h1 align="center">Fenv</h1>
 
+
+<p align="center"><img src="https://img.shields.io/github/languages/top/watchakorn-18k/Fenv?color=green&logo=python&logoColor=white">
+<img src="https://img.shields.io/github/repo-size/watchakorn-18k/Fenv">
+<img src="https://img.shields.io/pypi/dm/Fenv?logo=pypi&logoColor=white">
+<img src="https://img.shields.io/pypi/v/Fenv?color=sd&label=Fenv&logoColor=white">
+<img src="https://img.shields.io/github/v/release/watchakorn-18k/Fenv">
+<img src="https://img.shields.io/pypi/pyversions/Fenv?logo=python&logoColor=white">
+<img src="https://img.shields.io/website?url=https%3A%2F%2Fgithub.com%2Fwatchakorn-18k%2FFenv">
+<img src="https://img.shields.io/github/last-commit/watchakorn-18k/Fenv?logo=git&style=social">
+<img src="https://img.shields.io/github/stars/watchakorn-18k/Fenv?style=social">
+</p>
 <p align="center"><img src="https://cdn.discordapp.com/attachments/582486229594013696/1070509737529069689/New_Project_3.png" width=400></p>
 
 Fenv is a simple and efficient tool to help you manage your virtual environments and create basic Python files with a single command. With Fenv, you can quickly generate a new project folder, establish a virtual environment within that folder, and simultaneously create the essential basic Python files all in one go. This tool is ideal for developers who frequently work on multiple Python projects and want a simple, streamlined solution for managing virtual environments.
