@@ -5,28 +5,7 @@ on:
     branches: [ master ]
 
 jobs:
-  check-formatting:
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v2
-    
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.x'
-
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install black
-
-    - name: Check formatting
-      run: |
-        black --check .
-
   format-code:
-    needs: check-formatting
     runs-on: ubuntu-latest
     permissions:
       actions: write
@@ -39,21 +18,18 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: '3.x'
-        token: ${{ secrets.BOT_TOKEN_FENV }}
 
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install black
 
-    - name: Format code
+    - name: Check and format code
       run: |
         black .
         
     - name: Commit formatted code
       run: |
-        echo "${{ secrets.USER_NAME }}"
-        git config --global credential.helper cache
         git config --global user.email "${{ secrets.USER_EMAIL }}"
         git config --global user.name "${{ secrets.USER_NAME }}"
         git add -u
