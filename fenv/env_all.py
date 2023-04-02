@@ -82,3 +82,32 @@ class EnvAll:
             return "".join(
                 glob.glob(f"{self.get_env_name()}/lib/python*/site-packages")
             )
+
+    def get_path_env_for_windows(self):
+        if platform.system() == "Windows":
+            return rf"{self.get_env_name()}\Scripts", "Windows"
+        else:
+            return None, None
+
+    def get_path_env_for_linux(self):
+        if platform.system() == "Linux":
+            return rf"{self.get_env_name()}/bin", "Linux"
+        else:
+            return None, None
+
+    def get_terminal_prompt(self):
+        try:
+            if len(os.environ.get("PROMPT")) == 10:
+                return True
+            else:
+                return False
+        except:
+            pass
+
+    def get_terminal_bash(self):
+        if "xterm" in os.environ.get("TERM") or "gnome-terminal" in os.environ.get(
+            "TERM"
+        ):
+            return True
+        else:
+            return False

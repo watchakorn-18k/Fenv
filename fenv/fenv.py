@@ -1,4 +1,4 @@
-version: str = '0.0.11.9'
+version: str = "0.0.11.9"
 """ Module fenv main """
 from fenv.customizes.colors import Colors
 from fenv.assets.commands import Commands
@@ -10,6 +10,7 @@ from fenv.manage_file import (
     UninstallModule,
     Cleanup,
 )
+from fenv.state_env import StateEnv
 
 from argparse import ArgumentParser
 import os
@@ -80,6 +81,12 @@ def setup_parse():
     clean_cmd = subparsers.add_parser(
         "clean", help="Clean delete all packages in requirements.txt out"
     )
+    activate_cmd = subparsers.add_parser(
+        "activate", help="Command hint to activate virtual environment with folder"
+    )
+    deactivate_cmd = subparsers.add_parser(
+        "deactivate", help="Command hint to deactivate virtual environment with folder"
+    )
     test_cmd = subparsers.add_parser("test", help="test")
 
     general_group = parser.add_argument_group(title="General Options")
@@ -145,6 +152,10 @@ def check_command(args):
         ).lower()
         if question == "y" or question == "":
             Cleanup().remove_lib_not_default_in_env()
+    elif args.__dict__["command"] == "activate":
+        StateEnv().activate()
+    elif args.__dict__["command"] == "deactivate":
+        StateEnv().deactivate()
     elif args.__dict__["command"] == "test":
         print("D:D:D:D:D:D:D:D")
 
