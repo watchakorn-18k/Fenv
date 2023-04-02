@@ -6,9 +6,6 @@ from fenv.customizes.colors import Colors
 
 import os
 
-from virtualenv import cli_run
-
-
 ENV_NAME = EnvAll().get_env_name()
 colors = Colors()
 
@@ -38,7 +35,7 @@ class StateEnv:
             elif os_linux:
                 if EnvAll().get_terminal_bash():
                     print(
-                        f"It cannot be enabled, but you can run it using the \n `{colors.NAVY}source {colors.SPRING_GREEN}{ENV_NAME}/Scripts/activate{colors.ENDC}` command"
+                        f"It cannot be enabled, but you can run it using the \n `{colors.NAVY}source {colors.SPRING_GREEN}{ENV_NAME}/bin/activate{colors.ENDC}` command"
                     )
         else:
             print("The virtual environment was not found when creating it with fenv.")
