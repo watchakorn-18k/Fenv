@@ -1,3 +1,4 @@
+version: str = '0.0.11.8'
 """ Module fenv main """
 from fenv.customizes.colors import Colors
 from fenv.assets.commands import Commands
@@ -11,12 +12,9 @@ from fenv.manage_file import (
 )
 
 from argparse import ArgumentParser
-from dotenv import load_dotenv
 import os
 import platform
 import fnmatch
-
-load_dotenv()
 
 
 colors = Colors()
@@ -172,7 +170,7 @@ def main():
         None
     """
     args = setup_parse()
-    version: str = os.getenv("FENV_VERSION")
+
     print(
         f"⏩ {colors.LIGHTMAGENTA_EX}Hello,Fenv {colors.POWDER_BLUE}[{colors.MINT_GREEN}v{version}{colors.POWDER_BLUE}]{colors.ENDC}🫡\n".center(
             40, "-"

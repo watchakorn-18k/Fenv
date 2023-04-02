@@ -86,10 +86,14 @@ Fenv is a powerful tool for managing virtual environments and creating basic Pyt
 
 ## Changelog
 
-### 0.0.11.8
+### 0.0.11.9
 
 - [] Add command more `fenv deactivate` for deactivate virtualenv
 - [] Add command more `fenv activate` for activate virtualenv
+
+### 0.0.11.8
+
+- Fix error ModuleNotFoundError: No module named 'dotenv' and not show version fenv
 
 ### 0.0.11.7
 
