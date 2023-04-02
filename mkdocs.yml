@@ -22,6 +22,7 @@ nav:
   - Class Manage File: manage_file.md
   - Class Commands: commands.md
   - Class Colors: colors.md
+  - Class State Environment: state_env.md
 theme:
   language: en
 

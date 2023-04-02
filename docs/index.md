@@ -52,6 +52,9 @@ Commands:
                  tree path.
     onlyenv      Create only virtualenv and no create
                  base file
+    clean        Clean delete all packages in requirements.txt out
+    activate     Command hint to activate virtual environment with folder
+    deactivate   Command hint to deactivate virtual environment with folder
 
 General Options:
   -h, --help     Show this help message and exit

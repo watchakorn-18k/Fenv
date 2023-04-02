@@ -15,6 +15,11 @@ path_env_linux, os_linux = EnvAll().get_path_env_for_linux()
 
 class StateEnv:
     def activate(self):
+        """
+        If the environment name is not empty, then if the operating system is Windows, then if the
+        operating system is Windows and the terminal is xterm-256color, then print the message
+        """
+
         if ENV_NAME:
             if os_win:
                 if os_win and os.environ.get("TERM") == "xterm-256color":
@@ -30,8 +35,6 @@ class StateEnv:
                     print(
                         f"It cannot be enabled, but you can run it using the \n {colors.SPRING_GREEN}`{ENV_NAME}\\Scripts\\activate.bat`{colors.ENDC} command"
                     )
-
-                # os.system(rf".\{path_env_win}\activate")
             elif os_linux:
                 if EnvAll().get_terminal_bash():
                     print(
@@ -41,6 +44,10 @@ class StateEnv:
             print("The virtual environment was not found when creating it with fenv.")
 
     def deactivate(self):
+        """
+        If the environment is found, it will print a message to the user that it cannot be enabled, but
+        it can be run using the `deactivate` command
+        """
         if ENV_NAME:
             if os_win:
                 if os_win and os.environ.get("TERM") == "xterm-256color":

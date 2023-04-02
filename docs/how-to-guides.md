@@ -79,3 +79,15 @@ fenv clean
 ```
 
 Clean, remove all packages like new.
+
+```
+fenv activate
+```
+
+Command hint to activate virtual environment with folder
+
+```
+fenv deactivate
+```
+
+Command hint to deactivate virtual environment with folder
