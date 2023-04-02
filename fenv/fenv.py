@@ -1,4 +1,4 @@
-version: str = '0.0.11.8'
+version: str = "0.0.11.8"
 """ Module fenv main """
 from fenv.customizes.colors import Colors
 from fenv.assets.commands import Commands
@@ -13,9 +13,6 @@ from fenv.manage_file import (
 
 from argparse import ArgumentParser
 import os
-import platform
-import fnmatch
-
 
 colors = Colors()
 notice = colors.notice()
@@ -23,17 +20,6 @@ notice = colors.notice()
 env_above = EnvAll()
 env_directory = env_above.get_env_name()
 root_directory = env_above.get_root_dir_name()
-
-
-def find_dir_env() -> str:
-    """
-    It prints the contents of the current directory
-
-    Return:
-        None
-    """
-    for i in os.listdir("."):
-        print(i)
 
 
 def setup_parse():
