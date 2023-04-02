@@ -58,14 +58,14 @@ Usage:
 Commands:
 
     new          Create a new project
-    install      Install the package and install the
-                 package via requirements.txt
+    install      Install the package and install the package via requirements.txt
     uninstall    Uninstall packages
-    update       Package to file requirements.txt update
-                 furthermore, update the readme.md file's
-                 tree path.
-    onlyenv      Create only virtualenv and no create
-                 base file
+    update       Package to file requirements.txt update furthermore, update the readme.md file's tree path.
+    onlyenv      Create only virtualenv and no create base file
+    clean        Clean delete all packages in requirements.txt out
+    activate     Command hint to activate virtual environment with folder
+    deactivate   Command hint to deactivate virtual environment with folder
+
 
 General Options:
   -h, --help     Show this help message and exit
@@ -92,8 +92,9 @@ Fenv is a powerful tool for managing virtual environments and creating basic Pyt
 
 ### 0.0.11.9
 
-- [] Add command more `fenv deactivate` for deactivate virtualenv
-- [] Add command more `fenv activate` for activate virtualenv
+- [x] Add command more `fenv deactivate` Command hint to deactivate virtual environment with folder
+- [x] Add command more `fenv activate` Command hint to activate virtual environment with folder
+      ![](https://i.imgur.com/H7MURw3.gif)
 
 ### 0.0.11.8
 

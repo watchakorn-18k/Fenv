@@ -5,23 +5,19 @@ load_dotenv()
 import codecs
 import os
 
-import fileinput
-
 new_version = os.getenv("FENV_VERSION")
 file_path = os.path.abspath(os.path.dirname(__file__)) + "/fenv/fenv.py"
 
-# Replace the first line of the file with the new version string
-with fileinput.FileInput(file_path, inplace=True, encoding="utf-8") as file:
-    for line_number, line in enumerate(file):
-        if line_number == 0:
-            print(f"version: str = '{new_version}'")
-        else:
-            print(line.rstrip())
-
-# Print the original content of the file
+# Read the original content of the file
 with open(file_path, "r", encoding="utf-8") as file:
-    original_content = file.read()
-    print(original_content)
+    original_content = file.readlines()
+
+# Modify the first line of the file with the new version string
+modified_content = [f"version: str = '{new_version}'\n"] + original_content[1:]
+
+# Write the modified content back to the file
+with open(file_path, "w", encoding="utf-8") as file:
+    file.writelines(modified_content)
 
 here = os.path.abspath(os.path.dirname(__file__))
 

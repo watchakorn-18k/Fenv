@@ -1,4 +1,4 @@
-version: str = "0.0.11.8"
+version: str = '0.0.11.9'
 """ Module fenv main """
 from fenv.customizes.colors import Colors
 from fenv.assets.commands import Commands
@@ -10,12 +10,10 @@ from fenv.manage_file import (
     UninstallModule,
     Cleanup,
 )
+from fenv.state_env import StateEnv
 
 from argparse import ArgumentParser
 import os
-import platform
-import fnmatch
-
 
 colors = Colors()
 notice = colors.notice()
@@ -23,17 +21,6 @@ notice = colors.notice()
 env_above = EnvAll()
 env_directory = env_above.get_env_name()
 root_directory = env_above.get_root_dir_name()
-
-
-def find_dir_env() -> str:
-    """
-    It prints the contents of the current directory
-
-    Return:
-        None
-    """
-    for i in os.listdir("."):
-        print(i)
 
 
 def setup_parse():
@@ -93,6 +80,12 @@ def setup_parse():
 
     clean_cmd = subparsers.add_parser(
         "clean", help="Clean delete all packages in requirements.txt out"
+    )
+    activate_cmd = subparsers.add_parser(
+        "activate", help="Command hint to activate virtual environment with folder"
+    )
+    deactivate_cmd = subparsers.add_parser(
+        "deactivate", help="Command hint to deactivate virtual environment with folder"
     )
     test_cmd = subparsers.add_parser("test", help="test")
 
@@ -159,6 +152,10 @@ def check_command(args):
         ).lower()
         if question == "y" or question == "":
             Cleanup().remove_lib_not_default_in_env()
+    elif args.__dict__["command"] == "activate":
+        StateEnv().activate()
+    elif args.__dict__["command"] == "deactivate":
+        StateEnv().deactivate()
     elif args.__dict__["command"] == "test":
         print("D:D:D:D:D:D:D:D")
 
