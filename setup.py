@@ -6,7 +6,7 @@ import codecs
 import os
 
 new_version = os.getenv("FENV_VERSION")
-file_path = os.path.abspath(os.path.dirname(__file__)) + "/fenv/fenv.py"
+file_path = f"{os.path.abspath(os.path.dirname(__file__))}/fenv/fenv.py"
 
 # Read the original content of the file
 with open(file_path, "r", encoding="utf-8") as file:
