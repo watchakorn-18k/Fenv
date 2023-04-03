@@ -1,6 +1,5 @@
 <h1 align="center">Fenv</h1>
 
-
 <p align="center"><img src="https://img.shields.io/github/languages/top/watchakorn-18k/Fenv?color=green&logo=python&logoColor=white">
 <img src="https://img.shields.io/github/repo-size/watchakorn-18k/Fenv">
 <img src="https://img.shields.io/pypi/dm/Fenv?logo=pypi&logoColor=white">
@@ -32,7 +31,9 @@ Fenv is a simple and efficient tool to help you manage your virtual environments
 
 [Volta/Fenv](https://volta.net/watchakorn-18k/Fenv)
 
-## Installer
+## Install
+
+### Linux and macOS
 
 ```
 pip install fenv
@@ -43,6 +44,32 @@ or
 ```
 pip install --upgrade fenv
 ```
+
+### Windows
+
+If you are using Windows, you can install Fenv using pipx, which is a tool that allows you to install and run Python applications in isolated environments. This is a great way to install Fenv, as it will not interfere with any other Python applications you may have installed on your system.
+
+**Note:** pipx only works with Python 3.6+.
+
+First, install pipx using the following command:
+
+```sh
+py -m pip install --user pipx
+```
+
+```
+py -m pipx ensurepath
+```
+
+Then, install Fenv using pipx:
+
+```sh
+pipx install fenv
+```
+
+**Note:** ensurepath ensures that the application directory is on your $PATH. You may need to restart your terminal for this update to take effect.
+
+You may need to restart your terminal for this update to take effect.
 
 ## PyPi
 
