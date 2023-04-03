@@ -301,9 +301,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#installer" class="md-nav__link">
-    Installer
+  <a href="#install" class="md-nav__link">
+    Install
   </a>
+  
+    <nav class="md-nav" aria-label="Install">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linux-and-macos" class="md-nav__link">
+    Linux and macOS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    Windows
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -490,9 +510,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#installer" class="md-nav__link">
-    Installer
+  <a href="#install" class="md-nav__link">
+    Install
   </a>
+  
+    <nav class="md-nav" aria-label="Install">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linux-and-macos" class="md-nav__link">
+    Linux and macOS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    Windows
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -553,13 +593,31 @@
 <li>Ideal for developers who work on multiple Python projects</li>
 <li>Add <code>black</code> for format python</li>
 <li>Packages can be installed and uninstalled and added to files. <code>requirements.txt</code> at the same time</li>
+<li>Clear packages back to the default packages</li>
+<li>etc</li>
 </ul>
-<h2 id="installer">Installer<a class="headerlink" href="#installer" title="Permanent link">¤</a></h2>
+<h2 id="install">Install<a class="headerlink" href="#install" title="Permanent link">¤</a></h2>
+<div class="highlight"><pre><span></span><code>pip install fenv
+</code></pre></div>
+<h3 id="linux-and-macos">Linux and macOS<a class="headerlink" href="#linux-and-macos" title="Permanent link">¤</a></h3>
 <div class="highlight"><pre><span></span><code>pip install fenv
 </code></pre></div>
 <p>or</p>
 <div class="highlight"><pre><span></span><code>pip install --upgrade fenv
 </code></pre></div>
+<h3 id="windows">Windows<a class="headerlink" href="#windows" title="Permanent link">¤</a></h3>
+<p>If you are using Windows, you can install Fenv using pipx, which is a tool that allows you to install and run Python applications in isolated environments. This is a great way to install Fenv, as it will not interfere with any other Python applications you may have installed on your system.</p>
+<p><strong>Note:</strong> pipx only works with Python 3.6+.</p>
+<p>First, install pipx using the following command:</p>
+<div class="highlight"><pre><span></span><code>py<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>pipx
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>py -m pipx ensurepath
+</code></pre></div>
+<p>Then, install Fenv using pipx:</p>
+<div class="highlight"><pre><span></span><code>pipx<span class="w"> </span>install<span class="w"> </span>fenv
+</code></pre></div>
+<p><strong>Note:</strong> ensurepath ensures that the application directory is on your $PATH. You may need to restart your terminal for this update to take effect.</p>
+<p>You may need to restart your terminal for this update to take effect.</p>
 <h2 id="pypi">PyPi<a class="headerlink" href="#pypi" title="Permanent link">¤</a></h2>
 <div class="highlight"><pre><span></span><code>https://pypi.org/project/Fenv/
 </code></pre></div>
