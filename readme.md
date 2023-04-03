@@ -128,6 +128,9 @@ Fenv is a powerful tool for managing virtual environments and creating basic Pyt
 
 ## Changelog
 
+### 0.0.12.0
+- [x] Add installation instructions for Windows users using pipx @yassine20011 [pull/5/files](https://github.com/watchakorn-18k/Fenv/pull/5/files)
+
 ### 0.0.11.9
 
 - [x] Add command more `fenv deactivate` Command hint to deactivate virtual environment with folder
