@@ -1,4 +1,4 @@
-version: str = "0.0.11.9"
+version: str = "0.0.12.0"
 """ Module fenv main """
 from fenv.customizes.colors import Colors
 from fenv.assets.commands import Commands
@@ -74,7 +74,7 @@ def setup_parse():
 
     onlyenv_cmd = subparsers.add_parser(
         "onlyenv",
-        help=f"Create only virtualenv and no create base file",
+        help="Create only virtualenv and no create base file",
         usage=f"{colors.HOT_PINK}fenv onlyenv{colors.ENDC}",
     )
 
@@ -97,9 +97,7 @@ def setup_parse():
         "-v", "--version", action="store_true", help="check version fenv"
     )
 
-    args = parser.parse_args()
-
-    return args
+    return parser.parse_args()
 
 
 def check_command(args):
@@ -140,9 +138,9 @@ def check_command(args):
         CreateFileBaseAndUpdate(
             root_directory, "update"
         ).process_create_base_file_and_update()
-        print(notice + "Updated tree path to readme.md")
+        print(f"{notice}Updated tree path to readme.md")
         os.system("pip freeze > requirements.txt")
-        print(notice + "Updated module all to requirements.txt")
+        print(f"{notice}Updated module all to requirements.txt")
     elif args.__dict__["command"] == "onlyenv":
         OnlyVirtualEnv().run_process()
 
@@ -150,7 +148,7 @@ def check_command(args):
         question = input(
             "Do you want to delete all packages in requirements.txt out? (y/n) "
         ).lower()
-        if question == "y" or question == "":
+        if question in ["y", ""]:
             Cleanup().remove_lib_not_default_in_env()
     elif args.__dict__["command"] == "activate":
         StateEnv().activate()
@@ -172,5 +170,5 @@ def main():
         f"⏩ {colors.LIGHTMAGENTA_EX}Hello,Fenv {colors.POWDER_BLUE}[{colors.MINT_GREEN}v{version}{colors.POWDER_BLUE}]{colors.ENDC}🫡\n".center(
             40, "-"
         )
-    ) if args.__dict__["command"] == None else None
+    ) if args.__dict__["command"] is None else None
     check_command(args)
