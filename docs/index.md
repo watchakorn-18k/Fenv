@@ -14,8 +14,16 @@ Fenv is a simple and efficient tool to help you manage your virtual environments
 - Ideal for developers who work on multiple Python projects
 - Add `black` for format python
 - Packages can be installed and uninstalled and added to files. `requirements.txt` at the same time
+- Clear packages back to the default packages
+- etc
 
-## Installer
+## Install
+
+```
+pip install fenv
+```
+
+### Linux and macOS
 
 ```
 pip install fenv
@@ -26,6 +34,32 @@ or
 ```
 pip install --upgrade fenv
 ```
+
+### Windows
+
+If you are using Windows, you can install Fenv using pipx, which is a tool that allows you to install and run Python applications in isolated environments. This is a great way to install Fenv, as it will not interfere with any other Python applications you may have installed on your system.
+
+**Note:** pipx only works with Python 3.6+.
+
+First, install pipx using the following command:
+
+```sh
+py -m pip install --user pipx
+```
+
+```
+py -m pipx ensurepath
+```
+
+Then, install Fenv using pipx:
+
+```sh
+pipx install fenv
+```
+
+**Note:** ensurepath ensures that the application directory is on your $PATH. You may need to restart your terminal for this update to take effect.
+
+You may need to restart your terminal for this update to take effect.
 
 ## PyPi
 
