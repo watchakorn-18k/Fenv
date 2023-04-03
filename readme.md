@@ -14,6 +14,26 @@
 
 Fenv is a simple and efficient tool to help you manage your virtual environments and create basic Python files with a single command. With Fenv, you can quickly generate a new project folder, establish a virtual environment within that folder, and simultaneously create the essential basic Python files all in one go. This tool is ideal for developers who frequently work on multiple Python projects and want a simple, streamlined solution for managing virtual environments.
 
+<div align="center">
+
+```
+
+      ___       ___          ___
+     /  /\     /  /\        /__/\         ___
+    /  /:/_   /  /:/_       \  \:\       /__/\
+   /  /:/ /\ /  /:/ /\       \  \:\      \  \:\
+  /  /:/ /://  /:/ /:/_  _____\__\:\      \  \:\
+ /__/:/ /://__/:/ /:/ /\/__/::::::::\ ___  \__\:\
+ \  \:\/:/ \  \:\/:/ /:/\  \:\~~\~~\//__/\ |  |:|
+  \  \::/   \  \::/ /:/  \  \:\  ~~~ \  \:\|  |:|
+   \  \:\    \  \:\/:/    \  \:\      \  \:\__|:|
+    \  \:\    \  \::/      \  \:\      \__\::::/
+     \__\/     \__\/        \__\/          ~~~~  ™️
+
+```
+
+</div>
+
 ## Features
 
 - Generate a new project folder with a single command
@@ -129,6 +149,7 @@ Fenv is a powerful tool for managing virtual environments and creating basic Pyt
 ## Changelog
 
 ### 0.0.12.0
+
 - [x] An improved string using f-string format @yassine20011 [pull/5/files](https://github.com/watchakorn-18k/Fenv/pull/5/files)
 - [x] Add installation instructions for Windows users using pipx @yassine20011 [pull/5/files](https://github.com/watchakorn-18k/Fenv/pull/5/files)
 
