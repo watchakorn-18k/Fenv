@@ -15,7 +15,7 @@
         <link rel="next" href="../commands/">
       
       <link rel="icon" href="../assets/android-chrome-512x512.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.5">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.c4a75a56.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.7a7fce14.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.a0c5b2b5.min.css">
@@ -645,6 +645,21 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../changelog/" class="md-nav__link">
+        Change Log
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -947,7 +962,7 @@
         <span class="doc doc-object-name doc-class-name">Cleanup</span>
 
 
-<a href="#fenv.manage_file.Cleanup" class="headerlink" title="Permanent link">¤</a></h2>
+</h2>
 <div class="highlight"><pre><span></span><code><span class="n">Cleanup</span><span class="p">()</span>
 </code></pre></div>
 
@@ -961,13 +976,13 @@
 
           <details class="quote">
             <summary>Source code in <code>fenv\manage_file.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">612</span>
-<span class="normal">613</span>
-<span class="normal">614</span>
-<span class="normal">615</span>
-<span class="normal">616</span>
-<span class="normal">617</span>
-<span class="normal">618</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">599</span>
+<span class="normal">600</span>
+<span class="normal">601</span>
+<span class="normal">602</span>
+<span class="normal">603</span>
+<span class="normal">604</span>
+<span class="normal">605</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">colors</span> <span class="o">=</span> <span class="n">Colors</span><span class="p">()</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">notice</span> <span class="o">=</span> <span class="n">Colors</span><span class="p">()</span><span class="o">.</span><span class="n">notice</span><span class="p">()</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">commands</span> <span class="o">=</span> <span class="n">Commands</span><span class="p">()</span>
@@ -997,7 +1012,7 @@
         <span class="doc doc-object-name doc-function-name">remove_lib_not_default_in_env</span>
 
 
-<a href="#fenv.manage_file.Cleanup.remove_lib_not_default_in_env" class="headerlink" title="Permanent link">¤</a></h3>
+</h3>
 <div class="highlight"><pre><span></span><code><span class="n">remove_lib_not_default_in_env</span><span class="p">()</span>
 </code></pre></div>
 
@@ -1007,7 +1022,20 @@
 
       <details class="quote">
         <summary>Source code in <code>fenv\manage_file.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">620</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">607</span>
+<span class="normal">608</span>
+<span class="normal">609</span>
+<span class="normal">610</span>
+<span class="normal">611</span>
+<span class="normal">612</span>
+<span class="normal">613</span>
+<span class="normal">614</span>
+<span class="normal">615</span>
+<span class="normal">616</span>
+<span class="normal">617</span>
+<span class="normal">618</span>
+<span class="normal">619</span>
+<span class="normal">620</span>
 <span class="normal">621</span>
 <span class="normal">622</span>
 <span class="normal">623</span>
@@ -1030,38 +1058,11 @@
 <span class="normal">640</span>
 <span class="normal">641</span>
 <span class="normal">642</span>
-<span class="normal">643</span>
-<span class="normal">644</span>
-<span class="normal">645</span>
-<span class="normal">646</span>
-<span class="normal">647</span>
-<span class="normal">648</span>
-<span class="normal">649</span>
-<span class="normal">650</span>
-<span class="normal">651</span>
-<span class="normal">652</span>
-<span class="normal">653</span>
-<span class="normal">654</span>
-<span class="normal">655</span>
-<span class="normal">656</span>
-<span class="normal">657</span>
-<span class="normal">658</span>
-<span class="normal">659</span>
-<span class="normal">660</span>
-<span class="normal">661</span>
-<span class="normal">662</span>
-<span class="normal">663</span>
-<span class="normal">664</span>
-<span class="normal">665</span>
-<span class="normal">666</span>
-<span class="normal">667</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">remove_lib_not_default_in_env</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="normal">643</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">remove_lib_not_default_in_env</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Removes all the libraries that are not in the default environment</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">data_lib_all</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path_lib_all</span><span class="p">):</span>
-        <span class="n">data_lib_all</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-
+    <span class="n">data_lib_all</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path_lib_all</span><span class="p">))</span>
     <span class="n">diff_list_1</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">data_lib_all</span><span class="p">)</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lib_default_env</span><span class="p">)</span>
     <span class="n">diff_list_2</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lib_default_env</span><span class="p">)</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">data_lib_all</span><span class="p">)</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">diff_list_1</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">diff_list_2</span><span class="p">)</span>
@@ -1070,28 +1071,21 @@
         <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
                 <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-                <span class="nb">print</span><span class="p">(</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">notice</span>
-                    <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">SALMON</span><span class="si">}{</span><span class="n">item</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">ENDC</span><span class="si">}</span><span class="s2"> has been removed&quot;</span>
-                <span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-                <span class="nb">print</span><span class="p">(</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">notice</span>
-                    <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">SALMON</span><span class="si">}{</span><span class="n">item</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">ENDC</span><span class="si">}</span><span class="s2"> has been removed&quot;</span>
-                <span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">notice</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">SALMON</span><span class="si">}{</span><span class="n">item</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">ENDC</span><span class="si">}</span><span class="s2"> has been removed&quot;</span>
+            <span class="p">)</span>
     <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s2">&quot;../../..&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">notice</span>
-        <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">SKY_BLUE</span><span class="si">}</span><span class="s2">All the libraries have been removed.</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">ENDC</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">notice</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">SKY_BLUE</span><span class="si">}</span><span class="s2">All the libraries have been removed.</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">ENDC</span><span class="si">}</span><span class="s2">&quot;</span>
     <span class="p">)</span>
     <span class="k">if</span> <span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;Windows&quot;</span><span class="p">:</span>
         <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span>
             <span class="sa">f</span><span class="s2">&quot;.\env_</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">env_name</span><span class="w"> </span><span class="si">}</span><span class="s2">\Scripts\python.exe -m pip freeze &gt; requirements.txt&quot;</span>
         <span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">notice</span>
-            <span class="o">+</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">SKY_BLUE</span><span class="si">}</span><span class="s1">Successfully updated the file &quot;requirements.txt&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">ENDC</span><span class="si">}</span><span class="s1">&#39;</span>
+            <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">notice</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">SKY_BLUE</span><span class="si">}</span><span class="s1">Successfully updated the file &quot;requirements.txt&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">ENDC</span><span class="si">}</span><span class="s1">&#39;</span>
         <span class="p">)</span>
 
     <span class="k">elif</span> <span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;Linux&quot;</span><span class="p">:</span>
@@ -1099,8 +1093,7 @@
             <span class="sa">f</span><span class="s2">&quot;bash -c &#39;source env_</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">env_name</span><span class="w"> </span><span class="si">}</span><span class="s2">/bin/activate  &amp;&amp; pip freeze &gt; requirements.txt&#39;&quot;</span>
         <span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">notice</span>
-            <span class="o">+</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">SKY_BLUE</span><span class="si">}</span><span class="s1">Successfully updated the file &quot;requirements.txt&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">ENDC</span><span class="si">}</span><span class="s1">&#39;</span>
+            <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">notice</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">SKY_BLUE</span><span class="si">}</span><span class="s1">Successfully updated the file &quot;requirements.txt&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">ENDC</span><span class="si">}</span><span class="s1">&#39;</span>
         <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
       </details>
@@ -1124,7 +1117,7 @@
         <span class="doc doc-object-name doc-class-name">CreateFileBaseAndUpdate</span>
 
 
-<a href="#fenv.manage_file.CreateFileBaseAndUpdate" class="headerlink" title="Permanent link">¤</a></h2>
+</h2>
 <div class="highlight"><pre><span></span><code><span class="n">CreateFileBaseAndUpdate</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
 </code></pre></div>
 
@@ -1172,7 +1165,7 @@
         <span class="doc doc-object-name doc-function-name">create_file_freeze</span>
 
 
-<a href="#fenv.manage_file.CreateFileBaseAndUpdate.create_file_freeze" class="headerlink" title="Permanent link">¤</a></h3>
+</h3>
 <div class="highlight"><pre><span></span><code><span class="n">create_file_freeze</span><span class="p">()</span>
 </code></pre></div>
 
@@ -1198,7 +1191,7 @@
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;requirements.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">module_base</span><span class="p">)</span>
     <span class="n">os</span><span class="o">.</span><span class="n">chmod</span><span class="p">(</span><span class="s2">&quot;requirements.txt&quot;</span><span class="p">,</span> <span class="mo">0o777</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">notice</span> <span class="o">+</span> <span class="sa">f</span><span class="s1">&#39;Successfully created the file &quot;requirements.txt&quot;&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">notice</span><span class="si">}</span><span class="s1">Successfully created the file &quot;requirements.txt&quot;&#39;</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
       </details>
   </div>
@@ -1213,7 +1206,7 @@
         <span class="doc doc-object-name doc-function-name">create_file_gitignore</span>
 
 
-<a href="#fenv.manage_file.CreateFileBaseAndUpdate.create_file_gitignore" class="headerlink" title="Permanent link">¤</a></h3>
+</h3>
 <div class="highlight"><pre><span></span><code><span class="n">create_file_gitignore</span><span class="p">()</span>
 </code></pre></div>
 
@@ -1237,7 +1230,7 @@
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;.gitignore&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;*.pyc</span><span class="se">\n</span><span class="s2">/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">env_directory</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="n">os</span><span class="o">.</span><span class="n">chmod</span><span class="p">(</span><span class="s2">&quot;.gitignore&quot;</span><span class="p">,</span> <span class="mo">0o777</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">notice</span> <span class="o">+</span> <span class="sa">f</span><span class="s1">&#39;Successfully created the file &quot;.gitignore&quot;&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">notice</span><span class="si">}</span><span class="s1">Successfully created the file &quot;.gitignore&quot;&#39;</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
       </details>
   </div>
@@ -1252,7 +1245,7 @@
         <span class="doc doc-object-name doc-function-name">create_file_main_py</span>
 
 
-<a href="#fenv.manage_file.CreateFileBaseAndUpdate.create_file_main_py" class="headerlink" title="Permanent link">¤</a></h3>
+</h3>
 <div class="highlight"><pre><span></span><code><span class="n">create_file_main_py</span><span class="p">()</span>
 </code></pre></div>
 
@@ -1278,7 +1271,7 @@
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">commands</span><span class="o">.</span><span class="n">get_main_py</span><span class="p">())</span>
     <span class="n">os</span><span class="o">.</span><span class="n">chmod</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file_path</span><span class="p">,</span> <span class="mo">0o777</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">notice</span> <span class="o">+</span> <span class="sa">f</span><span class="s1">&#39;Successfully created the file &quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">file_path</span><span class="si">}</span><span class="s1">&quot;&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">notice</span><span class="si">}</span><span class="s1">Successfully created the file &quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">file_path</span><span class="si">}</span><span class="s1">&quot;&#39;</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
       </details>
   </div>
@@ -1293,7 +1286,7 @@
         <span class="doc doc-object-name doc-function-name">create_file_readme_md</span>
 
 
-<a href="#fenv.manage_file.CreateFileBaseAndUpdate.create_file_readme_md" class="headerlink" title="Permanent link">¤</a></h3>
+</h3>
 <div class="highlight"><pre><span></span><code><span class="n">create_file_readme_md</span><span class="p">()</span>
 </code></pre></div>
 
@@ -1329,7 +1322,7 @@
             <span class="p">)</span>
         <span class="p">)</span>
     <span class="n">os</span><span class="o">.</span><span class="n">chmod</span><span class="p">(</span><span class="n">markdown_path</span><span class="p">,</span> <span class="mo">0o777</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">notice</span> <span class="o">+</span> <span class="sa">f</span><span class="s1">&#39;Successfully created the file &quot;</span><span class="si">{</span><span class="n">markdown_path</span><span class="si">}</span><span class="s1">&quot;&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">notice</span><span class="si">}</span><span class="s1">Successfully created the file &quot;</span><span class="si">{</span><span class="n">markdown_path</span><span class="si">}</span><span class="s1">&quot;&#39;</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
       </details>
   </div>
@@ -1344,7 +1337,7 @@
         <span class="doc doc-object-name doc-function-name">create_folder</span>
 
 
-<a href="#fenv.manage_file.CreateFileBaseAndUpdate.create_folder" class="headerlink" title="Permanent link">¤</a></h3>
+</h3>
 <div class="highlight"><pre><span></span><code><span class="n">create_folder</span><span class="p">()</span>
 </code></pre></div>
 
@@ -1354,8 +1347,8 @@
 
 <details class="example">
   <summary>Example</summary>
-  <div class="highlight"><pre><span></span><code><span class="n">create_folder</span><span class="p">(</span><span class="s2">&quot;project_name&quot;</span><span class="p">)</span>
-</code></pre></div>
+  <pre><code class="language-py">create_folder(&quot;project_name&quot;)
+</code></pre>
 </details>
 <details class="return">
   <summary>Return</summary>
@@ -1363,7 +1356,10 @@
 </details>
       <details class="quote">
         <summary>Source code in <code>fenv\manage_file.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">191</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
 <span class="normal">192</span>
 <span class="normal">193</span>
 <span class="normal">194</span>
@@ -1377,10 +1373,7 @@
 <span class="normal">202</span>
 <span class="normal">203</span>
 <span class="normal">204</span>
-<span class="normal">205</span>
-<span class="normal">206</span>
-<span class="normal">207</span>
-<span class="normal">208</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">create_folder</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="normal">205</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">create_folder</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    It creates a folder with the name of the argument passed to it</span>
 
@@ -1394,10 +1387,10 @@
     <span class="k">try</span><span class="p">:</span>
         <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
     <span class="k">except</span> <span class="ne">FileExistsError</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">notice</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> already exists.&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">notice</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> already exists.&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="mi">1</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">notice</span> <span class="o">+</span> <span class="sa">f</span><span class="s1">&#39;Successfully created the directory &quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1">&quot;&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">notice</span><span class="si">}</span><span class="s1">Successfully created the directory &quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1">&quot;&#39;</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
       </details>
   </div>
@@ -1412,7 +1405,7 @@
         <span class="doc doc-object-name doc-function-name">create_setting_vscode</span>
 
 
-<a href="#fenv.manage_file.CreateFileBaseAndUpdate.create_setting_vscode" class="headerlink" title="Permanent link">¤</a></h3>
+</h3>
 <div class="highlight"><pre><span></span><code><span class="n">create_setting_vscode</span><span class="p">()</span>
 </code></pre></div>
 
@@ -1423,8 +1416,8 @@
 
 <details class="example">
   <summary>Example</summary>
-  <div class="highlight"><pre><span></span><code><span class="n">create_setting_vscode</span><span class="p">(</span><span class="s2">&quot;env_path&quot;</span><span class="p">)</span>
-</code></pre></div>
+  <pre><code class="language-py">create_setting_vscode(&quot;env_path&quot;)
+</code></pre>
 </details>
 <details class="return">
   <summary>Return</summary>
@@ -1466,7 +1459,7 @@
     <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="s2">&quot;.vscode/settings.json&quot;</span><span class="p">),</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;.vscode/settings.json&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">text_vscode</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name_env</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">notice</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;Successfully created the .vscode/settings.json&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">notice</span><span class="si">}</span><span class="s2">Successfully created the .vscode/settings.json&quot;</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
       </details>
   </div>
@@ -1481,7 +1474,7 @@
         <span class="doc doc-object-name doc-function-name">create_virtualenv</span>
 
 
-<a href="#fenv.manage_file.CreateFileBaseAndUpdate.create_virtualenv" class="headerlink" title="Permanent link">¤</a></h3>
+</h3>
 <div class="highlight"><pre><span></span><code><span class="n">create_virtualenv</span><span class="p">()</span>
 </code></pre></div>
 
@@ -1515,8 +1508,8 @@
 
 <details class="example">
   <summary>Example</summary>
-  <div class="highlight"><pre><span></span><code><span class="n">create_virtualenv</span><span class="p">(</span><span class="s2">&quot;virtual_env_name&quot;</span><span class="p">)</span>
-</code></pre></div>
+  <pre><code class="language-py">create_virtualenv(&quot;virtual_env_name&quot;)
+</code></pre>
 </details>
 <details class="return">
   <summary>Return</summary>
@@ -1564,7 +1557,7 @@
         <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;virtualenv env_</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="n">EnvAll</span><span class="p">()</span><span class="o">.</span><span class="n">create_lib_default_env</span><span class="p">()</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">notice</span> <span class="o">+</span> <span class="sa">f</span><span class="s1">&#39;Successfully created the virtualenv &quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1">&quot;&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">notice</span><span class="si">}</span><span class="s1">Successfully created the virtualenv &quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1">&quot;&#39;</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
       </details>
   </div>
@@ -1579,7 +1572,7 @@
         <span class="doc doc-object-name doc-function-name">process_create_base_file_and_update</span>
 
 
-<a href="#fenv.manage_file.CreateFileBaseAndUpdate.process_create_base_file_and_update" class="headerlink" title="Permanent link">¤</a></h3>
+</h3>
 <div class="highlight"><pre><span></span><code><span class="n">process_create_base_file_and_update</span><span class="p">()</span>
 </code></pre></div>
 
@@ -1590,7 +1583,10 @@ state is update, update the file readme.md</p>
 
       <details class="quote">
         <summary>Source code in <code>fenv\manage_file.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">210</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
 <span class="normal">211</span>
 <span class="normal">212</span>
 <span class="normal">213</span>
@@ -1599,10 +1595,7 @@ state is update, update the file readme.md</p>
 <span class="normal">216</span>
 <span class="normal">217</span>
 <span class="normal">218</span>
-<span class="normal">219</span>
-<span class="normal">220</span>
-<span class="normal">221</span>
-<span class="normal">222</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">process_create_base_file_and_update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="normal">219</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">process_create_base_file_and_update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    If the state is create, create the files main.py, freeze.py, gitignore.py, and readme.md. If the</span>
 <span class="sd">    state is update, update the file readme.md</span>
@@ -1629,7 +1622,7 @@ state is update, update the file readme.md</p>
         <span class="doc doc-object-name doc-function-name">procress_only_create_project</span>
 
 
-<a href="#fenv.manage_file.CreateFileBaseAndUpdate.procress_only_create_project" class="headerlink" title="Permanent link">¤</a></h3>
+</h3>
 <div class="highlight"><pre><span></span><code><span class="n">procress_only_create_project</span><span class="p">()</span>
 </code></pre></div>
 
@@ -1639,15 +1632,15 @@ state is update, update the file readme.md</p>
 
       <details class="quote">
         <summary>Source code in <code>fenv\manage_file.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">224</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
 <span class="normal">225</span>
 <span class="normal">226</span>
 <span class="normal">227</span>
 <span class="normal">228</span>
-<span class="normal">229</span>
-<span class="normal">230</span>
-<span class="normal">231</span>
-<span class="normal">232</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">procress_only_create_project</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="normal">229</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">procress_only_create_project</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    It creates a virtual environment and a vscode settings file.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -1670,7 +1663,7 @@ state is update, update the file readme.md</p>
         <span class="doc doc-object-name doc-function-name">run_install_module_base</span>
 
 
-<a href="#fenv.manage_file.CreateFileBaseAndUpdate.run_install_module_base" class="headerlink" title="Permanent link">¤</a></h3>
+</h3>
 <div class="highlight"><pre><span></span><code><span class="n">run_install_module_base</span><span class="p">()</span>
 </code></pre></div>
 
@@ -1701,18 +1694,7 @@ state is update, update the file readme.md</p>
 <span class="normal">175</span>
 <span class="normal">176</span>
 <span class="normal">177</span>
-<span class="normal">178</span>
-<span class="normal">179</span>
-<span class="normal">180</span>
-<span class="normal">181</span>
-<span class="normal">182</span>
-<span class="normal">183</span>
-<span class="normal">184</span>
-<span class="normal">185</span>
-<span class="normal">186</span>
-<span class="normal">187</span>
-<span class="normal">188</span>
-<span class="normal">189</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">run_install_module_base</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="normal">178</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">run_install_module_base</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    It installs the base Python modules</span>
 
@@ -1720,29 +1702,18 @@ state is update, update the file readme.md</p>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">if</span> <span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;Windows&quot;</span><span class="p">:</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;.\env_</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">\Scripts\python.exe -m pip install -r requirements.txt&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_extracted_from_run_install_module_base_9</span><span class="p">(</span>
+            <span class="s2">&quot;.\env_&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;\Scripts\python.exe -m pip install -r requirements.txt&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;\Scripts\python.exe -m pip freeze &gt; requirements.txt&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;\Scripts\python.exe -m pip install --upgrade pip&quot;</span><span class="p">,</span>
         <span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">notice</span> <span class="o">+</span> <span class="sa">f</span><span class="s1">&#39;Successfully installed module in &quot;requirements.txt&quot;&#39;</span><span class="p">)</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;.\env_</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">\Scripts\python.exe -m pip freeze &gt; requirements.txt&quot;</span>
-        <span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">notice</span> <span class="o">+</span> <span class="sa">f</span><span class="s1">&#39;Successfully updated the file &quot;requirements.txt&quot;&#39;</span><span class="p">)</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;.\env_</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">\Scripts\python.exe -m pip install --upgrade pip&quot;</span>
-        <span class="p">)</span>
-
     <span class="k">elif</span> <span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;Linux&quot;</span><span class="p">:</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;bash -c &#39;source env_</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">/bin/activate  &amp;&amp; pip install -r requirements.txt&#39;&quot;</span>
-        <span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">notice</span> <span class="o">+</span> <span class="sa">f</span><span class="s1">&#39;Successfully installed module in &quot;requirements.txt&quot;&#39;</span><span class="p">)</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;bash -c &#39;source env_</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">/bin/activate  &amp;&amp; pip freeze &gt; requirements.txt&#39;&quot;</span>
-        <span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">notice</span> <span class="o">+</span> <span class="sa">f</span><span class="s1">&#39;Successfully updated the file &quot;requirements.txt&quot;&#39;</span><span class="p">)</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;bash -c &#39;source env_</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">/bin/activate  &amp;&amp; pip install --upgrade pip&#39;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_extracted_from_run_install_module_base_9</span><span class="p">(</span>
+            <span class="s2">&quot;bash -c &#39;source env_&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;/bin/activate  &amp;&amp; pip install -r requirements.txt&#39;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;/bin/activate  &amp;&amp; pip freeze &gt; requirements.txt&#39;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;/bin/activate  &amp;&amp; pip install --upgrade pip&#39;&quot;</span><span class="p">,</span>
         <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
       </details>
@@ -1758,7 +1729,7 @@ state is update, update the file readme.md</p>
         <span class="doc doc-object-name doc-function-name">update_file_readme_md</span>
 
 
-<a href="#fenv.manage_file.CreateFileBaseAndUpdate.update_file_readme_md" class="headerlink" title="Permanent link">¤</a></h3>
+</h3>
 <div class="highlight"><pre><span></span><code><span class="n">update_file_readme_md</span><span class="p">()</span>
 </code></pre></div>
 
@@ -1839,7 +1810,7 @@ state is update, update the file readme.md</p>
         <span class="doc doc-object-name doc-class-name">InstallModule</span>
 
 
-<a href="#fenv.manage_file.InstallModule" class="headerlink" title="Permanent link">¤</a></h2>
+</h2>
 <div class="highlight"><pre><span></span><code><span class="n">InstallModule</span><span class="p">(</span><span class="n">arg</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
 
@@ -1851,13 +1822,13 @@ state is update, update the file readme.md</p>
 
           <details class="quote">
             <summary>Source code in <code>fenv\manage_file.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">308</span>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">305</span>
+<span class="normal">306</span>
+<span class="normal">307</span>
+<span class="normal">308</span>
 <span class="normal">309</span>
 <span class="normal">310</span>
-<span class="normal">311</span>
-<span class="normal">312</span>
-<span class="normal">313</span>
-<span class="normal">314</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="normal">311</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">package_name</span> <span class="o">=</span> <span class="n">arg</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">colors</span> <span class="o">=</span> <span class="n">Colors</span><span class="p">()</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">notice</span> <span class="o">=</span> <span class="n">Colors</span><span class="p">()</span><span class="o">.</span><span class="n">notice</span><span class="p">()</span>
@@ -1887,7 +1858,7 @@ state is update, update the file readme.md</p>
         <span class="doc doc-object-name doc-function-name">add_module_to_txt</span>
 
 
-<a href="#fenv.manage_file.InstallModule.add_module_to_txt" class="headerlink" title="Permanent link">¤</a></h3>
+</h3>
 <div class="highlight"><pre><span></span><code><span class="n">add_module_to_txt</span><span class="p">()</span>
 </code></pre></div>
 
@@ -1921,8 +1892,8 @@ state is update, update the file readme.md</p>
 
 <details class="example">
   <summary>Example</summary>
-  <div class="highlight"><pre><span></span><code><span class="n">add_module_to_txt</span><span class="p">(</span><span class="s2">&quot;package_name&quot;</span><span class="p">)</span>
-</code></pre></div>
+  <pre><code class="language-py">add_module_to_txt(&quot;package_name&quot;)
+</code></pre>
 </details>
 <details class="return">
   <summary>Return</summary>
@@ -1930,7 +1901,10 @@ state is update, update the file readme.md</p>
 </details>
       <details class="quote">
         <summary>Source code in <code>fenv\manage_file.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">347</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">344</span>
+<span class="normal">345</span>
+<span class="normal">346</span>
+<span class="normal">347</span>
 <span class="normal">348</span>
 <span class="normal">349</span>
 <span class="normal">350</span>
@@ -1953,10 +1927,7 @@ state is update, update the file readme.md</p>
 <span class="normal">367</span>
 <span class="normal">368</span>
 <span class="normal">369</span>
-<span class="normal">370</span>
-<span class="normal">371</span>
-<span class="normal">372</span>
-<span class="normal">373</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">add_module_to_txt</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="normal">370</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">add_module_to_txt</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    It takes the argument from the command line and adds it to the requirements.txt file</span>
 <span class="sd">    Args:</span>
@@ -1997,7 +1968,7 @@ state is update, update the file readme.md</p>
         <span class="doc doc-object-name doc-function-name">install_package_all</span>
 
 
-<a href="#fenv.manage_file.InstallModule.install_package_all" class="headerlink" title="Permanent link">¤</a></h3>
+</h3>
 <div class="highlight"><pre><span></span><code><span class="n">install_package_all</span><span class="p">()</span>
 </code></pre></div>
 
@@ -2007,7 +1978,14 @@ state is update, update the file readme.md</p>
 
       <details class="quote">
         <summary>Source code in <code>fenv\manage_file.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">419</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">412</span>
+<span class="normal">413</span>
+<span class="normal">414</span>
+<span class="normal">415</span>
+<span class="normal">416</span>
+<span class="normal">417</span>
+<span class="normal">418</span>
+<span class="normal">419</span>
 <span class="normal">420</span>
 <span class="normal">421</span>
 <span class="normal">422</span>
@@ -2063,20 +2041,7 @@ state is update, update the file readme.md</p>
 <span class="normal">472</span>
 <span class="normal">473</span>
 <span class="normal">474</span>
-<span class="normal">475</span>
-<span class="normal">476</span>
-<span class="normal">477</span>
-<span class="normal">478</span>
-<span class="normal">479</span>
-<span class="normal">480</span>
-<span class="normal">481</span>
-<span class="normal">482</span>
-<span class="normal">483</span>
-<span class="normal">484</span>
-<span class="normal">485</span>
-<span class="normal">486</span>
-<span class="normal">487</span>
-<span class="normal">488</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">install_package_all</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="normal">475</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">install_package_all</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    install all packages in requirements.txt file using pip install -r requirements.txt</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -2109,19 +2074,14 @@ state is update, update the file readme.md</p>
             <span class="p">)</span>
             <span class="n">install_package_follow_env</span><span class="p">(</span><span class="n">folder_name_env</span><span class="p">)</span>
             <span class="nb">print</span><span class="p">(</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">notice</span>
-                <span class="o">+</span> <span class="sa">f</span><span class="s1">&#39;Successfully installed module from &quot;requirements.txt&quot;&#39;</span>
+                <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">notice</span><span class="si">}</span><span class="s1">Successfully installed module from &quot;requirements.txt&quot;&#39;</span>
             <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
                 <span class="n">response</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span>
                     <span class="s2">&quot;We couldn&#39;t find the fenv virtual environment. Would you like to set up a new one? (y/n): &quot;</span>
                 <span class="p">)</span>
-                <span class="k">if</span> <span class="p">(</span>
-                    <span class="n">response</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;y&quot;</span>
-                    <span class="ow">or</span> <span class="n">response</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;yes&quot;</span>
-                    <span class="ow">or</span> <span class="n">response</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span>
-                <span class="p">):</span>
+                <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;yes&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">]:</span>
                     <span class="n">OnlyVirtualEnv</span><span class="p">()</span><span class="o">.</span><span class="n">run_process</span><span class="p">()</span>
                     <span class="n">folder_name</span> <span class="o">=</span> <span class="s2">&quot;env*&quot;</span>
                     <span class="n">folder_name_env</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span>
@@ -2132,12 +2092,11 @@ state is update, update the file readme.md</p>
                     <span class="p">)</span>
                     <span class="n">install_package_follow_env</span><span class="p">(</span><span class="n">folder_name_env</span><span class="p">)</span>
                     <span class="nb">print</span><span class="p">(</span>
-                        <span class="bp">self</span><span class="o">.</span><span class="n">notice</span>
-                        <span class="o">+</span> <span class="sa">f</span><span class="s1">&#39;Successfully installed modules from &quot;requirements.txt&quot;&#39;</span>
+                        <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">notice</span><span class="si">}</span><span class="s1">Successfully installed modules from &quot;requirements.txt&quot;&#39;</span>
                     <span class="p">)</span>
                     <span class="k">break</span>
                 <span class="k">elif</span> <span class="n">response</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;n&quot;</span><span class="p">:</span>
-                    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;pip install -r requirements.txt&quot;</span><span class="p">)</span>
+                    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;pip install -r requirements.txt&quot;</span><span class="p">)</span>
                     <span class="k">break</span>
 
     <span class="k">if</span> <span class="n">requirements_file</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">):</span>
@@ -2160,7 +2119,7 @@ state is update, update the file readme.md</p>
         <span class="doc doc-object-name doc-function-name">install_package_only</span>
 
 
-<a href="#fenv.manage_file.InstallModule.install_package_only" class="headerlink" title="Permanent link">¤</a></h3>
+</h3>
 <div class="highlight"><pre><span></span><code><span class="n">install_package_only</span><span class="p">()</span>
 </code></pre></div>
 
@@ -2171,8 +2130,8 @@ state is update, update the file readme.md</p>
 
 <details class="example">
   <summary>Example</summary>
-  <div class="highlight"><pre><span></span><code><span class="n">install_package_only</span><span class="p">(</span><span class="s2">&quot;package_name&quot;</span><span class="p">)</span>
-</code></pre></div>
+  <pre><code class="language-py">install_package_only(&quot;package_name&quot;)
+</code></pre>
 </details>
 <details class="return">
   <summary>Return</summary>
@@ -2180,7 +2139,10 @@ state is update, update the file readme.md</p>
 </details>
       <details class="quote">
         <summary>Source code in <code>fenv\manage_file.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">375</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">372</span>
+<span class="normal">373</span>
+<span class="normal">374</span>
+<span class="normal">375</span>
 <span class="normal">376</span>
 <span class="normal">377</span>
 <span class="normal">378</span>
@@ -2215,14 +2177,7 @@ state is update, update the file readme.md</p>
 <span class="normal">407</span>
 <span class="normal">408</span>
 <span class="normal">409</span>
-<span class="normal">410</span>
-<span class="normal">411</span>
-<span class="normal">412</span>
-<span class="normal">413</span>
-<span class="normal">414</span>
-<span class="normal">415</span>
-<span class="normal">416</span>
-<span class="normal">417</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">install_package_only</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="normal">410</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">install_package_only</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    It tries to install a package, if it fails, it prints a message</span>
 
@@ -2244,11 +2199,7 @@ state is update, update the file readme.md</p>
                 <span class="n">response</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span>
                     <span class="s2">&quot;We couldn&#39;t find the fenv virtual environment. Would you like to set up a new one? (y/n): &quot;</span>
                 <span class="p">)</span>
-                <span class="k">if</span> <span class="p">(</span>
-                    <span class="n">response</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;y&quot;</span>
-                    <span class="ow">or</span> <span class="n">response</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;yes&quot;</span>
-                    <span class="ow">or</span> <span class="n">response</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span>
-                <span class="p">):</span>
+                <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;yes&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">]:</span>
                     <span class="n">OnlyVirtualEnv</span><span class="p">()</span><span class="o">.</span><span class="n">run_process</span><span class="p">()</span>
                     <span class="n">folder_name</span> <span class="o">=</span> <span class="s2">&quot;env*&quot;</span>
                     <span class="n">folder_name_env</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span>
@@ -2279,7 +2230,7 @@ state is update, update the file readme.md</p>
         <span class="doc doc-object-name doc-function-name">install_required_package</span>
 
 
-<a href="#fenv.manage_file.InstallModule.install_required_package" class="headerlink" title="Permanent link">¤</a></h3>
+</h3>
 <div class="highlight"><pre><span></span><code><span class="n">install_required_package</span><span class="p">()</span>
 </code></pre></div>
 
@@ -2292,7 +2243,10 @@ state is update, update the file readme.md</p>
 
       <details class="quote">
         <summary>Source code in <code>fenv\manage_file.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">316</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">313</span>
+<span class="normal">314</span>
+<span class="normal">315</span>
+<span class="normal">316</span>
 <span class="normal">317</span>
 <span class="normal">318</span>
 <span class="normal">319</span>
@@ -2318,10 +2272,7 @@ state is update, update the file readme.md</p>
 <span class="normal">339</span>
 <span class="normal">340</span>
 <span class="normal">341</span>
-<span class="normal">342</span>
-<span class="normal">343</span>
-<span class="normal">344</span>
-<span class="normal">345</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">install_required_package</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="normal">342</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">install_required_package</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    It checks if the platform is Windows, if it is, it runs the command:</span>
 
@@ -2373,7 +2324,7 @@ state is update, update the file readme.md</p>
         <span class="doc doc-object-name doc-class-name">OnlyVirtualEnv</span>
 
 
-<a href="#fenv.manage_file.OnlyVirtualEnv" class="headerlink" title="Permanent link">¤</a></h2>
+</h2>
 <div class="highlight"><pre><span></span><code><span class="n">OnlyVirtualEnv</span><span class="p">()</span>
 </code></pre></div>
 
@@ -2385,12 +2336,12 @@ state is update, update the file readme.md</p>
 
           <details class="quote">
             <summary>Source code in <code>fenv\manage_file.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">238</span>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">235</span>
+<span class="normal">236</span>
+<span class="normal">237</span>
+<span class="normal">238</span>
 <span class="normal">239</span>
-<span class="normal">240</span>
-<span class="normal">241</span>
-<span class="normal">242</span>
-<span class="normal">243</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="normal">240</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">colors</span> <span class="o">=</span> <span class="n">Colors</span><span class="p">()</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">notice</span> <span class="o">=</span> <span class="n">Colors</span><span class="p">()</span><span class="o">.</span><span class="n">notice</span><span class="p">()</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">commands</span> <span class="o">=</span> <span class="n">Commands</span><span class="p">()</span>
@@ -2419,7 +2370,7 @@ state is update, update the file readme.md</p>
         <span class="doc doc-object-name doc-function-name">create_name_env</span>
 
 
-<a href="#fenv.manage_file.OnlyVirtualEnv.create_name_env" class="headerlink" title="Permanent link">¤</a></h3>
+</h3>
 <div class="highlight"><pre><span></span><code><span class="n">create_name_env</span><span class="p">()</span>
 </code></pre></div>
 
@@ -2431,7 +2382,10 @@ only, if it is, it will return the name, if not, it will return a name automatic
 
       <details class="quote">
         <summary>Source code in <code>fenv\manage_file.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">255</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span>
 <span class="normal">256</span>
 <span class="normal">257</span>
 <span class="normal">258</span>
@@ -2441,10 +2395,7 @@ only, if it is, it will return the name, if not, it will return a name automatic
 <span class="normal">262</span>
 <span class="normal">263</span>
 <span class="normal">264</span>
-<span class="normal">265</span>
-<span class="normal">266</span>
-<span class="normal">267</span>
-<span class="normal">268</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">create_name_env</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="normal">265</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">create_name_env</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    If the user enters a name for the virtualenv, the function will check if the name is in English</span>
 <span class="sd">    only, if it is, it will return the name, if not, it will return a name automatically</span>
@@ -2455,7 +2406,7 @@ only, if it is, it will return the name, if not, it will return a name automatic
     <span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;_&quot;</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="nb">bool</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;^[A-Za-z0-9_#]+$&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)):</span>
-        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_name_env_auto</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
@@ -2472,7 +2423,7 @@ only, if it is, it will return the name, if not, it will return a name automatic
         <span class="doc doc-object-name doc-function-name">create_name_env_auto</span>
 
 
-<a href="#fenv.manage_file.OnlyVirtualEnv.create_name_env_auto" class="headerlink" title="Permanent link">¤</a></h3>
+</h3>
 <div class="highlight"><pre><span></span><code><span class="n">create_name_env_auto</span><span class="p">()</span>
 </code></pre></div>
 
@@ -2485,15 +2436,15 @@ only, if it is, it will return the name, if not, it will return a name automatic
 
       <details class="quote">
         <summary>Source code in <code>fenv\manage_file.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">245</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
 <span class="normal">246</span>
 <span class="normal">247</span>
 <span class="normal">248</span>
 <span class="normal">249</span>
-<span class="normal">250</span>
-<span class="normal">251</span>
-<span class="normal">252</span>
-<span class="normal">253</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">create_name_env_auto</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="normal">250</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">create_name_env_auto</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    &gt; It creates a random name for the environment</span>
 <span class="sd">    :return: A string</span>
@@ -2516,7 +2467,7 @@ only, if it is, it will return the name, if not, it will return a name automatic
         <span class="doc doc-object-name doc-function-name">create_virtualenv_not_change_dir</span>
 
 
-<a href="#fenv.manage_file.OnlyVirtualEnv.create_virtualenv_not_change_dir" class="headerlink" title="Permanent link">¤</a></h3>
+</h3>
 <div class="highlight"><pre><span></span><code><span class="n">create_virtualenv_not_change_dir</span><span class="p">()</span>
 </code></pre></div>
 
@@ -2550,8 +2501,8 @@ only, if it is, it will return the name, if not, it will return a name automatic
 
 <details class="example">
   <summary>Example</summary>
-  <div class="highlight"><pre><span></span><code><span class="n">create_virtualenv</span><span class="p">(</span><span class="s2">&quot;virtual_env_name&quot;</span><span class="p">)</span>
-</code></pre></div>
+  <pre><code class="language-py">create_virtualenv(&quot;virtual_env_name&quot;)
+</code></pre>
 </details>
 <details class="return">
   <summary>Return</summary>
@@ -2559,7 +2510,10 @@ only, if it is, it will return the name, if not, it will return a name automatic
 </details>
       <details class="quote">
         <summary>Source code in <code>fenv\manage_file.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">270</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">267</span>
+<span class="normal">268</span>
+<span class="normal">269</span>
+<span class="normal">270</span>
 <span class="normal">271</span>
 <span class="normal">272</span>
 <span class="normal">273</span>
@@ -2575,10 +2529,7 @@ only, if it is, it will return the name, if not, it will return a name automatic
 <span class="normal">283</span>
 <span class="normal">284</span>
 <span class="normal">285</span>
-<span class="normal">286</span>
-<span class="normal">287</span>
-<span class="normal">288</span>
-<span class="normal">289</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">create_virtualenv_not_change_dir</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="normal">286</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">create_virtualenv_not_change_dir</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    It creates a virtual environment with the name you pass to it</span>
 
@@ -2597,7 +2548,7 @@ only, if it is, it will return the name, if not, it will return a name automatic
         <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;virtualenv env_</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_name_env</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="n">EnvAll</span><span class="p">()</span><span class="o">.</span><span class="n">create_lib_default_env</span><span class="p">()</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">notice</span> <span class="o">+</span> <span class="sa">f</span><span class="s1">&#39;Successfully created the virtualenv &quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_name_env</span><span class="si">}</span><span class="s1">&quot;&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">notice</span><span class="si">}</span><span class="s1">Successfully created the virtualenv &quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_name_env</span><span class="si">}</span><span class="s1">&quot;&#39;</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
       </details>
   </div>
@@ -2612,7 +2563,7 @@ only, if it is, it will return the name, if not, it will return a name automatic
         <span class="doc doc-object-name doc-function-name">run_process</span>
 
 
-<a href="#fenv.manage_file.OnlyVirtualEnv.run_process" class="headerlink" title="Permanent link">¤</a></h3>
+</h3>
 <div class="highlight"><pre><span></span><code><span class="n">run_process</span><span class="p">()</span>
 </code></pre></div>
 
@@ -2622,7 +2573,10 @@ only, if it is, it will return the name, if not, it will return a name automatic
 
       <details class="quote">
         <summary>Source code in <code>fenv\manage_file.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">291</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">288</span>
+<span class="normal">289</span>
+<span class="normal">290</span>
+<span class="normal">291</span>
 <span class="normal">292</span>
 <span class="normal">293</span>
 <span class="normal">294</span>
@@ -2630,10 +2584,7 @@ only, if it is, it will return the name, if not, it will return a name automatic
 <span class="normal">296</span>
 <span class="normal">297</span>
 <span class="normal">298</span>
-<span class="normal">299</span>
-<span class="normal">300</span>
-<span class="normal">301</span>
-<span class="normal">302</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">run_process</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="normal">299</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">run_process</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    It creates a virtual environment and a vscode settings file.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -2667,7 +2618,7 @@ only, if it is, it will return the name, if not, it will return a name automatic
         <span class="doc doc-object-name doc-class-name">UninstallModule</span>
 
 
-<a href="#fenv.manage_file.UninstallModule" class="headerlink" title="Permanent link">¤</a></h2>
+</h2>
 <div class="highlight"><pre><span></span><code><span class="n">UninstallModule</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
 </code></pre></div>
 
@@ -2677,13 +2628,13 @@ only, if it is, it will return the name, if not, it will return a name automatic
 
           <details class="quote">
             <summary>Source code in <code>fenv\manage_file.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">492</span>
-<span class="normal">493</span>
-<span class="normal">494</span>
-<span class="normal">495</span>
-<span class="normal">496</span>
-<span class="normal">497</span>
-<span class="normal">498</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">479</span>
+<span class="normal">480</span>
+<span class="normal">481</span>
+<span class="normal">482</span>
+<span class="normal">483</span>
+<span class="normal">484</span>
+<span class="normal">485</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">package_name</span> <span class="o">=</span> <span class="n">arg</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">colors</span> <span class="o">=</span> <span class="n">Colors</span><span class="p">()</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">notice</span> <span class="o">=</span> <span class="n">Colors</span><span class="p">()</span><span class="o">.</span><span class="n">notice</span><span class="p">()</span>
@@ -2713,7 +2664,7 @@ only, if it is, it will return the name, if not, it will return a name automatic
         <span class="doc doc-object-name doc-function-name">cmd_uninstall_package</span>
 
 
-<a href="#fenv.manage_file.UninstallModule.cmd_uninstall_package" class="headerlink" title="Permanent link">¤</a></h3>
+</h3>
 <div class="highlight"><pre><span></span><code><span class="n">cmd_uninstall_package</span><span class="p">()</span>
 </code></pre></div>
 
@@ -2747,8 +2698,8 @@ only, if it is, it will return the name, if not, it will return a name automatic
 
 <details class="example">
   <summary>Example</summary>
-  <div class="highlight"><pre><span></span><code><span class="n">cmd_uninstall_package</span><span class="p">(</span><span class="s2">&quot;package_name&quot;</span><span class="p">)</span>
-</code></pre></div>
+  <pre><code class="language-py">cmd_uninstall_package(&quot;package_name&quot;)
+</code></pre>
 </details>
 <details class="return">
   <summary>Return</summary>
@@ -2756,7 +2707,20 @@ only, if it is, it will return the name, if not, it will return a name automatic
 </details>
       <details class="quote">
         <summary>Source code in <code>fenv\manage_file.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">500</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">487</span>
+<span class="normal">488</span>
+<span class="normal">489</span>
+<span class="normal">490</span>
+<span class="normal">491</span>
+<span class="normal">492</span>
+<span class="normal">493</span>
+<span class="normal">494</span>
+<span class="normal">495</span>
+<span class="normal">496</span>
+<span class="normal">497</span>
+<span class="normal">498</span>
+<span class="normal">499</span>
+<span class="normal">500</span>
 <span class="normal">501</span>
 <span class="normal">502</span>
 <span class="normal">503</span>
@@ -2782,20 +2746,7 @@ only, if it is, it will return the name, if not, it will return a name automatic
 <span class="normal">523</span>
 <span class="normal">524</span>
 <span class="normal">525</span>
-<span class="normal">526</span>
-<span class="normal">527</span>
-<span class="normal">528</span>
-<span class="normal">529</span>
-<span class="normal">530</span>
-<span class="normal">531</span>
-<span class="normal">532</span>
-<span class="normal">533</span>
-<span class="normal">534</span>
-<span class="normal">535</span>
-<span class="normal">536</span>
-<span class="normal">537</span>
-<span class="normal">538</span>
-<span class="normal">539</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">cmd_uninstall_package</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="normal">526</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">cmd_uninstall_package</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    It uninstalls a package from the virtual environment</span>
 
@@ -2811,7 +2762,7 @@ only, if it is, it will return the name, if not, it will return a name automatic
 
     <span class="k">try</span><span class="p">:</span>
         <span class="n">package_dependency_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pip_show_to_dict</span><span class="p">()[</span><span class="s2">&quot;Requires&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;, &quot;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">notice</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;Uninstalling...</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">ORANGE</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">notice</span><span class="si">}</span><span class="s2">Uninstalling...</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">ORANGE</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;Windows&quot;</span><span class="p">:</span>
             <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span>
                 <span class="sa">f</span><span class="s2">&quot;.\</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">env_directory</span><span class="si">}</span><span class="s2">\Scripts\python.exe -m pip uninstall </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">package_name</span><span class="o">.</span><span class="n">uninstall</span><span class="si">}</span><span class="s2"> -y&quot;</span>
@@ -2849,7 +2800,7 @@ only, if it is, it will return the name, if not, it will return a name automatic
         <span class="doc doc-object-name doc-function-name">process_run</span>
 
 
-<a href="#fenv.manage_file.UninstallModule.process_run" class="headerlink" title="Permanent link">¤</a></h3>
+</h3>
 <div class="highlight"><pre><span></span><code><span class="n">process_run</span><span class="p">()</span>
 </code></pre></div>
 
@@ -2862,8 +2813,8 @@ It's a good idea to include a docstring for every function you write</p>
 
 <details class="example">
   <summary>Example</summary>
-  <div class="highlight"><pre><span></span><code><span class="n">process_run</span><span class="p">(</span><span class="s2">&quot;package_name&quot;</span><span class="p">)</span>
-</code></pre></div>
+  <pre><code class="language-py">process_run(&quot;package_name&quot;)
+</code></pre>
 </details>
 <details class="return">
   <summary>Return</summary>
@@ -2871,27 +2822,27 @@ It's a good idea to include a docstring for every function you write</p>
 </details>
       <details class="quote">
         <summary>Source code in <code>fenv\manage_file.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">559</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">546</span>
+<span class="normal">547</span>
+<span class="normal">548</span>
+<span class="normal">549</span>
+<span class="normal">550</span>
+<span class="normal">551</span>
+<span class="normal">552</span>
+<span class="normal">553</span>
+<span class="normal">554</span>
+<span class="normal">555</span>
+<span class="normal">556</span>
+<span class="normal">557</span>
+<span class="normal">558</span>
+<span class="normal">559</span>
 <span class="normal">560</span>
 <span class="normal">561</span>
 <span class="normal">562</span>
 <span class="normal">563</span>
 <span class="normal">564</span>
 <span class="normal">565</span>
-<span class="normal">566</span>
-<span class="normal">567</span>
-<span class="normal">568</span>
-<span class="normal">569</span>
-<span class="normal">570</span>
-<span class="normal">571</span>
-<span class="normal">572</span>
-<span class="normal">573</span>
-<span class="normal">574</span>
-<span class="normal">575</span>
-<span class="normal">576</span>
-<span class="normal">577</span>
-<span class="normal">578</span>
-<span class="normal">579</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">process_run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="normal">566</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">process_run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    &quot;A function that is called when the user runs the command &quot;uninstall&quot;.&quot;</span>
 
@@ -2965,10 +2916,10 @@ It's a good idea to include a docstring for every function you write</p>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
             <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
               <div class="md-ellipsis">
-                <span class="md-footer__direction">
-                  Previous
-                </span>
                 Class Environment All
               </div>
             </div>
@@ -2978,10 +2929,10 @@ It's a good idea to include a docstring for every function you write</p>
           
           <a href="../commands/" class="md-footer__link md-footer__link--next" aria-label="Next: Class Commands" rel="next">
             <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
               <div class="md-ellipsis">
-                <span class="md-footer__direction">
-                  Next
-                </span>
                 Class Commands
               </div>
             </div>
@@ -2998,7 +2949,7 @@ It's a good idea to include a docstring for every function you write</p>
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2022 - wk-18k
+      Copyright &copy; 2023 - wk-18k
     </div>
   
   
@@ -3031,7 +2982,7 @@ It's a good idea to include a docstring for every function you write</p>
     <script id="__config" type="application/json">{"base": "..", "features": ["navigation.footer", "content.action.edit", "content.code.copy", "content.code.annotate", "navigation.top", "navigation.tabs.sticky"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.efa0ade1.min.js"></script>
+      <script src="../assets/javascripts/bundle.407015b8.min.js"></script>
       
     
   </body>

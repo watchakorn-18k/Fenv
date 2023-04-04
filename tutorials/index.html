@@ -15,7 +15,7 @@
         <link rel="next" href="../how-to-guides/">
       
       <link rel="icon" href="../assets/android-chrome-512x512.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.5">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.c4a75a56.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.7a7fce14.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.a0c5b2b5.min.css">
@@ -349,8 +349,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#fenv-activate-and-fenv-deactivate" class="md-nav__link">
-    fenv activate and fenv deactivate
+  <a href="#fenv-activate" class="md-nav__link">
+    fenv activate
   </a>
   
 </li>
@@ -468,6 +468,21 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../changelog/" class="md-nav__link">
+        Change Log
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -535,8 +550,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#fenv-activate-and-fenv-deactivate" class="md-nav__link">
-    fenv activate and fenv deactivate
+  <a href="#fenv-activate" class="md-nav__link">
+    fenv activate
   </a>
   
 </li>
@@ -566,34 +581,39 @@
 
   <h1>Tutorials</h1>
 
-<h2 id="fenv-new-project_folder"><code>fenv new [project_folder]</code><a class="headerlink" href="#fenv-new-project_folder" title="Permanent link">¤</a></h2>
+<h2 id="fenv-new-project_folder"><code>fenv new [project_folder]</code></h2>
 <p align="center"><img src="https://cdn.discordapp.com/attachments/582486229594013696/1072330814051856484/gamedfdsf.gif" width=80%></p>
 
 <p>Create a new project and create virtualenv with base file such <code>settings.json</code> on vscode and <code>main.py</code></p>
-<h2 id="fenv-install"><code>fenv install</code><a class="headerlink" href="#fenv-install" title="Permanent link">¤</a></h2>
+<h2 id="fenv-install"><code>fenv install</code></h2>
 <p align="center"><img src="https://cdn.discordapp.com/attachments/581018943041306641/1088489445545750690/cgApbCa.gif" width=80%></p>
 
 <p>Install all modules in requirements.txt is similar to <code>npm install</code>.</p>
-<h2 id="fenv-install-package_name"><code>fenv install &lt;package_name&gt;</code><a class="headerlink" href="#fenv-install-package_name" title="Permanent link">¤</a></h2>
+<h2 id="fenv-install-package_name"><code>fenv install &lt;package_name&gt;</code></h2>
 <p align="center"><img src="https://cdn.discordapp.com/attachments/581018943041306641/1088490013433536692/M0shh8x.gif" width=80%></p>
 
 <p>Install the modules you want to install. After the installation is complete add the module name to the file. automatic requirements.txt</p>
-<h2 id="fenv-uninstall-package_name"><code>fenv uninstall &lt;package_name&gt;</code><a class="headerlink" href="#fenv-uninstall-package_name" title="Permanent link">¤</a></h2>
+<h2 id="fenv-uninstall-package_name"><code>fenv uninstall &lt;package_name&gt;</code></h2>
 <p align="center"><img src="https://cdn.discordapp.com/attachments/581018943041306641/1090138658151084052/oZ7LMN9.gif" width=80%></p>
 
 <p>Uninstall the modules you want to uninstall. After the uninstallation is complete add the module name to the file. automatic requirements.txt</p>
-<h2 id="fenv-onlyenv"><code>fenv onlyenv</code><a class="headerlink" href="#fenv-onlyenv" title="Permanent link">¤</a></h2>
+<h2 id="fenv-onlyenv"><code>fenv onlyenv</code></h2>
 <p align="center"><img src="https://cdn.discordapp.com/attachments/581018943041306641/1088492906333077514/mwEUSrg.gif" width=80%></p>
 
 <p>Create a virtualenv with settings to connect the interpreter to vscode and format the code with black.</p>
-<h2 id="fenv-clean"><code>fenv clean</code><a class="headerlink" href="#fenv-clean" title="Permanent link">¤</a></h2>
+<h2 id="fenv-clean"><code>fenv clean</code></h2>
 <p align="center"><img src="https://cdn.discordapp.com/attachments/581018943041306641/1090138275198541824/QPkGn0F.gif" width=80%></p>
 
 <p>Clean, remove all packages like new.</p>
-<h2 id="fenv-activate-and-fenv-deactivate"><code>fenv activate</code> and <code>fenv deactivate</code><a class="headerlink" href="#fenv-activate-and-fenv-deactivate" title="Permanent link">¤</a></h2>
+<h2 id="fenv-activate"><code>fenv activate</code></h2>
 <p align="center"><img src="https://cdn.discordapp.com/attachments/581018943041306641/1092167632934932551/H7MURw3.gif" width=80%></p>
 
-<p>Command hint to activate and deactivate virtual environment with folder</p>
+<p>Activate the virtual environment if the terminal is not supported will show a hint.</p>
+<p>Support Currently:</p>
+<ul>
+<li>Powershell (Windows)</li>
+<li>WSL (Windows)</li>
+</ul>
 
 
 
@@ -625,10 +645,10 @@
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
             <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
               <div class="md-ellipsis">
-                <span class="md-footer__direction">
-                  Previous
-                </span>
                 Fenv Docs
               </div>
             </div>
@@ -638,10 +658,10 @@
           
           <a href="../how-to-guides/" class="md-footer__link md-footer__link--next" aria-label="Next: How-To Guides" rel="next">
             <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
               <div class="md-ellipsis">
-                <span class="md-footer__direction">
-                  Next
-                </span>
                 How-To Guides
               </div>
             </div>
@@ -658,7 +678,7 @@
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2022 - wk-18k
+      Copyright &copy; 2023 - wk-18k
     </div>
   
   
@@ -691,7 +711,7 @@
     <script id="__config" type="application/json">{"base": "..", "features": ["navigation.footer", "content.action.edit", "content.code.copy", "content.code.annotate", "navigation.top", "navigation.tabs.sticky"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.efa0ade1.min.js"></script>
+      <script src="../assets/javascripts/bundle.407015b8.min.js"></script>
       
     
   </body>
