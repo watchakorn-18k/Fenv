@@ -15,10 +15,8 @@ path_env_linux, os_linux = EnvAll().get_path_env_for_linux()
 
 class StateEnv:
     def activate(self):
-        """
-        If the environment name is not empty, then if the operating system is Windows, then if the
-        operating system is Windows and the terminal is xterm-256color, then print the message
-        """
+        """Method to activate a virtual environment"""
+
         isPowerShell = len(os.getenv("PSModulePath", "").split(os.pathsep)) >= 3
         isLinuxOrWSL = os.path.exists("/proc/sys/kernel/osrelease")
         if ENV_NAME:
