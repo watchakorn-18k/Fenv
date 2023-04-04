@@ -4,7 +4,8 @@
 from fenv.env_all import EnvAll
 from fenv.customizes.colors import Colors
 
-import subprocess, os
+import subprocess
+import os
 
 ENV_NAME = EnvAll().get_env_name()
 colors = Colors()
@@ -17,11 +18,12 @@ class StateEnv:
     def activate(self):
         """Method to activate a virtual environment"""
 
-        isPowerShell = len(os.getenv("PSModulePath", "").split(os.pathsep)) >= 3
-        isLinuxOrWSL = os.path.exists("/proc/sys/kernel/osrelease")
+        IS_POWER_SHELL = len(os.getenv("PSModulePath", "").split(os.pathsep)) >= 3
+        IS_LINUX_OR_WSL = os.path.exists("/proc/sys/kernel/osrelease")
+
         if ENV_NAME:
             if os_win:
-                if isPowerShell:
+                if IS_POWER_SHELL:
                     subprocess.run(
                         [
                             "powershell.exe",
@@ -45,7 +47,7 @@ class StateEnv:
 
             elif os_linux:
                 if EnvAll().get_terminal_bash():
-                    if isLinuxOrWSL:
+                    if IS_LINUX_OR_WSL:
                         subprocess.run(
                             [
                                 "bash.exe",

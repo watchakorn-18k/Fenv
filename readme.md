@@ -122,7 +122,6 @@ Commands:
     onlyenv      Create only virtualenv and no create base file
     clean        Clean delete all packages in requirements.txt out
     activate     Command hint to activate virtual environment with folder
-    deactivate   Command hint to deactivate virtual environment with folder
 
 
 General Options:
@@ -147,6 +146,12 @@ python setup.py sdist bdist_wheel
 Fenv is a powerful tool for managing virtual environments and creating basic Python files. With its simple and efficient design, it's the perfect solution for developers who want to streamline their workflow and focus on coding. Get started today and see the difference Fenv can make in your Python development process!
 
 ## Changelog
+
+### 0.0.12.1
+
+- [x] Remove `fenv deactivate` from [pull/6](https://github.com/watchakorn-18k/Fenv/pull/6/files#diff-c8c31647a371f705e0fe45e4a3091400d282af4643adb128636378717392a79d) @yassine20011
+- [x] Clean code [env_all.py](https://github.com/watchakorn-18k/Fenv/pull/6/files#diff-75263248e3c88543bbd5e52333f6d3bf4cdfe36cb3e0c685bf65aa0f77829820) , [manage_file.py](https://github.com/watchakorn-18k/Fenv/pull/6/files#diff-b2587f7f2faf4e65b162d52ab45a8f0facefc0485718cadc198a3a064ab1ce48) @yassine20011
+- [x] Fix in file `state_env.py` [pull/6](https://github.com/watchakorn-18k/Fenv/pull/6/files#diff-0cb3f6829c4ad490de31b6b38b7cb0885596892ec2d578f045828acb3e13f1e2) @yassine20011
 
 ### 0.0.12.0
 

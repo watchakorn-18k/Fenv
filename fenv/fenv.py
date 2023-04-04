@@ -1,4 +1,4 @@
-version: str = '0.0.12.1'
+version: str = "0.0.12.1"
 """ Module fenv main """
 from fenv.customizes.colors import Colors
 from fenv.assets.commands import Commands
@@ -164,9 +164,16 @@ def main():
     """
     args = setup_parse()
 
-    print(
-        f"⏩ {colors.LIGHTMAGENTA_EX}Hello,Fenv {colors.POWDER_BLUE}[{colors.MINT_GREEN}v{version}{colors.POWDER_BLUE}]{colors.ENDC}🫡\n".center(
-            40, "-"
-        )
-    ) if args.__dict__["command"] is None else None
+    try:
+        print(
+            f"⏩ {colors.LIGHTMAGENTA_EX}Hello,Fenv {colors.POWDER_BLUE}[{colors.MINT_GREEN}v{version}{colors.POWDER_BLUE}]{colors.ENDC}🫡\n".center(
+                40, "-"
+            )
+        ) if args.__dict__["command"] is None else None
+    except:
+        print(
+            f"{colors.LIGHTMAGENTA_EX}Hello,Fenv {colors.POWDER_BLUE}[{colors.MINT_GREEN}v{version}{colors.POWDER_BLUE}]{colors.ENDC}\n".center(
+                40, "-"
+            )
+        ) if args.__dict__["command"] is None else None
     check_command(args)
