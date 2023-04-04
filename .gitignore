@@ -1,0 +1,9 @@
+upload_secret.md
+/dist
+/fenv/__pycache__
+/fenv/assets/__pycache__
+/fenv/customizes/__pycache__
+/Fenv.egg-info
+/site
+/test
+/build
