@@ -147,6 +147,10 @@ Fenv is a powerful tool for managing virtual environments and creating basic Pyt
 
 ## Changelog
 
+### 0.0.12.2
+
+- [] Add command `fenv clone <git url>` [](https://github.com/watchakorn-18k/Fenv/issues/7)
+
 ### 0.0.12.1
 
 - [x] Remove `fenv deactivate` from [pull/6](https://github.com/watchakorn-18k/Fenv/pull/6/files#diff-c8c31647a371f705e0fe45e4a3091400d282af4643adb128636378717392a79d) @yassine20011
