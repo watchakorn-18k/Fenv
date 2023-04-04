@@ -1,3 +1,5 @@
+# How to guides
+
 ## Installation
 
 To install Fenv, simply run the following command:
@@ -80,14 +82,12 @@ fenv clean
 
 Clean, remove all packages like new.
 
+## Activate the virtual environment
+
 ```
 fenv activate
 ```
 
-Command hint to activate virtual environment with folder
+Activate the virtual environment if the terminal is not supported will show a hint.
 
-```
-fenv deactivate
-```
-
-Command hint to deactivate virtual environment with folder
+~~`fenv deactivate`~~ **_currently not in use_**

@@ -34,8 +34,13 @@ Create a virtualenv with settings to connect the interpreter to vscode and forma
 
 Clean, remove all packages like new.
 
-## `fenv activate` and `fenv deactivate`
+## `fenv activate`
 
 <p align="center"><img src="https://cdn.discordapp.com/attachments/581018943041306641/1092167632934932551/H7MURw3.gif" width=80%></p>
 
-Command hint to activate and deactivate virtual environment with folder
+Activate the virtual environment if the terminal is not supported will show a hint.
+
+Support Currently:
+
+- Powershell (Windows)
+- WSL (Windows)

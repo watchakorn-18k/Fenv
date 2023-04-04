@@ -15,7 +15,7 @@ markdown_extensions:
 
 nav:
   - Fenv Docs: index.md
-  - tutorials.md
+  - Tutorials: tutorials.md
   - How-To Guides: how-to-guides.md
   - Class Fenv: Fenv.md
   - Class Environment All: EnvAll.md
@@ -23,6 +23,7 @@ nav:
   - Class Commands: commands.md
   - Class Colors: colors.md
   - Class State Environment: state_env.md
+  - Change Log: changelog.md
 theme:
   language: en
 
@@ -88,7 +89,14 @@ plugins:
             separate_signature: yes
             show_root_full_path: no
 
-copyright: Copyright &copy; 2022 - wk-18k
+copyright: Copyright &copy; 2023 - wk-18k
 repo_url: https://github.com/watchakorn-18k/Fenv
 repo_name: watchakorn-18k/Fenv
 edit_uri: edit/master/docs/
+
+markdown_extensions:
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde

@@ -82,11 +82,10 @@ def setup_parse():
         "clean", help="Clean delete all packages in requirements.txt out"
     )
     activate_cmd = subparsers.add_parser(
-        "activate", help="Command hint to activate virtual environment with folder"
+        "activate",
+        help="Activate the virtual environment if the terminal is not supported will show a hint.",
     )
-    deactivate_cmd = subparsers.add_parser(
-        "deactivate", help="Command hint to deactivate virtual environment with folder"
-    )
+
     test_cmd = subparsers.add_parser("test", help="test")
 
     general_group = parser.add_argument_group(title="General Options")

@@ -1,4 +1,13 @@
-![versions](https://img.shields.io/pypi/pyversions/pybadges.svg) ![](https://img.shields.io/badge/-version%200.11.9-blue)
+<p align="center"><img src="https://img.shields.io/github/languages/top/watchakorn-18k/Fenv?color=green&logo=python&logoColor=white">
+<img src="https://img.shields.io/github/repo-size/watchakorn-18k/Fenv">
+<img src="https://img.shields.io/pypi/dm/Fenv?logo=pypi&logoColor=white">
+<img src="https://img.shields.io/pypi/v/Fenv?color=sd&label=Fenv&logoColor=white">
+<img src="https://img.shields.io/github/v/release/watchakorn-18k/Fenv">
+<img src="https://img.shields.io/pypi/pyversions/Fenv?logo=python&logoColor=white">
+<img src="https://img.shields.io/website?url=https%3A%2F%2Fgithub.com%2Fwatchakorn-18k%2FFenv">
+<img src="https://img.shields.io/github/last-commit/watchakorn-18k/Fenv?logo=git&style=social">
+<img src="https://img.shields.io/github/stars/watchakorn-18k/Fenv?style=social">
+</p>
 
 # Fenv
 
@@ -87,8 +96,7 @@ Commands:
     onlyenv      Create only virtualenv and no create
                  base file
     clean        Clean delete all packages in requirements.txt out
-    activate     Command hint to activate virtual environment with folder
-    deactivate   Command hint to deactivate virtual environment with folder
+    activate     Activate the virtual environment if the terminal is not supported will show a hint.
 
 General Options:
   -h, --help     Show this help message and exit
