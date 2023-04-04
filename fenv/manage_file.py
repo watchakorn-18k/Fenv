@@ -29,7 +29,7 @@ class CreateFileBaseAndUpdate:
         with open(self.file_path, "w") as f:
             f.write(self.commands.get_main_py())
         os.chmod(self.file_path, 0o777)
-        print(self.notice + f'Successfully created the file "{self.file_path}"')
+        print(f'{self.notice}Successfully created the file "{self.file_path}"')
 
     def generate_tree(self):
         self.output = ""
@@ -67,7 +67,7 @@ class CreateFileBaseAndUpdate:
                 )
             )
         os.chmod(markdown_path, 0o777)
-        print(self.notice + f'Successfully created the file "{markdown_path}"')
+        print(f'{self.notice}Successfully created the file "{markdown_path}"')
 
     def create_file_freeze(self):
         """
@@ -77,7 +77,7 @@ class CreateFileBaseAndUpdate:
         with open("requirements.txt", "w") as f:
             f.write(module_base)
         os.chmod("requirements.txt", 0o777)
-        print(self.notice + f'Successfully created the file "requirements.txt"')
+        print(f'{self.notice}Successfully created the file "requirements.txt"')
 
     def create_file_gitignore(self):
         """
@@ -86,7 +86,7 @@ class CreateFileBaseAndUpdate:
         with open(".gitignore", "w") as f:
             f.write(f"*.pyc\n/{self.env_directory}")
         os.chmod(".gitignore", 0o777)
-        print(self.notice + f'Successfully created the file ".gitignore"')
+        print(f'{self.notice}Successfully created the file ".gitignore"')
 
     def update_file_readme_md(self):
         """
@@ -134,7 +134,7 @@ class CreateFileBaseAndUpdate:
             os.system(f"virtualenv env_{self.name}")
             EnvAll().create_lib_default_env()
 
-        print(self.notice + f'Successfully created the virtualenv "{self.name}"')
+        print(f'{self.notice}Successfully created the virtualenv "{self.name}"')
 
     def create_setting_vscode(self):
         """
@@ -153,7 +153,7 @@ class CreateFileBaseAndUpdate:
         os.makedirs(os.path.dirname(".vscode/settings.json"), exist_ok=True)
         with open(".vscode/settings.json", "w", encoding="utf-8") as f:
             f.write(text_vscode.format(name_env=self.name))
-        print(self.notice + f"Successfully created the .vscode/settings.json")
+        print(f"{self.notice}Successfully created the .vscode/settings.json")
 
     def run_install_module_base(self):
         """
@@ -163,30 +163,27 @@ class CreateFileBaseAndUpdate:
         """
 
         if platform.system() == "Windows":
-            os.system(
-                f".\env_{self.name}\Scripts\python.exe -m pip install -r requirements.txt"
+            self._extracted_from_run_install_module_base_9(
+                ".\env_",
+                "\Scripts\python.exe -m pip install -r requirements.txt",
+                "\Scripts\python.exe -m pip freeze > requirements.txt",
+                "\Scripts\python.exe -m pip install --upgrade pip",
             )
-            print(self.notice + f'Successfully installed module in "requirements.txt"')
-            os.system(
-                f".\env_{self.name}\Scripts\python.exe -m pip freeze > requirements.txt"
-            )
-            print(self.notice + f'Successfully updated the file "requirements.txt"')
-            os.system(
-                f".\env_{self.name}\Scripts\python.exe -m pip install --upgrade pip"
+        elif platform.system() == "Linux":
+            self._extracted_from_run_install_module_base_9(
+                "bash -c 'source env_",
+                "/bin/activate  && pip install -r requirements.txt'",
+                "/bin/activate  && pip freeze > requirements.txt'",
+                "/bin/activate  && pip install --upgrade pip'",
             )
 
-        elif platform.system() == "Linux":
-            os.system(
-                f"bash -c 'source env_{self.name}/bin/activate  && pip install -r requirements.txt'"
-            )
-            print(self.notice + f'Successfully installed module in "requirements.txt"')
-            os.system(
-                f"bash -c 'source env_{self.name}/bin/activate  && pip freeze > requirements.txt'"
-            )
-            print(self.notice + f'Successfully updated the file "requirements.txt"')
-            os.system(
-                f"bash -c 'source env_{self.name}/bin/activate  && pip install --upgrade pip'"
-            )
+    # TODO Rename this here and in `run_install_module_base`
+    def _extracted_from_run_install_module_base_9(self, arg0, arg1, arg2, arg3):
+        os.system(f"{arg0}{self.name}{arg1}")
+        print(f'{self.notice}Successfully installed module in "requirements.txt"')
+        os.system(f"{arg0}{self.name}{arg2}")
+        print(f'{self.notice}Successfully updated the file "requirements.txt"')
+        os.system(f"{arg0}{self.name}{arg3}")
 
     def create_folder(self):
         """
@@ -202,10 +199,10 @@ class CreateFileBaseAndUpdate:
         try:
             os.mkdir(self.name)
         except FileExistsError:
-            print(self.notice + f"{self.name} already exists.")
+            print(f"{self.notice}{self.name} already exists.")
             return 1
         else:
-            print(self.notice + f'Successfully created the directory "{self.name}"')
+            print(f'{self.notice}Successfully created the directory "{self.name}"')
 
     def process_create_base_file_and_update(self):
         """
@@ -263,7 +260,7 @@ class OnlyVirtualEnv:
         ).replace(" ", "_")
 
         if bool(re.match("^[A-Za-z0-9_#]+$", self.name)):
-            return "{}".format(self.name[:10])
+            return f"{self.name[:10]}"
         else:
             return self.create_name_env_auto()
 
@@ -286,7 +283,7 @@ class OnlyVirtualEnv:
             os.system(f"virtualenv env_{self._name_env}")
             EnvAll().create_lib_default_env()
 
-        print(self.notice + f'Successfully created the virtualenv "{self._name_env}"')
+        print(f'{self.notice}Successfully created the virtualenv "{self._name_env}"')
 
     def run_process(self):
         """
@@ -394,11 +391,7 @@ class InstallModule:
                     response = input(
                         "We couldn't find the fenv virtual environment. Would you like to set up a new one? (y/n): "
                     )
-                    if (
-                        response.lower() == "y"
-                        or response.lower() == "yes"
-                        or response.lower() == ""
-                    ):
+                    if response.lower() in ["y", "yes", ""]:
                         OnlyVirtualEnv().run_process()
                         folder_name = "env*"
                         folder_name_env = str(
@@ -449,19 +442,14 @@ class InstallModule:
                 )
                 install_package_follow_env(folder_name_env)
                 print(
-                    self.notice
-                    + f'Successfully installed module from "requirements.txt"'
+                    f'{self.notice}Successfully installed module from "requirements.txt"'
                 )
             else:
                 while True:
                     response = input(
                         "We couldn't find the fenv virtual environment. Would you like to set up a new one? (y/n): "
                     )
-                    if (
-                        response.lower() == "y"
-                        or response.lower() == "yes"
-                        or response.lower() == ""
-                    ):
+                    if response.lower() in ["y", "yes", ""]:
                         OnlyVirtualEnv().run_process()
                         folder_name = "env*"
                         folder_name_env = str(
@@ -472,12 +460,11 @@ class InstallModule:
                         )
                         install_package_follow_env(folder_name_env)
                         print(
-                            self.notice
-                            + f'Successfully installed modules from "requirements.txt"'
+                            f'{self.notice}Successfully installed modules from "requirements.txt"'
                         )
                         break
                     elif response.lower() == "n":
-                        os.system(f"pip install -r requirements.txt")
+                        os.system("pip install -r requirements.txt")
                         break
 
         if requirements_file in os.listdir("."):
@@ -513,7 +500,7 @@ class UninstallModule:
 
         try:
             package_dependency_list = self.pip_show_to_dict()["Requires"].split(", ")
-            print(self.notice + f"Uninstalling...{self.colors.ORANGE}")
+            print(f"{self.notice}Uninstalling...{self.colors.ORANGE}")
             if platform.system() == "Windows":
                 os.system(
                     f".\{self.env_directory}\Scripts\python.exe -m pip uninstall {self.package_name.uninstall} -y"
@@ -595,8 +582,8 @@ class UninstallModule:
             for line in output.splitlines():
                 match = re.match(r"^([^:]+):\s*(.*)$", line)
                 if match:
-                    key = match.group(1)
-                    value = match.group(2)
+                    key = match[1]
+                    value = match[2]
                     result[key] = value
             return result
         except subprocess.CalledProcessError:
@@ -621,10 +608,7 @@ class Cleanup(CreateFileBaseAndUpdate):
         """
         Removes all the libraries that are not in the default environment
         """
-        data_lib_all = []
-        for item in os.listdir(self.path_lib_all):
-            data_lib_all.append(item)
-
+        data_lib_all = list(os.listdir(self.path_lib_all))
         diff_list_1 = set(data_lib_all) - set(self.lib_default_env)
         diff_list_2 = set(self.lib_default_env) - set(data_lib_all)
         result = diff_list_1.union(diff_list_2)
@@ -633,28 +617,21 @@ class Cleanup(CreateFileBaseAndUpdate):
             for item in result:
                 if os.path.isdir(item):
                     shutil.rmtree(item)
-                    print(
-                        self.notice
-                        + f"{self.colors.SALMON}{item}{self.colors.ENDC} has been removed"
-                    )
                 else:
                     os.remove(item)
-                    print(
-                        self.notice
-                        + f"{self.colors.SALMON}{item}{self.colors.ENDC} has been removed"
-                    )
+                print(
+                    f"{self.notice}{self.colors.SALMON}{item}{self.colors.ENDC} has been removed"
+                )
         os.chdir("../../..")
         print(
-            self.notice
-            + f"{self.colors.SKY_BLUE}All the libraries have been removed.{self.colors.ENDC}"
+            f"{self.notice}{self.colors.SKY_BLUE}All the libraries have been removed.{self.colors.ENDC}"
         )
         if platform.system() == "Windows":
             os.system(
                 f".\env_{self.env_name }\Scripts\python.exe -m pip freeze > requirements.txt"
             )
             print(
-                self.notice
-                + f'{self.colors.SKY_BLUE}Successfully updated the file "requirements.txt"{self.colors.ENDC}'
+                f'{self.notice}{self.colors.SKY_BLUE}Successfully updated the file "requirements.txt"{self.colors.ENDC}'
             )
 
         elif platform.system() == "Linux":
@@ -662,6 +639,5 @@ class Cleanup(CreateFileBaseAndUpdate):
                 f"bash -c 'source env_{self.env_name }/bin/activate  && pip freeze > requirements.txt'"
             )
             print(
-                self.notice
-                + f'{self.colors.SKY_BLUE}Successfully updated the file "requirements.txt"{self.colors.ENDC}'
+                f'{self.notice}{self.colors.SKY_BLUE}Successfully updated the file "requirements.txt"{self.colors.ENDC}'
             )

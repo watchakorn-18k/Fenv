@@ -97,17 +97,11 @@ class EnvAll:
 
     def get_terminal_prompt(self):
         try:
-            if len(os.environ.get("PROMPT")) == 10:
-                return True
-            else:
-                return False
-        except:
+            return len(os.environ.get("PROMPT")) == 10
+        except Exception:
             pass
 
     def get_terminal_bash(self):
-        if "xterm" in os.environ.get("TERM") or "gnome-terminal" in os.environ.get(
+        return "xterm" in os.environ.get("TERM") or "gnome-terminal" in os.environ.get(
             "TERM"
-        ):
-            return True
-        else:
-            return False
+        )
