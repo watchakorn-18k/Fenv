@@ -1,4 +1,4 @@
-version: str = "0.0.12.0"
+version: str = '0.0.12.1'
 """ Module fenv main """
 from fenv.customizes.colors import Colors
 from fenv.assets.commands import Commands
@@ -152,8 +152,6 @@ def check_command(args):
             Cleanup().remove_lib_not_default_in_env()
     elif args.__dict__["command"] == "activate":
         StateEnv().activate()
-    elif args.__dict__["command"] == "deactivate":
-        StateEnv().deactivate()
     elif args.__dict__["command"] == "test":
         print("D:D:D:D:D:D:D:D")
 
