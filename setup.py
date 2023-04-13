@@ -49,7 +49,10 @@ setup(
     classifiers=[
         "Development Status :: 1 - Planning",
         "Intended Audience :: Developers",
-        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Natural Language :: English",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
         "Operating System :: Unix",
         "Operating System :: Microsoft :: Windows",
     ],

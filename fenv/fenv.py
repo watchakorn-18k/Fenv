@@ -113,46 +113,56 @@ def check_command(args):
     Return:
         None
     """
-    if args.__dict__["command"] == "new":
-        try:
-            CreateFileBaseAndUpdate(args.new, "create").procress_only_create_project()
-        except TypeError as err:
-            print(
-                f"Maybe you forgot to enter the name of the folder? For example: {colors.LIGHTGREEN_EX}fenv new{colors.NAVY} <project_folder>{colors.ENDC}"
+    match args.__dict__["command"]:
+        case "new":
+            try:
+                CreateFileBaseAndUpdate(
+                    args.new, "create"
+                ).procress_only_create_project()
+            except TypeError as err:
+                print(
+                    f"Maybe you forgot to enter the name of the folder? For example: {colors.LIGHTGREEN_EX}fenv new{colors.NAVY} <project_folder>{colors.ENDC}"
+                )
+
+        case "install":
+            InstallModule(
+                args
+            ).install_package_only() if args.install != None else InstallModule(
+                args
+            ).install_package_all()
+
+        case "uninstall":
+            UninstallModule(args).process_run() if args.uninstall != None else print(
+                f"Maybe you forgot to put the name of the package to uninstall? "
+                f"For example: {colors.LIGHTGREEN_EX}fenv uninstall{colors.OKBLUE} <package_name>{colors.ENDC}"
             )
 
-    elif args.__dict__["command"] == "install":
-        InstallModule(
-            args
-        ).install_package_only() if args.install != None else InstallModule(
-            args
-        ).install_package_all()
+        case "update":
+            CreateFileBaseAndUpdate(
+                root_directory, "update"
+            ).process_create_base_file_and_update()
+            print(f"{notice}Updated tree path to readme.md")
+            os.system("pip freeze > requirements.txt")
+            print(f"{notice}Updated module all to requirements.txt")
 
-    elif args.__dict__["command"] == "uninstall":
-        UninstallModule(args).process_run() if args.uninstall != None else print(
-            f"Maybe you forgot to put the name of the package to uninstall? "
-            f"For example: {colors.LIGHTGREEN_EX}fenv uninstall{colors.OKBLUE} <package_name>{colors.ENDC}"
-        )
-    elif args.__dict__["command"] == "update":
-        CreateFileBaseAndUpdate(
-            root_directory, "update"
-        ).process_create_base_file_and_update()
-        print(f"{notice}Updated tree path to readme.md")
-        os.system("pip freeze > requirements.txt")
-        print(f"{notice}Updated module all to requirements.txt")
-    elif args.__dict__["command"] == "onlyenv":
-        OnlyVirtualEnv().run_process()
+        case "onlyenv":
+            OnlyVirtualEnv().run_process()
 
-    elif args.__dict__["command"] == "clean":
-        question = input(
-            "Do you want to delete all packages in requirements.txt out? (y/n) "
-        ).lower()
-        if question in ["y", ""]:
-            Cleanup().remove_lib_not_default_in_env()
-    elif args.__dict__["command"] == "activate":
-        StateEnv().activate()
-    elif args.__dict__["command"] == "test":
-        print("D:D:D:D:D:D:D:D")
+        case "clean":
+            question = input(
+                "Do you want to delete all packages in requirements.txt out? (y/n) "
+            ).lower()
+            if question in ["y", ""]:
+                Cleanup().remove_lib_not_default_in_env()
+
+        case "activate":
+            StateEnv().activate()
+
+        case "test":
+            print("D:D:D:D:D:D:D:D")
+
+        case _:
+            print("Invalid command entered. Please try again.")
 
 
 def main():
