@@ -152,6 +152,7 @@ Fenv is a powerful tool for managing virtual environments and creating basic Pyt
 ### 0.0.12.2
 
 - [] Add command `fenv clone <git url>` [](https://github.com/watchakorn-18k/Fenv/issues/7)
+- [x] Optimize code to match case
 
 ### 0.0.12.1
 
