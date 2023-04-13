@@ -1,4 +1,4 @@
-version: str = '0.0.12.2'
+version: str = "0.0.12.2"
 """ Module fenv main """
 from fenv.customizes.colors import Colors
 from fenv.assets.commands import Commands
