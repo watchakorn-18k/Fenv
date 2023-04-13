@@ -12,6 +12,8 @@
 </p>
 <p align="center"><img src="https://cdn.discordapp.com/attachments/582486229594013696/1070509737529069689/New_Project_3.png" width=400></p>
 
+<p align="center"><img src="https://cdn.discordapp.com/attachments/581018943041306641/1096090087130935396/2XnntNP.gif" width=600></p>
+
 Fenv is a simple and efficient tool to help you manage your virtual environments and create basic Python files with a single command. With Fenv, you can quickly generate a new project folder, establish a virtual environment within that folder, and simultaneously create the essential basic Python files all in one go. This tool is ideal for developers who frequently work on multiple Python projects and want a simple, streamlined solution for managing virtual environments.
 
 <div align="center">
