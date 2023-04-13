@@ -44,3 +44,9 @@ Support Currently:
 
 - Powershell (Windows)
 - WSL (Windows)
+
+## `fenv clone [url_repo]`
+
+<p align="center"><img src="https://cdn.discordapp.com/attachments/581018943041306641/1096084935586095114/fGizSeu.gif" width=80%></p>
+
+Clone data from repositories and create virtualenv.

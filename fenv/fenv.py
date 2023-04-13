@@ -1,4 +1,4 @@
-version: str = "0.0.12.1"
+version: str = '0.0.12.2'
 """ Module fenv main """
 from fenv.customizes.colors import Colors
 from fenv.assets.commands import Commands
@@ -9,6 +9,7 @@ from fenv.manage_file import (
     InstallModule,
     UninstallModule,
     Cleanup,
+    GitCloneVirtualENV,
 )
 from fenv.state_env import StateEnv
 
@@ -35,33 +36,31 @@ def setup_parse():
 
     subparsers = parser.add_subparsers(title="Commands", dest="command", metavar="")
 
-    new_comd = subparsers.add_parser("new", help="Create a new project")
-    new_comd.add_argument(
-        "new", type=str, help="The name of the project", nargs="?", default=None
-    )
+    new_comd = subparsers.add_parser("new", help="Create a new project.")
+    new_comd.add_argument("new", type=str, help="The name of the project.", nargs="?")
 
     install_cmd = subparsers.add_parser(
         "install",
-        help="Install the package and install the package via requirements.txt",
-        usage=f"{colors.NAVY}fenv install {colors.NAVY}<package_name>{colors.ENDC} or {colors.HOT_PINK}fenv install {colors.ENDC}",
+        help="Install the package and install the package via requirements.txt.",
+        usage=f"{colors.NAVY}fenv install {colors.NAVY}<package_name>{colors.ENDC} or {colors.HOT_PINK}fenv install {colors.ENDC}.",
     )
     install_cmd.add_argument(
         "install",
         type=str,
-        help="Install packages of the project packages",
+        help="Install packages of the project packages.",
         nargs="?",
         default=None,
     )
 
     uninstall_cmd = subparsers.add_parser(
         "uninstall",
-        help="Uninstall packages",
-        usage=f"{colors.HOT_PINK}fenv uninstall <package_name>{colors.ENDC}",
+        help="Uninstall packages.",
+        usage=f"{colors.HOT_PINK}fenv uninstall <package_name>{colors.ENDC}.",
     )
     uninstall_cmd.add_argument(
         "uninstall",
         type=str,
-        help="Uninstall packages of the project packages",
+        help="Uninstall packages of the project packages.",
         nargs="?",
         default=None,
     )
@@ -74,26 +73,39 @@ def setup_parse():
 
     onlyenv_cmd = subparsers.add_parser(
         "onlyenv",
-        help="Create only virtualenv and no create base file",
+        help="Create only virtualenv and no create base file.",
         usage=f"{colors.HOT_PINK}fenv onlyenv{colors.ENDC}",
     )
 
     clean_cmd = subparsers.add_parser(
-        "clean", help="Clean delete all packages in requirements.txt out"
+        "clean", help="Clean delete all packages in requirements.txt out."
     )
     activate_cmd = subparsers.add_parser(
         "activate",
         help="Activate the virtual environment if the terminal is not supported will show a hint.",
     )
 
-    test_cmd = subparsers.add_parser("test", help="test")
+    clone_cmd = subparsers.add_parser(
+        "clone",
+        help="Clone data from repositories and create virtualenv.",
+        usage=f"{colors.NAVY}fenv clone {colors.NAVY}<package_name>{colors.ENDC} or {colors.HOT_PINK}fenv clone {colors.ENDC}",
+    )
+    clone_cmd.add_argument(
+        "clone",
+        type=str,
+        help="Clone data from repositories and create virtualenv.",
+        nargs="?",
+        default=None,
+    )
+
+    # test_cmd = subparsers.add_parser("test", help="test")
 
     general_group = parser.add_argument_group(title="General Options")
     general_group.add_argument(
         "-h", "--help", action="help", help="Show this help message and exit"
     )
     general_group.add_argument(
-        "-v", "--version", action="store_true", help="check version fenv"
+        "-v", "--version", action="store_true", help="Check version Fenv"
     )
 
     return parser.parse_args()
@@ -121,7 +133,7 @@ def check_command(args):
                 ).procress_only_create_project()
             except TypeError as err:
                 print(
-                    f"Maybe you forgot to enter the name of the folder? For example: {colors.LIGHTGREEN_EX}fenv new{colors.NAVY} <project_folder>{colors.ENDC}"
+                    f"Maybe you forgot to enter the name of the folder? For example: {colors.LIGHTGREEN_EX}fenv new{colors.FUSCHIA} <project_folder>{colors.ENDC}"
                 )
 
         case "install":
@@ -157,6 +169,15 @@ def check_command(args):
 
         case "activate":
             StateEnv().activate()
+
+        case "clone":
+            match args.clone:
+                case None:
+                    print(
+                        f"Maybe you forgot to include a link to the repository you want? For example: {colors.LIGHTGREEN_EX}fenv clone{colors.FUSCHIA} <link_url>{colors.ENDC}"
+                    )
+                case _:
+                    GitCloneVirtualENV(args.clone).run_process()
 
         case "test":
             print("D:D:D:D:D:D:D:D")

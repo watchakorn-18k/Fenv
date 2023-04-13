@@ -6,6 +6,8 @@ import platform
 import re
 import random
 import fnmatch
+import urllib.request
+
 from fenv.customizes.colors import Colors
 from fenv.assets.commands import Commands
 from fenv.env_all import EnvAll
@@ -291,7 +293,7 @@ class OnlyVirtualEnv:
         """
         self._name_env = self.create_name_env()
         print(
-            f"your env name is `{self.colors.LIGHTGREEN_EX}{self._name_env}{self.colors.ENDC}`"
+            f"your env name is `{self.colors.MINT_GREEN}{self._name_env}{self.colors.ENDC}`"
         )
         self.create_virtualenv_not_change_dir()
         CreateFileBaseAndUpdate(
@@ -404,7 +406,7 @@ class InstallModule:
                         break
         except AttributeError as err:
             print(
-                self.colors.LIGHTGREEN_EX
+                self.colors.SPRING_GREEN
                 + "An error was encountered, it could not be installed."
                 + self.colors.ENDC
             )
@@ -435,14 +437,14 @@ class InstallModule:
         def run_install_main(folder_name_env):
             if folder_name_env:
                 print(
-                    f"Found directory  `{self.colors.LIGHTGREEN_EX}{folder_name_env}{self.colors.ENDC}`"
+                    f"Found directory  `{self.colors.SPRING_GREEN}{folder_name_env}{self.colors.ENDC}`"
                 )
                 print(
-                    f"Installing modules with  `{self.colors.LIGHTGREEN_EX}{folder_name_env}{self.colors.ENDC}`"
+                    f"Installing modules with  `{self.colors.SPRING_GREEN}{folder_name_env}{self.colors.ENDC}`"
                 )
                 install_package_follow_env(folder_name_env)
                 print(
-                    f'{self.notice}Successfully installed module from "requirements.txt"'
+                    f'{self.notice}Successfully installed module from {self.colors.SPRING_GREEN}"requirements.txt"{self.colors.ENDC}'
                 )
             else:
                 while True:
@@ -456,7 +458,7 @@ class InstallModule:
                             fnmatch.filter(os.listdir("."), folder_name)[0]
                         )
                         print(
-                            f"Installing modules with  `{self.colors.LIGHTGREEN_EX}{folder_name_env}{self.colors.ENDC}`"
+                            f"Installing modules with  `{self.colors.SPRING_GREEN}{folder_name_env}{self.colors.ENDC}`"
                         )
                         install_package_follow_env(folder_name_env)
                         print(
@@ -471,7 +473,7 @@ class InstallModule:
             run_install_main(folder_name_env)
         else:
             print(
-                f"Maybe you forgot to put the name of the package to ininstall? for example `{self.colors.LIGHTGREEN_EX}fenv ininstall{self.colors.OKBLUE} <package_name>{self.colors.ENDC}` \nOr you can use `{self.colors.LIGHTGREEN_EX}fenv ininstall{self.colors.ENDC}` alone. But there must be {self.colors.FAIL}{requirements_file}{self.colors.ENDC} in the current directory"
+                f"Maybe you forgot to put the name of the package to ininstall? for example `{self.colors.MINT_GREEN}fenv ininstall{self.colors.OKBLUE} <package_name>{self.colors.ENDC}` \nOr you can use `{self.colors.MINT_GREEN}fenv ininstall{self.colors.ENDC}` alone. But there must be {self.colors.FAIL}{requirements_file}{self.colors.ENDC} in the current directory"
             )
 
 
@@ -520,7 +522,7 @@ class UninstallModule:
                     )
             print(
                 self.notice
-                + f"Successfully uninstalled module {self.colors.LIGHTGREEN_EX}{self.package_name.uninstall}{self.colors.ENDC}"
+                + f"Successfully uninstalled module {self.colors.MINT_GREEN}{self.package_name.uninstall}{self.colors.ENDC}"
             )
         except TimeoutError:
             print(TimeoutError)
@@ -538,7 +540,7 @@ class UninstallModule:
                 )
             print(
                 self.notice
-                + f'Successfully uninstalled module {self.colors.LIGHTGREEN_EX}{self.package_name.uninstall}{self.colors.ENDC} exit from "{self.colors.ORCHID}requirements.txt{self.colors.ENDC}"'
+                + f'Successfully uninstalled module {self.colors.MINT_GREEN}{self.package_name.uninstall}{self.colors.ENDC} exit from "{self.colors.ORCHID}requirements.txt{self.colors.ENDC}"'
             )
         except Exception as e:
             print(f"Error: {e}")
@@ -594,8 +596,6 @@ class UninstallModule:
 
 
 class Cleanup(CreateFileBaseAndUpdate):
-    """Module for clean packages"""
-
     def __init__(self) -> None:
         self.colors = Colors()
         self.notice = Colors().notice()
@@ -641,3 +641,70 @@ class Cleanup(CreateFileBaseAndUpdate):
             print(
                 f'{self.notice}{self.colors.SKY_BLUE}Successfully updated the file "requirements.txt"{self.colors.ENDC}'
             )
+
+
+class GitCloneVirtualENV:
+    def __init__(self, link) -> None:
+        self.colors = Colors()
+        self.notice = Colors().notice()
+        self.commands = Commands()
+        self.root_dir = EnvAll().get_root_dir_name()
+        self.url = link
+        self.name_repo = ""
+
+    def cmd_git_clone(self):
+        """
+        "A function that is called when the user runs the command "git clone"."
+        """
+        try:
+            subprocess.run(
+                [
+                    "git",
+                    "clone",
+                    self.url,
+                ]
+            )
+            self.name_repo = self.url.split("/")[-1]
+
+        except FileNotFoundError:
+            print(
+                f"The system cannot find the {self.colors.ORANGE}git {self.colors.ENDC}command, can be downloaded at : {self.colors.PURPLE}https://git-scm.com/downloads{self.colors.ENDC}"
+            )
+
+    def url_exists(self):
+        """
+        The function "url_exists" is defined, but its implementation is missing.
+        """
+        try:
+            urllib.request.urlopen(self.url)
+            return True
+        except urllib.error.HTTPError:
+            return False
+        except ValueError:
+            return False
+
+    def check_file_requirements(self):
+        for i in os.listdir("."):
+            if i == "requirements.txt":
+                break
+        if (
+            input(
+                f"{self.colors.HOT_PINK}In this repository there is a file requirements.txt \n{self.colors.MINT_GREEN}Do you want to install the package contained in the file? [Y/N]: {self.colors.ENDC}"
+            ).upper()
+            != "N"
+        ):
+            InstallModule().install_package_all()
+
+    def run_process(self):
+        match self.url_exists():
+            case True:
+                self.cmd_git_clone()
+                CreateFileBaseAndUpdate(self.name_repo, "create").create_virtualenv()
+                CreateFileBaseAndUpdate(
+                    self.name_repo, "create"
+                ).create_setting_vscode()
+                self.check_file_requirements()
+            case False:
+                print(
+                    "The URL link you entered is invalid, please correct it and try again."
+                )

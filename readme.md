@@ -115,13 +115,14 @@ Usage:
 
 Commands:
 
-    new          Create a new project
-    install      Install the package and install the package via requirements.txt
-    uninstall    Uninstall packages
+    new          Create a new project.
+    install      Install the package and install the package via requirements.txt.
+    uninstall    Uninstall packages.
     update       Package to file requirements.txt update furthermore, update the readme.md file's tree path.
-    onlyenv      Create only virtualenv and no create base file
-    clean        Clean delete all packages in requirements.txt out
-    activate     Command hint to activate virtual environment with folder
+    onlyenv      Create only virtualenv and no create base file.
+    clean        Clean delete all packages in requirements.txt out.
+    activate     Activate the virtual environment if the terminal is not supported will show a hint.
+    clone        Clone data from repositories and create virtualenv.
 
 
 General Options:
@@ -151,7 +152,7 @@ Fenv is a powerful tool for managing virtual environments and creating basic Pyt
 
 ### 0.0.12.2
 
-- [] Add command `fenv clone <git url>` [](https://github.com/watchakorn-18k/Fenv/issues/7)
+- [x] Add command `fenv clone <git url>` [](https://github.com/watchakorn-18k/Fenv/issues/7) ![](https://i.imgur.com/fGizSeu.gif)
 - [x] Optimize code to match case
 
 ### 0.0.12.1

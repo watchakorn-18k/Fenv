@@ -100,12 +100,12 @@ class Colors:
 
     def notice(self):
         return (
-            self.OKBLUE
+            self.SEA_GREEN
             + "["
             + self.ENDC
-            + self.OKGREEN
+            + self.LIME
             + "notice"
-            + self.OKBLUE
+            + self.SEA_GREEN
             + "]"
             + self.ENDC
             + " "

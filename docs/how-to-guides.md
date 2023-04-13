@@ -91,3 +91,9 @@ fenv activate
 Activate the virtual environment if the terminal is not supported will show a hint.
 
 ~~`fenv deactivate`~~ **_currently not in use_**
+
+```
+fenv clone [url_repo]
+```
+
+Clone data from repositories and create virtualenv.
