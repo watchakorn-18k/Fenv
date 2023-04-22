@@ -45,6 +45,14 @@ Fenv is a simple and efficient tool to help you manage your virtual environments
 - Add black for format python
 - Packages can be installed and uninstalled and added to files. requirements.txt at the same time
 
+```mermaid
+graph TD
+    A[fenv] --> B[fenv/fenv.py]
+    A --> C[fenv/state_env.py]
+    A --> D[fenv/manage_file.py]
+    A --> E[fenv/env_all.py]
+```
+
 ## Docs
 
 [Docs](https://watchakorn-18k.github.io/Fenv/)
@@ -99,7 +107,7 @@ You may need to restart your terminal for this update to take effect.
 https://pypi.org/project/Fenv/
 ```
 
-## Start
+## Quick Start
 
 ```sh
 fenv new <project_folder>
