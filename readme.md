@@ -55,11 +55,7 @@ graph TD
 
 ## Docs
 
-[Docs](https://watchakorn-18k.github.io/Fenv/)
-
-## Volta planing
-
-[Volta/Fenv](https://volta.net/watchakorn-18k/Fenv)
+[Docs Fenv](https://watchakorn-18k.github.io/Fenv/)
 
 ## Install
 
@@ -100,12 +96,6 @@ pipx install fenv
 **Note:** ensurepath ensures that the application directory is on your $PATH. You may need to restart your terminal for this update to take effect.
 
 You may need to restart your terminal for this update to take effect.
-
-## PyPi
-
-```
-https://pypi.org/project/Fenv/
-```
 
 ## Quick Start
 
@@ -150,6 +140,15 @@ pip install --editable .
 
 ```
 python setup.py sdist bdist_wheel
+```
+## Volta planing
+
+[Volta/Fenv](https://volta.net/watchakorn-18k/Fenv)
+
+## PyPi
+
+```
+https://pypi.org/project/Fenv/
 ```
 
 ## Conclusion
