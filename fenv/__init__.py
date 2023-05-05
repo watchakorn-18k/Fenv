@@ -7,3 +7,7 @@ from . import *
 Modules exported by this package:
 
 - `fenv`: Create virtualenv fast"""
+
+
+__app_name__ = "Fenv"
+__version__ = "0.0.12.3"

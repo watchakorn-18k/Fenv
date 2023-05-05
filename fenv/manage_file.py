@@ -31,7 +31,9 @@ class CreateFileBaseAndUpdate:
         with open(self.file_path, "w") as f:
             f.write(self.commands.get_main_py())
         os.chmod(self.file_path, 0o777)
-        print(f'{self.notice}Successfully created the file "{self.file_path}"')
+        print(
+            f'{self.notice}Successfully created the file {self.colors.HOT_PINK}"{self.file_path}"{self.colors.ENDC}'
+        )
 
     def generate_tree(self):
         self.output = ""
@@ -69,7 +71,9 @@ class CreateFileBaseAndUpdate:
                 )
             )
         os.chmod(markdown_path, 0o777)
-        print(f'{self.notice}Successfully created the file "{markdown_path}"')
+        print(
+            f'{self.notice}Successfully created the file {self.colors.HOT_PINK}"{markdown_path}"{self.colors.ENDC}'
+        )
 
     def create_file_freeze(self):
         """
@@ -79,7 +83,9 @@ class CreateFileBaseAndUpdate:
         with open("requirements.txt", "w") as f:
             f.write(module_base)
         os.chmod("requirements.txt", 0o777)
-        print(f'{self.notice}Successfully created the file "requirements.txt"')
+        print(
+            f'{self.notice}Successfully created the file {self.colors.HOT_PINK}"requirements.txt"{self.colors.ENDC}'
+        )
 
     def create_file_gitignore(self):
         """
@@ -88,7 +94,9 @@ class CreateFileBaseAndUpdate:
         with open(".gitignore", "w") as f:
             f.write(f"*.pyc\n/{self.env_directory}")
         os.chmod(".gitignore", 0o777)
-        print(f'{self.notice}Successfully created the file ".gitignore"')
+        print(
+            f'{self.notice}Successfully created the file {self.colors.HOT_PINK}".gitignore"{self.colors.ENDC}'
+        )
 
     def update_file_readme_md(self):
         """
@@ -132,11 +140,14 @@ class CreateFileBaseAndUpdate:
         """
         if os.path.exists(self.name):
             os.chdir(self.name)
-            print(f"createing virtualenv env_{self.name}...")
+            print(
+                f"{self.notice}creating virtualenv {self.colors.HOT_PINK}env_{self.name}...{self.colors.ENDC}"
+            )
             os.system(f"virtualenv env_{self.name}")
             EnvAll().create_lib_default_env()
-
-        print(f'{self.notice}Successfully created the virtualenv "{self.name}"')
+        print(
+            f'{self.notice}Successfully created the virtualenv {self.colors.HOT_PINK}"{self.name}"{self.colors.ENDC}'
+        )
 
     def create_setting_vscode(self):
         """
@@ -155,7 +166,9 @@ class CreateFileBaseAndUpdate:
         os.makedirs(os.path.dirname(".vscode/settings.json"), exist_ok=True)
         with open(".vscode/settings.json", "w", encoding="utf-8") as f:
             f.write(text_vscode.format(name_env=self.name))
-        print(f"{self.notice}Successfully created the .vscode/settings.json")
+        print(
+            f'{self.notice}Successfully created the {self.colors.HOT_PINK}".vscode/settings.json"{self.colors.ENDC}'
+        )
 
     def run_install_module_base(self):
         """
@@ -182,9 +195,13 @@ class CreateFileBaseAndUpdate:
     # TODO Rename this here and in `run_install_module_base`
     def _extracted_from_run_install_module_base_9(self, arg0, arg1, arg2, arg3):
         os.system(f"{arg0}{self.name}{arg1}")
-        print(f'{self.notice}Successfully installed module in "requirements.txt"')
+        print(
+            f'{self.notice}Successfully installed module in {self.colors.HOT_PINK}"requirements.txt"{self.colors.ENDC}'
+        )
         os.system(f"{arg0}{self.name}{arg2}")
-        print(f'{self.notice}Successfully updated the file "requirements.txt"')
+        print(
+            f'{self.notice}Successfully updated the file {self.colors.HOT_PINK}"requirements.txt"{self.colors.ENDC}'
+        )
         os.system(f"{arg0}{self.name}{arg3}")
 
     def create_folder(self):
@@ -200,11 +217,18 @@ class CreateFileBaseAndUpdate:
         """
         try:
             os.mkdir(self.name)
+            global is_has_folder
+            is_has_folder = False
         except FileExistsError:
-            print(f"{self.notice}{self.name} already exists.")
+            print(
+                f"{self.notice} Project: {self.colors.PALE_GREEN}{self.name}{self.colors.ENDC} already exists"
+            )
+            is_has_folder = True
             return 1
         else:
-            print(f'{self.notice}Successfully created the directory "{self.name}"')
+            print(
+                f'{self.notice}Successfully created the directory {self.colors.HOT_PINK}"{self.name}"{self.colors.ENDC}'
+            )
 
     def process_create_base_file_and_update(self):
         """
@@ -324,24 +348,53 @@ class InstallModule:
         print(
             f"{self.notice} Installing {self.colors.PURPLE}{self.package_name.install}{self.colors.ENDC}{self.colors.SEA_GREEN}"
         )
-        try:
-            if platform.system() == "Windows":
-                os.system(
-                    rf".\{self.env_directory}\Scripts\python.exe -m pip install {self.package_name.install}"
+        if platform.system() == "Windows":
+            try:
+                subprocess.check_call(
+                    [
+                        rf".\{self.env_directory}\Scripts\python.exe",
+                        "-m",
+                        "pip",
+                        "install",
+                        self.package_name.install,
+                    ]
                 )
                 print(
                     f"{self.notice}Successfully installed {self.colors.PURPLE}{self.package_name.install}{self.colors.ENDC}"
                 )
-            elif platform.system() == "Linux":
-                os.system(
-                    f"bash -c 'source {self.env_directory}/bin/activate  && pip install {self.package_name.install}'"
+            except subprocess.CalledProcessError as e:
+                error_msg = str(e.output)
+                if "ERROR: Could not find a version" in error_msg:
+                    print(
+                        f"{self.notice} Could not find a version of {self.package_name.install} to install."
+                    )
+                else:
+                    print(
+                        f"{self.notice} Failed to install {self.colors.PURPLE}{self.package_name.install}{self.colors.ENDC} Error message: {self.colors.RED}{error_msg}{self.colors.ENDC}"
+                    )
+
+        elif platform.system() == "Linux":
+            try:
+                subprocess.check_call(
+                    [
+                        "/bin/bash",
+                        "-c",
+                        f"source {self.env_directory}/bin/activate && pip install {self.package_name.install}",
+                    ]
                 )
                 print(
-                    f"{self.notice} Successfully installed {self.colors.PURPLE}{self.package_name.install}{self.colors.ENDC}"
+                    f"{self.notice}Successfully installed {self.colors.PURPLE}{self.package_name.install}{self.colors.ENDC}"
                 )
-
-        except TimeoutError as e:
-            print(e)
+            except subprocess.CalledProcessError as e:
+                error_msg = str(e.output)
+                if "ERROR: Could not find a version" in error_msg:
+                    print(
+                        f"{self.notice} Could not find a version of {self.package_name.install} to install."
+                    )
+                else:
+                    print(
+                        f"{self.notice} Failed to install {self.colors.PURPLE}{self.package_name.install}{self.colors.ENDC} Error message: {self.colors.RED}{error_msg}{self.colors.ENDC}"
+                    )
 
     def add_module_to_txt(self):
         """
@@ -473,8 +526,51 @@ class InstallModule:
             run_install_main(folder_name_env)
         else:
             print(
-                f"Maybe you forgot to put the name of the package to ininstall? for example `{self.colors.MINT_GREEN}fenv ininstall{self.colors.OKBLUE} <package_name>{self.colors.ENDC}` \nOr you can use `{self.colors.MINT_GREEN}fenv ininstall{self.colors.ENDC}` alone. But there must be {self.colors.FAIL}{requirements_file}{self.colors.ENDC} in the current directory"
+                f"Maybe you forgot to put the name of the package to install? for example `{self.colors.MINT_GREEN}fenv install{self.colors.OKBLUE} <package_name>{self.colors.ENDC}` \nOr you can use `{self.colors.MINT_GREEN}fenv install{self.colors.ENDC}` alone. But there must be {self.colors.FAIL}{requirements_file}{self.colors.ENDC} in the current directory"
             )
+
+    def install_package_from_list(self, data: list, project_name: str):
+        if not is_has_folder:
+            self.data = data
+            try:
+                if self.env_directory:
+                    self.data = self.data[0].strip("[]").split(",")
+                    for i in self.data:
+                        self.package_name.install = i
+                        self.install_required_package()
+                    print(
+                        f"{self.notice} Successfully installed {self.colors.SKY_BLUE}{project_name}{self.colors.ENDC}"
+                    )
+            #                     beautiful_command = """{}
+            # ┌───────────────────────────┐
+            # │   Open project in VSCode  │
+            # ├───────────────────────────┤
+            # │                           │
+            # │    cd {}{}│
+            # │    code .                 │
+            # │                           │
+            # └───────────────────────────┘
+            # Or `cd {} && code .`
+            # {}""".format(
+            #                         self.colors.MINT_GREEN,
+            #                         project_name
+            #                         if len(project_name) <= 18
+            #                         else f"{project_name[:17]}*",
+            #                         " " * abs((18 - len(project_name)) + 2)
+            #                         if len(project_name) <= 18
+            #                         else " " * 2,
+            #                         project_name,
+            #                         self.colors.ENDC,
+            #                     )
+
+            #                     print(beautiful_command)
+
+            except AttributeError as err:
+                print(
+                    self.colors.SPRING_GREEN
+                    + "An error was encountered, it could not be installed."
+                    + self.colors.ENDC
+                )
 
 
 class UninstallModule:

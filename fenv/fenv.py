@@ -1,4 +1,3 @@
-version: str = "0.0.12.2"
 """ Module fenv main """
 from fenv.customizes.colors import Colors
 from fenv.assets.commands import Commands
@@ -12,6 +11,7 @@ from fenv.manage_file import (
     GitCloneVirtualENV,
 )
 from fenv.state_env import StateEnv
+from fenv import __version__, __app_name__
 
 from argparse import ArgumentParser
 import os
@@ -32,12 +32,15 @@ def setup_parse():
 
     parser = ArgumentParser(add_help=False)
     title = parser.add_argument_group(title="Usage")
-    title.description = "fenv <command>"
+    title.description = f"{__app_name__.lower()} <command>"
 
     subparsers = parser.add_subparsers(title="Commands", dest="command", metavar="")
 
     new_comd = subparsers.add_parser("new", help="Create a new project.")
-    new_comd.add_argument("new", type=str, help="The name of the project.", nargs="?")
+    new_comd.add_argument("new_name", type=str, help="The name of the project.")
+    new_comd.add_argument(
+        "--add", nargs="+", help="Additional packages to install.", default=[]
+    )
 
     install_cmd = subparsers.add_parser(
         "install",
@@ -105,7 +108,11 @@ def setup_parse():
         "-h", "--help", action="help", help="Show this help message and exit"
     )
     general_group.add_argument(
-        "-v", "--version", action="store_true", help="Check version Fenv"
+        "-v",
+        "--version",
+        action="store_true",
+        help="Check version Fenv",
+        dest="version",
     )
 
     return parser.parse_args()
@@ -129,8 +136,35 @@ def check_command(args):
         case "new":
             try:
                 CreateFileBaseAndUpdate(
-                    args.new, "create"
+                    args.new_name, "create"
                 ).procress_only_create_project()
+                if args.add != []:
+                    InstallModule(args).install_package_from_list(
+                        args.add, args.new_name
+                    )
+                beautiful_command = """{}
+┌───────────────────────────┐
+│   Open project in VSCode  │
+├───────────────────────────┤
+│                           │
+│    cd {}{}│
+│    code .                 │
+│                           │
+└───────────────────────────┘
+or `cd {} && code .`
+{}""".format(
+                    colors.MINT_GREEN,
+                    args.new_name
+                    if len(args.new_name) <= 18
+                    else f"{args.new_name[:17]}*",
+                    " " * abs((18 - len(args.new_name)) + 2)
+                    if len(args.new_name) <= 18
+                    else " " * 2,
+                    args.new_name,
+                    colors.ENDC,
+                )
+
+                print(beautiful_command)
             except TypeError as err:
                 print(
                     f"Maybe you forgot to enter the name of the folder? For example: {colors.LIGHTGREEN_EX}fenv new{colors.FUSCHIA} <project_folder>{colors.ENDC}"
@@ -183,7 +217,11 @@ def check_command(args):
             print("D:D:D:D:D:D:D:D")
 
         case _:
-            print("Invalid command entered. Please try again.")
+            print(
+                f"{colors.LIGHTMAGENTA_EX}Hello,{__app_name__} {colors.POWDER_BLUE}[{colors.MINT_GREEN}v{__version__}{colors.POWDER_BLUE}]{colors.ENDC}\n".center(
+                    40, "-"
+                )
+            )
 
 
 def main():
@@ -194,16 +232,4 @@ def main():
     """
     args = setup_parse()
 
-    try:
-        print(
-            f"⏩ {colors.LIGHTMAGENTA_EX}Hello,Fenv {colors.POWDER_BLUE}[{colors.MINT_GREEN}v{version}{colors.POWDER_BLUE}]{colors.ENDC}🫡\n".center(
-                40, "-"
-            )
-        ) if args.__dict__["command"] is None else None
-    except:
-        print(
-            f"{colors.LIGHTMAGENTA_EX}Hello,Fenv {colors.POWDER_BLUE}[{colors.MINT_GREEN}v{version}{colors.POWDER_BLUE}]{colors.ENDC}\n".center(
-                40, "-"
-            )
-        ) if args.__dict__["command"] is None else None
     check_command(args)
