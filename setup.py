@@ -1,11 +1,9 @@
 from setuptools import setup, find_packages
-from dotenv import load_dotenv
+from fenv import __version__, __app_name__
 
-load_dotenv()
 import codecs
 import os
 
-new_version = os.getenv("FENV_VERSION")
 file_path = f"{os.path.abspath(os.path.dirname(__file__))}/fenv/fenv.py"
 
 # Read the original content of the file
@@ -13,7 +11,7 @@ with open(file_path, "r", encoding="utf-8") as file:
     original_content = file.readlines()
 
 # Modify the first line of the file with the new version string
-modified_content = [f"version: str = '{new_version}'\n"] + original_content[1:]
+modified_content = [f"version: str = '{__version__}'\n"] + original_content[1:]
 
 # Write the modified content back to the file
 with open(file_path, "w", encoding="utf-8") as file:
@@ -24,7 +22,6 @@ here = os.path.abspath(os.path.dirname(__file__))
 with codecs.open(os.path.join(here, "readme.md"), encoding="utf-8") as fh:
     long_description = "\n" + fh.read()
 
-VERSION = os.getenv("FENV_VERSION")
 DESCRIPTION = (
     "Generate a folder, establish a virtual environment with a single command."
 )
@@ -32,8 +29,8 @@ LONG_DESCRIPTION = "Generate a folder, establish a virtual environment, and simu
 
 # Setting up
 setup(
-    name="Fenv",
-    version=VERSION,
+    name=__app_name__,
+    version=__version__,
     author="wk18k (watchakorn-18k)",
     author_email="<porton555@gmail.com>",
     description=DESCRIPTION,
