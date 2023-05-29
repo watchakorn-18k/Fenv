@@ -152,6 +152,14 @@ Fenv is a powerful tool for managing virtual environments and creating basic Pyt
 
 ## Changelog
 
+### 0.0.12.4
+
+[] [Added an option in case you can't think of a project name.](https://github.com/watchakorn-18k/Fenv/issues/10)
+
+### 0.0.12.3
+
+- [x] Add option `--add` for `fenv new` for install packages after created virtualenv such `fenv new test_1 --add=[request,flet]` or `fenv new test_1 --add=request,flet` or `fenv new test_1 --add=request,flet` or `fenv new test_1 --add request,flet` ![](https://i.imgur.com/8J0zW0m.png)
+
 ### 0.0.12.2
 
 - [x] Add command `fenv clone <git url>` [](https://github.com/watchakorn-18k/Fenv/issues/7) ![](https://i.imgur.com/fGizSeu.gif)
