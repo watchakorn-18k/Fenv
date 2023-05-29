@@ -10,4 +10,4 @@ Modules exported by this package:
 
 
 __app_name__ = "Fenv"
-__version__ = "0.0.12.3"
+__version__ = "0.0.12.4"

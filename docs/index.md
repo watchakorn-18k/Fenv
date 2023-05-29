@@ -93,7 +93,7 @@ Commands:
     update       Package to file requirements.txt update
                  furthermore, update the readme.md file's
                  tree path.
-    onlyenv      Create only virtualenv and no create
+    env      Create only virtualenv and no create
                  base file
     clean        Clean delete all packages in requirements.txt out
     activate     Activate the virtual environment if the terminal is not supported will show a hint.

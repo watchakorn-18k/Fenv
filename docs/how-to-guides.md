@@ -69,7 +69,7 @@ Update all packages to a file. requirements.txt
 ## Create virtualenv only
 
 ```
-fenv onlyenv
+fenv env
 ```
 
 Create a virtualenv with a custom name or an optional 2 autoname, then create a file. settings.json for vscode does not generate additional base files

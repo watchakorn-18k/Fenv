@@ -37,7 +37,7 @@ Commands:
     install   Install packages
     uninstall Uninstall packages
     update    Update packages to file requirements.txt
-    onlyenv   Create only virtualenv and no create base file
+    env   Create only virtualenv and no create base file
 
 General Options:
   -h, --help  Show this help message and exit
@@ -122,7 +122,7 @@ fenv update <package_name>
 ## สร้างแค่ virtualenv เท่านั้น
 
 ```
-fenv onlyenv
+fenv env
 ```
 
 สร้าง virtualenv ด้วยชื่อที่กำหนดเองหรือชื่ออัตโนมัติ 2 ตัวเลือก จากนั้นสร้างไฟล์ settings.json สำหรับ vscode ไม่ได้สร้างไฟล์พื้นฐานเพิ่มให้

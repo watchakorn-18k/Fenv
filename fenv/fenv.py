@@ -1,4 +1,4 @@
-""" Module fenv main """
+version: str = "0.0.12.3"
 from fenv.customizes.colors import Colors
 from fenv.assets.commands import Commands
 from fenv.env_all import EnvAll
@@ -36,9 +36,15 @@ def setup_parse():
 
     subparsers = parser.add_subparsers(title="Commands", dest="command", metavar="")
 
-    new_comd = subparsers.add_parser("new", help="Create a new project.")
-    new_comd.add_argument("new_name", type=str, help="The name of the project.")
-    new_comd.add_argument(
+    new_cmd = subparsers.add_parser(
+        "new",
+        help="Create a new project.",
+        usage=f"{colors.HOT_PINK}fenv new <project_name>{colors.ENDC}",
+    )
+    new_cmd.add_argument(
+        "new_name", type=str, help="The name of the project.", nargs="?"
+    )
+    new_cmd.add_argument(
         "--add", nargs="+", help="Additional packages to install.", default=[]
     )
 
@@ -74,10 +80,10 @@ def setup_parse():
         usage=f"{colors.HOT_PINK}fenv update{colors.ENDC}",
     )
 
-    onlyenv_cmd = subparsers.add_parser(
-        "onlyenv",
+    env_cmd = subparsers.add_parser(
+        "env",
         help="Create only virtualenv and no create base file.",
-        usage=f"{colors.HOT_PINK}fenv onlyenv{colors.ENDC}",
+        usage=f"{colors.HOT_PINK}fenv env{colors.ENDC}",
     )
 
     clean_cmd = subparsers.add_parser(
@@ -127,7 +133,7 @@ def check_command(args):
 
     Example:
         ```py
-        check_command("new" or "install" or "uninstall" or "update" or "onlyenv")
+        check_command("new" or "install" or "uninstall" or "update" or "env")
         ```
     Return:
         None
@@ -135,9 +141,24 @@ def check_command(args):
     match args.__dict__["command"]:
         case "new":
             try:
-                CreateFileBaseAndUpdate(
-                    args.new_name, "create"
-                ).procress_only_create_project()
+                if args.new_name is None:
+                    print(
+                        f"Maybe you forgot to enter the name of the folder? For example: {colors.LIGHTGREEN_EX}fenv new{colors.FUSCHIA} <project_folder>{colors.ENDC}"
+                    )
+                    if (
+                        input(
+                            "Or do you need auto-generated names for you? Y/N: "
+                        ).upper()
+                        != "N"
+                    ):
+                        CreateFileBaseAndUpdate(
+                            OnlyVirtualEnv().random_name_project() + "_Project",
+                            "create",
+                        ).procress_only_create_project()
+                else:
+                    CreateFileBaseAndUpdate(
+                        args.new_name, "create"
+                    ).procress_only_create_project()
                 if args.add != []:
                     InstallModule(args).install_package_from_list(
                         args.add, args.new_name
@@ -166,9 +187,7 @@ or `cd {} && code .`
 
                 print(beautiful_command)
             except TypeError as err:
-                print(
-                    f"Maybe you forgot to enter the name of the folder? For example: {colors.LIGHTGREEN_EX}fenv new{colors.FUSCHIA} <project_folder>{colors.ENDC}"
-                )
+                pass
 
         case "install":
             InstallModule(
@@ -191,7 +210,7 @@ or `cd {} && code .`
             os.system("pip freeze > requirements.txt")
             print(f"{notice}Updated module all to requirements.txt")
 
-        case "onlyenv":
+        case "env":
             OnlyVirtualEnv().run_process()
 
         case "clean":

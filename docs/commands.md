@@ -60,7 +60,7 @@ cd {}
 
 # create virtualenv auto name
 
-fenv onlyenv
+fenv env
 
 # install package in requirements.txt
 

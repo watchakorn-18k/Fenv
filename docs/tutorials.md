@@ -22,7 +22,7 @@ Install the modules you want to install. After the installation is complete add 
 
 Uninstall the modules you want to uninstall. After the uninstallation is complete add the module name to the file. automatic requirements.txt
 
-## `fenv onlyenv`
+## `fenv env`
 
 <p align="center"><img src="https://cdn.discordapp.com/attachments/581018943041306641/1088492906333077514/mwEUSrg.gif" width=80%></p>
 

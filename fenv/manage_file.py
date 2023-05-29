@@ -275,6 +275,10 @@ class OnlyVirtualEnv:
         self.no_ = random.randint(0, 100)
         return f"{self.name_}{self.middle_}{self.no_}"
 
+    def random_name_project(self) -> str:
+        list_name = [f"Samai{random.randint(00,99)}", f"Danai{random.randint(00,99)}"]
+        return random.choice(list_name)
+
     def create_name_env(self) -> str:
         """
         If the user enters a name for the virtualenv, the function will check if the name is in English
