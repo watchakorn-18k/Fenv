@@ -242,7 +242,8 @@ class CreateFileBaseAndUpdate:
             self.create_file_readme_md()
             self.update_file_readme_md()
         elif self.state == "update":
-            self.update_file_readme_md()
+            if "readme.md" not in list(map(str.lower, os.listdir())):
+                self.update_file_readme_md()
 
     def procress_only_create_project(self):
         """

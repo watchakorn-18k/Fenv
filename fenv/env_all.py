@@ -16,7 +16,7 @@ class EnvAll:
         Return:
             [] : empyt list
         """
-        self.folder_name = "env*"
+        self.folder_name = "env_*"
         return (
             fnmatch.filter(os.listdir("."), self.folder_name)
             if fnmatch.filter(os.listdir("."), self.folder_name) == []
