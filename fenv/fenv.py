@@ -142,6 +142,7 @@ def check_command(args):
         case "new":
             try:
                 if args.new_name is None:
+                    name_project = OnlyVirtualEnv().random_name_project() + "_Project"
                     print(
                         f"Maybe you forgot to enter the name of the folder? For example: {colors.LIGHTGREEN_EX}fenv new{colors.FUSCHIA} <project_folder>{colors.ENDC}"
                     )
@@ -152,18 +153,10 @@ def check_command(args):
                         != "N"
                     ):
                         CreateFileBaseAndUpdate(
-                            OnlyVirtualEnv().random_name_project() + "_Project",
+                            name_project,
                             "create",
                         ).procress_only_create_project()
-                else:
-                    CreateFileBaseAndUpdate(
-                        args.new_name, "create"
-                    ).procress_only_create_project()
-                if args.add != []:
-                    InstallModule(args).install_package_from_list(
-                        args.add, args.new_name
-                    )
-                beautiful_command = """{}
+                        beautiful_command = """{}
 ┌───────────────────────────┐
 │   Open project in VSCode  │
 ├───────────────────────────┤
@@ -174,16 +167,45 @@ def check_command(args):
 └───────────────────────────┘
 or `cd {} && code .`
 {}""".format(
-                    colors.MINT_GREEN,
-                    args.new_name
-                    if len(args.new_name) <= 18
-                    else f"{args.new_name[:17]}*",
-                    " " * abs((18 - len(args.new_name)) + 2)
-                    if len(args.new_name) <= 18
-                    else " " * 2,
-                    args.new_name,
-                    colors.ENDC,
-                )
+                            colors.MINT_GREEN,
+                            name_project
+                            if len(name_project) <= 18
+                            else f"{name_project[:17]}*",
+                            " " * abs((18 - len(name_project)) + 2)
+                            if len(name_project) <= 18
+                            else " " * 2,
+                            name_project,
+                            colors.ENDC,
+                        )
+                else:
+                    CreateFileBaseAndUpdate(
+                        args.new_name, "create"
+                    ).procress_only_create_project()
+                    beautiful_command = """{}
+┌───────────────────────────┐
+│   Open project in VSCode  │
+├───────────────────────────┤
+│                           │
+│    cd {}{}│
+│    code .                 │
+│                           │
+└───────────────────────────┘
+or `cd {} && code .`
+{}""".format(
+                        colors.MINT_GREEN,
+                        args.new_name
+                        if len(args.new_name) <= 18
+                        else f"{args.new_name[:17]}*",
+                        " " * abs((18 - len(args.new_name)) + 2)
+                        if len(args.new_name) <= 18
+                        else " " * 2,
+                        args.new_name,
+                        colors.ENDC,
+                    )
+                if args.add != []:
+                    InstallModule(args).install_package_from_list(
+                        args.add, args.new_name
+                    )
 
                 print(beautiful_command)
             except TypeError as err:

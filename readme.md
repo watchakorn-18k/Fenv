@@ -173,6 +173,7 @@ Fenv is a powerful tool for managing virtual environments and creating basic Pyt
 
 ### 0.0.12.4
 
+- [ ] Fix It bug fenv clean deletes everything even `fenv` [Fenv/issues/11](https://github.com/watchakorn-18k/Fenv/issues/11)
 - [x] Change new pattern command `onlyenv` to `env`
 - [x] [Added an option in case you can't think of a project name.](https://github.com/watchakorn-18k/Fenv/issues/10) such `fenv new`
 
