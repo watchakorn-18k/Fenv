@@ -53,8 +53,17 @@ graph TD
     A --> E[fenv/env_all.py]
 ```
 
+```mermaid
+graph TD
+    A[fenv] --> B[fenv/fenv.py]
+    A --> C[fenv/state_env.py]
+    A --> D[fenv/manage_file.py]
+    A --> E[fenv/env_all.py]
+```
+
 ## Docs
 
+[Docs Fenv](https://watchakorn-18k.github.io/Fenv/)
 [Docs Fenv](https://watchakorn-18k.github.io/Fenv/)
 
 ## Install
@@ -96,6 +105,8 @@ pipx install fenv
 **Note:** ensurepath ensures that the application directory is on your $PATH. You may need to restart your terminal for this update to take effect.
 
 You may need to restart your terminal for this update to take effect.
+
+## Quick Start
 
 ## Quick Start
 
