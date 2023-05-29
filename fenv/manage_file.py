@@ -7,6 +7,9 @@ import re
 import random
 import fnmatch
 import urllib.request
+from dotenv import load_dotenv
+
+load_dotenv()
 
 from fenv.customizes.colors import Colors
 from fenv.assets.commands import Commands
@@ -62,12 +65,29 @@ class CreateFileBaseAndUpdate:
         """
         It creates a file called readme.md and writes the markdown text to it
         """
+
+        try:
+            username = (
+                subprocess.check_output(["git", "config", "user.name"])
+                .decode("utf-8")
+                .strip()
+            )
+            version = os.environ["VERSION"]
+        except:
+            username = "<User Name Github>"
+            version = "0.0"
         markdown_path = "readme.md"
         markdown = self.commands.get_readme_md()
         with open(markdown_path, "w", encoding="utf-8") as f:
             f.write(
                 markdown.format(
-                    self.name, self.name, self.name, self.name, self.generate_tree()
+                    self.name,
+                    version,
+                    username,
+                    self.name,
+                    self.name,
+                    self.name,
+                    self.generate_tree(),
                 )
             )
         os.chmod(markdown_path, 0o777)
@@ -102,6 +122,16 @@ class CreateFileBaseAndUpdate:
         """
         It update a file called readme.md and writes the markdown text to it
         """
+        try:
+            username = (
+                subprocess.check_output(["git", "config", "user.name"])
+                .decode("utf-8")
+                .strip()
+            )
+            version = 4
+        except:
+            username = "<User Name Github>"
+            version = "0.5"
         markdown_path = "readme.md"
         with open(markdown_path, "r", encoding="utf-8") as f:
             data = f.readlines()
@@ -120,6 +150,12 @@ class CreateFileBaseAndUpdate:
                 data[i] = self.commands.get_update_tree_path().format(
                     self.name, self.generate_tree()
                 )
+        for i, v in enumerate(data):
+            if 'alt="Python"' in v:
+                data[
+                    i
+                ] = '    <img alt="Python" src="https://img.shields.io/badge/version-{version}-gree?style=for-the-badge&logoColor=white&logo=Python" />'
+        print(data)
         with open(markdown_path, "w", encoding="utf-8") as f:
             f.writelines(data)
         os.chmod(markdown_path, 0o777)
@@ -169,6 +205,13 @@ class CreateFileBaseAndUpdate:
         print(
             f'{self.notice}Successfully created the {self.colors.HOT_PINK}".vscode/settings.json"{self.colors.ENDC}'
         )
+
+    def create_dot_env(self):
+        """
+        The function creates a .env file.
+        """
+        with open(".env", "w", encoding="utf-8") as f:
+            f.write("VERSION = 0.1.0")
 
     def run_install_module_base(self):
         """
@@ -239,6 +282,7 @@ class CreateFileBaseAndUpdate:
             self.create_file_main_py()
             self.create_file_freeze()
             self.create_file_gitignore()
+            self.create_dot_env()
             self.create_file_readme_md()
             self.update_file_readme_md()
         elif self.state == "update":

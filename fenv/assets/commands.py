@@ -17,8 +17,13 @@ if __name__ == "__main__":
 
     def get_main_py(self):
         return """
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
 def main():
-    pass
+    print("Version: {}".format(os.environ("VERSION")))
 
 
 if __name__ == "__main__":
@@ -27,8 +32,23 @@ if __name__ == "__main__":
 
     def get_readme_md(self):
         return """
-# {}
-A brief and descriptive title for your project.
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://cdn.discordapp.com/attachments/585069498986397707/1112788994175012936/image-removebg-preview.png">
+  <img src="https://cdn.discordapp.com/attachments/585069498986397707/1112788501642104832/OIG.png">
+</picture>
+
+<h1 align="center">{}</h1>
+<p align="center">A brief and descriptive title for your project.</p>
+
+<p align="center">
+  <a href="LICENSE" target="_blank">
+    <img alt="Python" src="https://img.shields.io/badge/Python-3776AB.svg?style=for-the-badge&logo=Python&logoColor=white" />
+  </a>
+  <a href="LICENSE" target="_blank">
+    <img alt="Python" src="https://img.shields.io/badge/version-{}-gree?style=for-the-badge&logoColor=white&logo=Python" />
+  </a>
+
+</p>
 
 ## Description
 
@@ -37,7 +57,7 @@ A detailed description of the project, including its purpose, features, and any 
 ## Getting Started
 
 ```
-git clone https://github.com/<User Name Github>/{}.git
+git clone https://github.com/{}/{}.git
 
 cd {}
 
@@ -51,6 +71,9 @@ fenv env
 
 # install package in requirements.txt
 fenv install
+
+# Or use pip
+pip install -r requirements.txt
 
 ```
 
@@ -81,6 +104,7 @@ Include information about the license used for the project, such as the name of 
         return """
 black
 fenv
+python-dotenv
 """
 
     def get_update_tree_path(self):

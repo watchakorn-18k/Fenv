@@ -173,6 +173,7 @@ Fenv is a powerful tool for managing virtual environments and creating basic Pyt
 
 ### 0.0.12.4
 
+- [x] Optimize `readme.md`
 - [x] Fix bug if file readme.md already exists without being generated from `fenv`
 - [x] Fix It bug fenv clean deletes everything even `fenv` [Fenv/issues/11](https://github.com/watchakorn-18k/Fenv/issues/11) delete everything except `fenv` module
 - [x] Change new pattern command `onlyenv` to `env`
