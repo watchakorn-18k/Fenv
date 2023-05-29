@@ -45,13 +45,17 @@ Fenv is a simple and efficient tool to help you manage your virtual environments
 - Add black for format python
 - Packages can be installed and uninstalled and added to files. requirements.txt at the same time
 
+```mermaid
+graph TD
+    A[fenv] --> B[fenv/fenv.py]
+    A --> C[fenv/state_env.py]
+    A --> D[fenv/manage_file.py]
+    A --> E[fenv/env_all.py]
+```
+
 ## Docs
 
-[Docs](https://watchakorn-18k.github.io/Fenv/)
-
-## Volta planing
-
-[Volta/Fenv](https://volta.net/watchakorn-18k/Fenv)
+[Docs Fenv](https://watchakorn-18k.github.io/Fenv/)
 
 ## Install
 
@@ -93,13 +97,7 @@ pipx install fenv
 
 You may need to restart your terminal for this update to take effect.
 
-## PyPi
-
-```
-https://pypi.org/project/Fenv/
-```
-
-## Start
+## Quick Start
 
 ```sh
 fenv new <project_folder>
@@ -142,6 +140,16 @@ pip install --editable .
 
 ```
 python setup.py sdist bdist_wheel
+```
+
+## Volta planing
+
+[Volta/Fenv](https://volta.net/watchakorn-18k/Fenv)
+
+## PyPi
+
+```
+https://pypi.org/project/Fenv/
 ```
 
 ## Conclusion
