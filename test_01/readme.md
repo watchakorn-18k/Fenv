@@ -1,5 +1,5 @@
 
-# Danai10_Project
+# test_01
 A brief and descriptive title for your project.
 
 ## Description
@@ -9,9 +9,9 @@ A detailed description of the project, including its purpose, features, and any 
 ## Getting Started
 
 ```
-git clone https://github.com/<User Name Github>/Danai10_Project.git
+git clone https://github.com/<User Name Github>/test_01.git
 
-cd Danai10_Project
+cd test_01
 
 ```
 
@@ -35,10 +35,10 @@ Instructions on how to use the project, including any usage examples and screens
 <!--- Start Tree --->
 ```bash
 .
-└── Danai10_Project/
+└── test_01/
         └──.vscode/
                 └──settings.json
-        └──env_Danai10_Project/
+        └──env_test_01/
         └──.gitignore
         └──main.py
         └──readme.md

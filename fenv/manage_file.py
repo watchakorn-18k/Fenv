@@ -715,32 +715,37 @@ class Cleanup(CreateFileBaseAndUpdate):
         os.chdir(self.path_lib_all)
         if len(result) > 0:
             for item in result:
-                if os.path.isdir(item):
-                    shutil.rmtree(item)
-                else:
-                    os.remove(item)
-                print(
-                    f"{self.notice}{self.colors.SALMON}{item}{self.colors.ENDC} has been removed"
-                )
+                if "fenv" not in item.lower():
+                    if os.path.isdir(item):
+                        shutil.rmtree(item)
+                    else:
+                        os.remove(item)
+                    print(
+                        f"{self.notice}{self.colors.SALMON}{item}{self.colors.ENDC} has been removed"
+                    )
         os.chdir("../../..")
         print(
             f"{self.notice}{self.colors.SKY_BLUE}All the libraries have been removed.{self.colors.ENDC}"
         )
         if platform.system() == "Windows":
             os.system(
-                f".\env_{self.env_name }\Scripts\python.exe -m pip freeze > requirements.txt"
+                f".\{self.env_name }\Scripts\python.exe -m pip freeze > requirements.txt"
             )
+
             print(
                 f'{self.notice}{self.colors.SKY_BLUE}Successfully updated the file "requirements.txt"{self.colors.ENDC}'
             )
 
         elif platform.system() == "Linux":
             os.system(
-                f"bash -c 'source env_{self.env_name }/bin/activate  && pip freeze > requirements.txt'"
+                f"bash -c 'source {self.env_name }/bin/activate  && pip freeze > requirements.txt'"
             )
             print(
                 f'{self.notice}{self.colors.SKY_BLUE}Successfully updated the file "requirements.txt"{self.colors.ENDC}'
             )
+        print(
+            f"{self.notice}{self.colors.FOREST_GREEN}Successfully clean up the directory 🧽{self.colors.ENDC}"
+        )
 
 
 class GitCloneVirtualENV:
